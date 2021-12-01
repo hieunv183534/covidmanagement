@@ -1,10 +1,10 @@
-@import url('css/base/button.css');
-@import url('css/base/input.css');
-@import url('css/base/combobox.css');
-@import url('css/base/data-list.css');
-@import url('css/base/radio-button.css');
-@import url('css/base/toast-messenger.css');
-@import url('css/base/loader.css');
+@import url('base/button.css');
+@import url('base/input.css');
+@import url('base/combobox.css');
+@import url('base/data-list.css');
+@import url('base/radio-button.css');
+@import url('base/toast-messenger.css');
+@import url('base/loader.css');
 @font-face {
     font-family: 'NotosansBold';
     src: url('../assets/font/notosans-bold.3ede5aff.woff2') format('woff2');
