@@ -8,6 +8,7 @@
 @import url('base/text-area.css');
 @import url('base/table.css');
 @import url('base/post.css');
+@import url('base/form.css');
 @font-face {
     font-family: 'NotosansBold';
     src: url('../assets/font/notosans-bold.3ede5aff.woff2') format('woff2');
@@ -56,13 +57,12 @@
 
 body {
     margin: 0;
-    padding: 0;
+    padding: 50px;
     width: 100vw;
     height: 100vh;
     font-family: NotosansRegular;
     color: #212121;
     font-size: 14px;
-    box-sizing: border-box;
 }
 
 * {
@@ -72,3 +72,16 @@ body {
 button {
     cursor: pointer;
 }
+
+hr {
+    border: 0;
+    clear:both;
+    display:block;
+    width: 96%;               
+    background-color:#000;
+    height: 1px;
+  }
+
+  .body>*{
+      float: left;
+  }
