@@ -49,42 +49,46 @@ th {
     padding-bottom: 1px 0;
 }
 
-    th p {
-        display: block;
-        margin: 0;
-        border-right: 1px solid #c7c7c7;
-        padding-left: 10px;
-        padding-right: 10px;
-        line-height: 34px;
-    }
+th p {
+    display: block;
+    margin: 0;
+    border-right: 1px solid #c7c7c7;
+    padding-left: 10px;
+    padding-right: 10px;
+    line-height: 34px;
+    -webkit-user-select: none;
+    user-select: none;
+}
 
 td {
     height: 44px;
     box-sizing: border-box;
 }
 
-    td p {
-        height: 44px;
-        display: block;
-        margin: 0;
-        border-right: 1px dotted #c7c7c7;
-        padding-left: 10px;
-        padding-right: 10px;
-        line-height: 44px;
-        overflow: hidden !important;
-        white-space: nowrap !important;
-        text-overflow: ellipsis !important;
-    }
+td p {
+    height: 44px;
+    display: block;
+    margin: 0;
+    border-right: 1px dotted #c7c7c7;
+    padding-left: 10px;
+    padding-right: 10px;
+    line-height: 44px;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+    -webkit-user-select: none;
+    user-select: none;
+}
 
 tbody tr {
     border-bottom: 1px solid #c7c7c7;
     cursor: pointer;
 }
 
-    tbody tr:hover {
-        background-color: #F3F8F8 !important;
-    }
+tbody tr:hover {
+    background-color: #F3F8F8 !important;
+}
 
-        tbody tr:hover td {
-            background-color: #F3F8F8 !important;
-        }
+tbody tr:hover td {
+    background-color: #F3F8F8 !important;
+}
