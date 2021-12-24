@@ -5,6 +5,8 @@
 @import url('base/radio-button.css');
 @import url('base/toast-messenger.css');
 @import url('base/loader.css');
+@import url('base/text-area.css');
+@import url('base/table.css');
 @font-face {
     font-family: 'NotosansBold';
     src: url('../assets/font/notosans-bold.3ede5aff.woff2') format('woff2');

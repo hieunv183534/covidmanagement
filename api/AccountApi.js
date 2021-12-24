@@ -1,0 +1,3 @@
+class AccountApi extends BaseApi{
+    
+}
