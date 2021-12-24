@@ -35,7 +35,7 @@ class BaseApi{
         });
     };
 
-    update(body, id){
+    update(body){
 
         const options = {
             method: 'PUT',
@@ -46,7 +46,7 @@ class BaseApi{
             body: JSON.stringify(body),
         };
 
-        return fetch(this.baseUrl + `${this.apiController}/${id}`, options).then(res => {
+        return fetch(this.baseUrl + `${this.apiController}`, options).then(res => {
             return res.json()
         });
     };

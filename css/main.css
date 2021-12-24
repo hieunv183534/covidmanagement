@@ -7,6 +7,7 @@
 @import url('base/loader.css');
 @import url('base/text-area.css');
 @import url('base/table.css');
+@import url('base/post.css');
 @font-face {
     font-family: 'NotosansBold';
     src: url('../assets/font/notosans-bold.3ede5aff.woff2') format('woff2');
