@@ -4,7 +4,7 @@ class AdminApi extends BaseApi {
     }
 
     /**
-     * 
+     * Thêm thông tin cá nhân cho 1 admin
      * @param {
      * fullName: Họ và tên /String
      * dateOfBirth: Ngày sinh /Date
@@ -36,15 +36,7 @@ class AdminApi extends BaseApi {
                 'Content-Type': 'application/json',
                 'Authorization': localStorage['token']
             },
-            body: {
-                fullName: body.fullName,
-                dateOfBirth: body.dateOfBirth,
-                Sex: body.Sex,
-                addressCode: body.addressCode,
-                address: body.address,
-                nationality: body.nationality,
-                diseaseStatus: body.diseaseStatus,
-            },
+            body: JSON.stringify(body),
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "addAdmin", options).then(res => {
@@ -53,7 +45,7 @@ class AdminApi extends BaseApi {
     };
 
     /**
-     * 
+     * Cập nhật thông tin cá nhân cho 1 admin
      * @param {
      * fullName: Họ và tên
      * dateOfBirth: Ngày sinh
@@ -85,15 +77,7 @@ class AdminApi extends BaseApi {
                 'Content-Type': 'application/json',
                 'Authorization': localStorage['token']
             },
-            body: {
-                fullName: body.fullName,
-                dateOfBirth: body.dateOfBirth,
-                Sex: body.Sex,
-                addressCode: body.addressCode,
-                address: body.address,
-                nationality: body.nationality,
-                diseaseStatus: body.diseaseStatus,
-            },
+            body: JSON.stringify(body),
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "editAdmin", options).then(res => {
@@ -102,7 +86,7 @@ class AdminApi extends BaseApi {
     };
 
     /**
-     * 
+     * Lấy thông tin cá nhân cho 1 admin
      * @returns 
      * +, Thành công
      * status:200
@@ -143,6 +127,7 @@ class AdminApi extends BaseApi {
     };
 
     /**
+     * Xoá thông tin cá nhân cho 1 admin
      * @returns
      * +, Thành công
      * status: 200

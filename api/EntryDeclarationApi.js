@@ -4,7 +4,7 @@ class EntryDeclarationApi extends BaseApi {
     }
 
     /**
-     * 
+     * Tạo 1 bản khai y tế nhập cảnh
      * @param {
      * object: Đối tượng(nước ngoài hay Vn, ...) /String
      * gate: Cửa khẩu /String
@@ -55,33 +55,7 @@ class EntryDeclarationApi extends BaseApi {
                 'Content-Type': 'application/json',
                 'Authorization': localStorage['token']
             },
-            body: {
-                object: body.object,
-                gate: body.gate,
-                vehicle: body.vehicle,
-                vehicleNumber: body.vehicleNumber,
-                chairNumber: body.chairNumber,
-                departureDay: body.departureDay,
-                entryDate: body.entryDate,
-                departureCountry: body.departureCountry,
-                departureCity: body.departureCity,
-                destinationCountry: body.destinationCountry,
-                passingCountry: body.passingCountry,
-                addressAfterQuarantine: body.addressAfterQuarantine,
-                fever: body.fever,
-                cough: body.cough,
-                stuffy: body.stuffy,
-                soreThroat: body.soreThroat,
-                nausea: body.nausea,
-                diarrhea: body.diarrhea,
-                hemorrhage: body.hemorrhage,
-                rash: body.rash,
-                vaccinesUsed: body.vaccinesUsed,
-                animalContact: body.animalContact,
-                nCoVPContact: body.nCoVPContact,
-                isolationFacility: body.isolationFacility,
-                negativeConfirmation: body.negativeConfirmation,
-            },
+            body: JSON.stringify(body),
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "addentrydeclaration", options).then(res => {
@@ -90,7 +64,7 @@ class EntryDeclarationApi extends BaseApi {
     };
 
     /**
-     * 
+     * Lấy 1 bản khai y tế nhập cảnh
      * @returns 
      * +, Thành công
      * status: 200
@@ -150,7 +124,7 @@ class EntryDeclarationApi extends BaseApi {
     };
 
     /**
-     * 
+     * Xoá 1 bản khai y tế nhập cảnh
      * @returns 
      * +, Thành công
      * status: 200

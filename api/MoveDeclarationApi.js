@@ -4,7 +4,7 @@ class MoveDeclarationApi extends BaseApi {
     }
 
     /**
-     * 
+     * Tạo 1 bản khai y tế di chuyển nội địa
      * @param {
      * vehicle: Phương tiện /String
      * vehicleNumber: Số hiệu phương tiện /String
@@ -41,19 +41,7 @@ class MoveDeclarationApi extends BaseApi {
                 'Content-Type': 'application/json',
                 'Authorization': localStorage['token']
             },
-            body: {
-                vehicle: body.vehicle,
-                vehicleNumber: body.vehicleNumber,
-                chairNumber: body.chairNumber,
-                departureDay: body.departureDay,
-                departureAddress: body.departureAddress,
-                arrivalAddress: body.arrivalAddress,
-                ismovingThroughTerritory: body.ismovingThroughTerritory,
-                nCoVSignal: body.nCoVConPCountry,
-                patientContact: body.patientContact,
-                nCoVConPCountry: body.nCoVConPCountry,
-                nCoVConPSignal: body.nCoVConPSignal,
-            },
+            body: JSON.stringify(body),
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "addmovedeclaration", options).then(res => {
@@ -62,7 +50,7 @@ class MoveDeclarationApi extends BaseApi {
     };
 
     /**
-     * 
+     * Lấy thông tin 1 bản khai y tế di chuyển nội địa
      * @returns 
      * +, Thành công
      * status: 200
@@ -108,7 +96,7 @@ class MoveDeclarationApi extends BaseApi {
     };
 
     /**
-     * 
+     * Xoá 1 bản khai y tế di chuyển nội địa
      * @returns 
      * +, Thành công
      * status: 200

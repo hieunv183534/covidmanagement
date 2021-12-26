@@ -4,7 +4,7 @@ class NotificationApi extends BaseApi {
     }
 
     /**
-     * 
+     * Tạo 1 thông báo/khai báo khó khăn
      * @param {
      * notificationId: Nội dung thông báo hoặc khai báo khó khăn
      * title: Tiêu đề
@@ -30,10 +30,7 @@ class NotificationApi extends BaseApi {
                 'Content-Type': 'application/json',
                 'Authorization': localStorage['token']
             },
-            body: {
-                notificationContent: body.notificationContent,
-                title: body.title,
-            },
+            body: JSON.stringify(body),
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "addnotification", options).then(res => {
@@ -42,10 +39,11 @@ class NotificationApi extends BaseApi {
     };
 
     /**
-     * 
+     * Cập nhật 1 thông báo/khai báo khó khăn
      * @param {
      * notificationId,
      * title, 
+     * notificationContent,
      * } body 
      * @returns
      * +, Thành công
@@ -68,16 +66,12 @@ class NotificationApi extends BaseApi {
      */
     update(body) {
         const options = {
-            method: 'POST',
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': localStorage['token']
             },
-            body: {
-                notificationId: body.notificationId,
-                notificationContent: body.notificationContent,
-                title: body.title,
-            },
+            body: JSON.stringify(body),
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "editnotification", options).then(res => {
@@ -86,7 +80,7 @@ class NotificationApi extends BaseApi {
     };
 
     /**
-     * 
+     * Lấy danh sách các thông báo/khai báo khó khăn đã tạo của bản thân
      * @param {
      * index,
      * count, 
@@ -121,10 +115,7 @@ class NotificationApi extends BaseApi {
                 'Content-Type': 'application/json',
                 'Authorization': localStorage['token']
             },
-            body: {
-                index: body.index,
-                count: body.count,
-            },
+            body: JSON.stringify(body),
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "getnotification", options).then(res => {
@@ -133,7 +124,10 @@ class NotificationApi extends BaseApi {
     };
 
         /**
-         * 
+         * Xoá một thông báo/khai báo khó khăn đã tạo của bản thân mà chưa được duyệt
+         * @param {
+         * notificationId,
+         * } body 
          * @returns
          * +,Thành công
          * status: 200
@@ -155,6 +149,7 @@ class NotificationApi extends BaseApi {
                 'Content-Type': 'application/json',
                 'Authorization': localStorage['token']
             },
+            body: JSON.stringify(body),
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "deletenotification", options).then(res => {
@@ -163,7 +158,7 @@ class NotificationApi extends BaseApi {
     };
 
     /**
-     * 
+     * Lấy danh sách các thông báo/khai báo khó khăn cần duyệt(thuộc quyền quản lý)
      * @param {
      * index,
      * count, 
@@ -197,10 +192,7 @@ class NotificationApi extends BaseApi {
                 'Content-Type': 'application/json',
                 'Authorization': localStorage['token']
             },
-            body: {
-                index: body.index,
-                count: body.count,
-            },
+            body: JSON.stringify(body),
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "getlistnotification", options).then(res => {
@@ -209,7 +201,7 @@ class NotificationApi extends BaseApi {
     };
 
     /**
-     * 
+     * Duyệt thông báo/khai báo khó khăn của người khác thuộc quyền hạn
      * @param {
      * notificationId
      * } body 
@@ -238,9 +230,7 @@ class NotificationApi extends BaseApi {
                 'Content-Type': 'application/json',
                 'Authorization': localStorage['token']
             },
-            body:{
-                notificationId: body.notificationId,
-            },
+            body: JSON.stringify(body),
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "browsingNotification", options).then(res => {
@@ -249,7 +239,7 @@ class NotificationApi extends BaseApi {
     };
 
     /**
-     * 
+     * Lấy danh sách các thông báo của người cấp cao hơn
      * @param {
      * index,
      * count, 
@@ -282,10 +272,7 @@ class NotificationApi extends BaseApi {
                 'Content-Type': 'application/json',
                 'Authorization': localStorage['token']
             },
-            body: {
-                index: body.index,
-                count: body.count,
-            },
+            body: JSON.stringify(body),
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "viewnotification", options).then(res => {
@@ -294,7 +281,7 @@ class NotificationApi extends BaseApi {
     };
 
     /**
-     * 
+     * Lấy danh sách các khai báo khó khăn của người dân
      * @param {
      * index,
      * count, 
@@ -328,10 +315,7 @@ class NotificationApi extends BaseApi {
                 'Content-Type': 'application/json',
                 'Authorization': localStorage['token']
             },
-            body: {
-                index: body.index,
-                count: body.count,
-            },
+            body: JSON.stringify(body),
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "viewdifficultnotification", options).then(res => {

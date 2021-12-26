@@ -4,7 +4,7 @@ class PersonApi extends BaseApi {
     }
 
     /**
-     * 
+     * Thêm thông tin cá nhân cho 1 người dân
      * @param {
      * fullName: Họ và tên
      * dateOfBirth: Ngày sinh
@@ -35,15 +35,7 @@ class PersonApi extends BaseApi {
                 'Content-Type': 'application/json',
                 'Authorization': localStorage['token']
             },
-            body: {
-                fullName: body.fullName,
-                dateOfBirth: body.dateOfBirth,
-                Sex: body.Sex,
-                addressCode: body.addressCode,
-                address: body.address,
-                nationality: body.nationality,
-                diseaseStatus: body.diseaseStatus,
-            },
+            body: JSON.stringify(body),
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "addPerson", options).then(res => {
@@ -52,7 +44,7 @@ class PersonApi extends BaseApi {
     };
 
     /**
-     * 
+     * Cập nhật thông tin cá nhân cho 1 người dân
      * @param {
      * fullName: Họ và tên
      * dateOfBirth: Ngày sinh
@@ -83,15 +75,7 @@ class PersonApi extends BaseApi {
                 'Content-Type': 'application/json',
                 'Authorization': localStorage['token']
             },
-            body: {
-                fullName: body.fullName,
-                dateOfBirth: body.dateOfBirth,
-                Sex: body.Sex,
-                addressCode: body.addressCode,
-                address: body.address,
-                nationality: body.nationality,
-                diseaseStatus: body.diseaseStatus,
-            },
+            body: JSON.stringify(body),
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "editPerson", options).then(res => {
@@ -100,7 +84,7 @@ class PersonApi extends BaseApi {
     };
 
     /**
-     * 
+     * Lấy thông tin cá nhân cho 1 người dân
      * @returns 
      * +, Thành công
      * status:200
@@ -141,6 +125,7 @@ class PersonApi extends BaseApi {
     };
 
     /**
+     * Xoá thông tin cá nhân cho 1 người dân
      * @returns
      * +, Thành công
      * status: 200

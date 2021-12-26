@@ -1,6 +1,6 @@
 class BaseApi{
     constructor(){
-        this.baseUrl = 'http://bkzalohieunv.somee.com/';
+        this.baseUrl = 'https://n8-covid-be.herokuapp.com/';
         this.apiController = null;
     }
 

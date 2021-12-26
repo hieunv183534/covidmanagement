@@ -4,8 +4,8 @@ class DomesticGuestsApi extends BaseApi {
     }
     
     /**
-     * 
-     * @param {
+     * Tạo 1 bản khai y tế toàn dân
+     *  @param {
      * ismovingThroughTerritory: Có đi qua vùng bệnh không /Boolean
      * nCoVSignal: Có dấu hiệu mắc Covid không /Boolean
      * patientContact: Có tiếp xúc với người bệnh hoặc nghi ngờ không /Boolean
@@ -35,13 +35,7 @@ class DomesticGuestsApi extends BaseApi {
                 'Content-Type': 'application/json',
                 'Authorization': localStorage['token']
             },
-            body: {
-                ismovingThroughTerritory: body.ismovingThroughTerritory,
-                nCoVSignal: body.nCoVSignal,
-                patientContact: body.patientContact,
-                nCoVConPCountry: body.nCoVConPCountry,
-                nCoVConPSignal: nCoVConPSignal,
-            },
+            body: JSON.stringify(body),
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "adddomesticguests", options).then(res => {
@@ -50,7 +44,7 @@ class DomesticGuestsApi extends BaseApi {
     };
 
     /**
-     * 
+     * Lấy thông tin 1 bản khai y tế toàn dân
      * @returns 
      * +,Thành công
      * status: 200
@@ -90,7 +84,7 @@ class DomesticGuestsApi extends BaseApi {
     };
 
     /**
-     * 
+     * Xoá 1 bản khai y tế toàn dân
      * @returns 
      * +,Thành công
      * status: 200

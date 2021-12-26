@@ -4,7 +4,11 @@ class AccountApi extends BaseApi{
     }
 
     /**
-     * 
+     * Lấy về danh sách tài khoản nhân viên y tế cần duyệt
+     * @param {
+     * index,
+     * count, 
+     * } body 
      * @returns 
      * +, Thành công
      * status:200
@@ -33,10 +37,7 @@ class AccountApi extends BaseApi{
                 'Content-Type': 'application/json',
                 'Authorization': localStorage['token']
             },
-            body:{
-                index:body.index,
-                count:count.count
-            },
+            body: JSON.stringify(body),
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "getListMedical", options).then(res => {
@@ -44,8 +45,12 @@ class AccountApi extends BaseApi{
         });
     };
 
-        /**
-     * 
+    /**
+     * Lấy về danh sách tài khoản quản lý cần duyệt
+     * @param {
+     * index,
+     * count, 
+     * } body 
      * @returns 
      * +, Thành công
      * status:200
@@ -74,10 +79,7 @@ class AccountApi extends BaseApi{
                 'Content-Type': 'application/json',
                 'Authorization': localStorage['token']
             },
-            body:{
-                index:body.index,
-                count:count.count
-            },
+            body: JSON.stringify(body),
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "getListAdmin", options).then(res => {
@@ -86,7 +88,10 @@ class AccountApi extends BaseApi{
     };
 
     /**
-     * 
+     * Duyệt tài khoản
+     * @param {
+     * userId, 
+     * } body 
      * @returns 
      * +, Thành công
      * status:200
@@ -103,14 +108,12 @@ class AccountApi extends BaseApi{
      */
     accountBrowsing(body){
         const options = {
-            method: 'GET',
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': localStorage['token']
             },
-            body:{
-                userId: body.userId,
-            },
+            body: JSON.stringify(body),
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "accountbrowsing", options).then(res => {
