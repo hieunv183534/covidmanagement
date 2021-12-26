@@ -1,6 +1,5 @@
 class NotificationApi extends BaseApi {
     constructor() {
-        this.baseUrl = 'http://bkzalohieunv.somee.com/';
         this.apiController = "notification/";
     }
 

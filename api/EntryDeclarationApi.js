@@ -1,6 +1,5 @@
 class EntryDeclarationApi extends BaseApi {
     constructor() {
-        this.baseUrl = 'http://bkzalohieunv.somee.com/';
         this.apiController = "entrydeclaration/";
     }
 
