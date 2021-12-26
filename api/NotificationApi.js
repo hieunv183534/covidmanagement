@@ -239,7 +239,7 @@ class NotificationApi extends BaseApi {
     };
 
     /**
-     * Lấy danh sách các thông báo của người cấp cao hơn
+     * Lấy danh sách các thông báo của người cấp cao hơn hoặc bằng(cùng cấp phường, quận xã)
      * @param {
      * index,
      * count, 
