@@ -3,11 +3,12 @@ var dataList = document.querySelector('.data-list');
 
 cbbs.forEach(element => {
     element.addEventListener('click', (e) => {
-        var top = e.target.getBoundingClientRect().top + 28;
+        var top = e.target.getBoundingClientRect().top + 37;
         var left = e.target.getBoundingClientRect().left;
+        console.log(top + "    " + left);
         dataList.setAttribute('forCbbId', element.parentElement.getAttribute('id'));
         loadComboboxList(element.parentElement.getAttribute('type'), element.parentElement.getAttribute('local'), element.parentElement.getAttribute('id'));
-        dataList.style.cssText = `top: ${top}px; left:${left};`;
+        dataList.style.cssText = `left: ${left}px; top: ${top}px;`;
         dataList.classList.add('data-list-show');
     });
 
@@ -30,6 +31,10 @@ function eventForItem() {
             element.classList.add('item-active');
             document.querySelector(`#${element.parentElement.getAttribute('forCbbId')}`).querySelector('.input').value = element.getAttribute('valuename');
             document.querySelector(`#${element.parentElement.getAttribute('forCbbId')}`).setAttribute('value', element.getAttribute('valueid'));
+
+            if(document.querySelector(`#${element.parentElement.getAttribute('forCbbId')}`).getAttribute('id') == 'cbbDeclarationType'){
+                cilivianDeclaration.chooseDeclarationType(element.getAttribute('valueid'));
+            }
         });
     })
 };
@@ -49,3 +54,9 @@ function loadComboboxList(type, local, idCbb) {
         eventForItem();
     }
 };
+
+function parseHTML(html) {
+    var t = document.createElement('template');
+    t.innerHTML = html;
+    return t.content.firstChild;
+}

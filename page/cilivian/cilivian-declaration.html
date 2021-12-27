@@ -54,16 +54,531 @@
                     <p class="display-user">Nguyễn Văn Hiếu</p>
                     <i class="fas fa-angle-down"></i>
                 </div>
+                <div class="list-option">
+                    <div class="item-option">Chỉnh sửa thông tin</div>
+                    <div class="item-option">Hotline</div>
+                    <div class="item-option">About me</div>
+                    <div class="item-option btn-logout">Đăng xuất</div>
+                </div>
             </div>
         </div>
         <div class="content-body">
-            <h1>Delaration cilivian here</h1>
+            <div class="function-bar">
+                <h4>Chọn loại khai báo:</h4>
+                <div id="cbbDeclarationType" type="DeclarationType" local="1" class="combobox">
+                    <input type="text" class="input" value="Khai báo toàn dân">
+                    <i class="fas fa-angle-down"></i>
+                </div>
+            </div>
+            <div class="content-content">
+                <div class="form form-1" id="formDomesticGuests">
+                    <div class="form-header">
+                        <div class="form-title">
+                            <h2>Khai báo toàn dân</h2>
+                        </div>
+                        <div class="close-from"> <i class="fas fa-times"></i> </div>
+                    </div>
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="form-item divide-2-row">
+                                <div class="item-title">Có đi qua vùng bệnh không:</div>
+                                <div class="radio-button-group">
+                                    <button class="radio-button" value="1" label="Không">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Không</p>
+                                    <button class="radio-button" value="0" label="Có">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Có</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-item divide-2-row">
+                                <div class="item-title">Có dấu hiệu mắc Covid không:</div>
+                                <div class="radio-button-group">
+                                    <button class="radio-button" value="1" label="Không">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Không</p>
+                                    <button class="radio-button" value="0" label="Có">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Có</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-item divide-2-row">
+                                <div class="item-title">Có tiếp xúc với người bệnh hoặc nghi ngờ không:</div>
+                                <div class="radio-button-group">
+                                    <button class="radio-button" value="1" label="Không">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Không</p>
+                                    <button class="radio-button" value="0" label="Có">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Có</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-item divide-2-row">
+                                <div class="item-title">Có tiếp xúc với người từ nước có Covid không:</div>
+                                <div class="radio-button-group">
+                                    <button class="radio-button" value="1" label="Không">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Không</p>
+                                    <button class="radio-button" value="0" label="Có">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Có</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-item divide-2-row">
+                                <div class="item-title">Có tiếp xúc với người có dấu hiệu mắc nCoV:</div>
+                                <div class="radio-button-group">
+                                    <button class="radio-button" value="1" label="Không">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Không</p>
+                                    <button class="radio-button" value="0" label="Có">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Có</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <img src="../../assets/img/giphy.gif" alt="">
+                        </div>
+                    </div>
+                    <div class="form-footer">
+                        <button class="button button-primary">Khai báo</button>
+                    </div>
+                </div>
+                <div class="form" id="formMoveDeclaration" style="display: none;">
+                    <div class="form-header">
+                        <div class="form-title">
+                            <h2>Khai báo di chuyển</h2>
+                        </div>
+                        <div class="close-from"> <i class="fas fa-times"></i> </div>
+                    </div>
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="form-item divide-2-row">
+                                <div class="item-title">Phương tiện:</div>
+                                <input type="text" class="input">
+                            </div>
+                            <div class="form-item divide-2-row">
+                                <div class="item-title">Số hiệu phương tiện:</div>
+                                <input type="text" class="input">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-item divide-2-row">
+                                <div class="item-title">Số ghế:</div>
+                                <input type="number" class="input">
+                            </div>
+                            <div class="form-item divide-2-row">
+                                <div class="item-title">Ngày khởi hành:</div>
+                                <input type="date" class="input">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-item divide-2-row">
+                                <div class="item-title">Địa chỉ xuất phát:</div>
+                                <div class="textarea-wrapper">
+                                    <textarea></textarea>
+                                </div>
+                            </div>
+                            <div class="form-item divide-2-row">
+                                <div class="item-title">Địa chỉ đến:</div>
+                                <div class="textarea-wrapper">
+                                    <textarea></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-item divide-2-row">
+                                <div class="item-title">Có di chuyển qua quốc gia lãnh thổ nào:</div>
+                                <div class="radio-button-group">
+                                    <button class="radio-button" value="1" label="Không">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Không</p>
+                                    <button class="radio-button" value="0" label="Có">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Có</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-item divide-2-row">
+                                <div class="item-title">Có dấu hiệu mắc nCoV:</div>
+                                <div class="radio-button-group">
+                                    <button class="radio-button" value="1" label="Không">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Không</p>
+                                    <button class="radio-button" value="0" label="Có">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Có</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-item divide-2-row">
+                                <div class="item-title">Có tiếp xúc với người bênh hoạc nghi ngờ:</div>
+                                <div class="radio-button-group">
+                                    <button class="radio-button" value="1" label="Không">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Không</p>
+                                    <button class="radio-button" value="0" label="Có">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Có</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-item divide-2-row">
+                                <div class="item-title">Có tiếp xúc với người từ nước có nCoV:</div>
+                                <div class="radio-button-group">
+                                    <button class="radio-button" value="1" label="Không">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Không</p>
+                                    <button class="radio-button" value="0" label="Có">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Có</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-item divide-2-row">
+                                <div class="item-title">Có tiếp xúc với người có dấu hiệu mắc nCoV:</div>
+                                <div class="radio-button-group">
+                                    <button class="radio-button" value="1" label="Không">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Không</p>
+                                    <button class="radio-button" value="0" label="Có">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Có</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <img src="../../assets/img/giphy.gif" alt="">
+                        </div>
+                    </div>
+                    <div class="form-footer">
+                        <button class="button button-primary">Khai báo</button>
+                    </div></div>
+                <div class="form" id="formEntryDeclaration" style="display: none;">
+                    <div class="form-header">
+                        <div class="form-title">
+                            <h2>Khai báo nhập cảnh</h2>
+                        </div>
+                        <div class="close-from"> <i class="fas fa-times"></i> </div>
+                    </div>
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="form-item divide-2-row">
+                                <div class="item-title">Đối tượng:</div>
+                                <input type="text" class="input">
+                            </div>
+                            <div class="form-item divide-2-row">
+                                <div class="item-title">Cửa khẩu:</div>
+                                <input type="text" class="input">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-item divide-2-row">
+                                <div class="item-title">Số hiệu phương tiện:</div>
+                                <input type="text" class="input">
+                            </div>
+                            <div class="form-item divide-2-row">
+                                <div class="item-title">Số ghế:</div>
+                                <input type="number" class="input">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-item divide-2-row">
+                                <div class="item-title">Ngày khởi hành:</div>
+                                <input type="date" class="input">
+                            </div>
+                            <div class="form-item divide-2-row">
+                                <div class="item-title">Ngày nhập cảnh:</div>
+                                <input type="date" class="input">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-item divide-3-row">
+                                <div class="item-title">Quốc gia khởi hành:</div>
+                                <input type="text" class="input">
+                            </div>
+                            <div class="form-item divide-3-row">
+                                <div class="item-title">Thành phố khởi hành:</div>
+                                <input type="text" class="input">
+                            </div>
+                            <div class="form-item divide-3-row">
+                                <div class="item-title">Quốc gia cần đến:</div>
+                                <input type="text" class="input">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-item divide-2-row">
+                                <div class="item-title">Đã đi qua quốc gia nào:</div>
+                                <div class="textarea-wrapper">
+                                    <textarea></textarea>
+                                </div>
+                            </div>
+                            <div class="form-item divide-2-row">
+                                <div class="item-title">Địa chỉ lưu trú sau cách ly tập trung:</div>
+                                <div class="textarea-wrapper">
+                                    <textarea></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-item divide-4-row">
+                                <div class="item-title">Ho:</div>
+                                <div class="radio-button-group">
+                                    <button class="radio-button" value="1" label="Không">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Không</p>
+                                    <button class="radio-button" value="0" label="Có">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Có</p>
+                                </div>
+                            </div>
+                            <div class="form-item divide-4-row">
+                                <div class="item-title">Sốt:</div>
+                                <div class="radio-button-group">
+                                    <button class="radio-button" value="1" label="Không">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Không</p>
+                                    <button class="radio-button" value="0" label="Có">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Có</p>
+                                </div>
+                            </div>
+                            <div class="form-item divide-4-row">
+                                <div class="item-title">Khó thở:</div>
+                                <div class="radio-button-group">
+                                    <button class="radio-button" value="1" label="Không">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Không</p>
+                                    <button class="radio-button" value="0" label="Có">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Có</p>
+                                </div>
+                            </div>
+                            <div class="form-item divide-4-row">
+                                <div class="item-title">Đau họng:</div>
+                                <div class="radio-button-group">
+                                    <button class="radio-button" value="1" label="Không">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Không</p>
+                                    <button class="radio-button" value="0" label="Có">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Có</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-item divide-4-row">
+                                <div class="item-title">Nôn:</div>
+                                <div class="radio-button-group">
+                                    <button class="radio-button" value="1" label="Không">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Không</p>
+                                    <button class="radio-button" value="0" label="Có">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Có</p>
+                                </div>
+                            </div>
+                            <div class="form-item divide-4-row">
+                                <div class="item-title">Tiêu chảy:</div>
+                                <div class="radio-button-group">
+                                    <button class="radio-button" value="1" label="Không">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Không</p>
+                                    <button class="radio-button" value="0" label="Có">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Có</p>
+                                </div>
+                            </div>
+                            <div class="form-item divide-4-row">
+                                <div class="item-title">Xuất huyết:</div>
+                                <div class="radio-button-group">
+                                    <button class="radio-button" value="1" label="Không">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Không</p>
+                                    <button class="radio-button" value="0" label="Có">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Có</p>
+                                </div>
+                            </div>
+                            <div class="form-item divide-4-row">
+                                <div class="item-title">Nổi ban:</div>
+                                <div class="radio-button-group">
+                                    <button class="radio-button" value="1" label="Không">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Không</p>
+                                    <button class="radio-button" value="0" label="Có">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Có</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-item divide-2-row">
+                                <div class="item-title">Có tiếp xúc với động vật hay cơ sở giết mổ:</div>
+                                <div class="radio-button-group">
+                                    <button class="radio-button" value="1" label="Không">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Không</p>
+                                    <button class="radio-button" value="0" label="Có">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Có</p>
+                                </div>
+                            </div>
+                            <div class="form-item divide-2-row">
+                                <div class="item-title">Có tiếp xúc với người mắc nCoV:</div>
+                                <div class="radio-button-group">
+                                    <button class="radio-button" value="1" label="Không">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Không</p>
+                                    <button class="radio-button" value="0" label="Có">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Có</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-item divide-2-row">
+                                <div class="item-title">Loại Vacxin đã sử dụng:</div>
+                                <input type="text" class="input">
+                            </div>
+                            <div class="form-item divide-2-row">
+                                <div class="item-title">Xác nhận âm tính:</div>
+                                <div class="radio-button-group">
+                                    <button class="radio-button" value="1" label="Không">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Không</p>
+                                    <button class="radio-button" value="0" label="Có">
+                                        <div class="radio-button-check"></div>
+                                        <div class="radio-button-focus"></div>
+                                    </button>
+                                    <p>Có</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-item divide-1-row">
+                                <div class="item-title">Cơ sở cách ly:</div>
+                                <div class="textarea-wrapper">
+                                    <textarea></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <img src="../../assets/img/giphy.gif" alt="">
+                        </div>
+                    </div>
+                    <div class="form-footer">
+                        <button class="button button-primary">Khai báo</button>
+                    </div></div>
+            </div>
         </div>
     </div>
 
 
+    <div class="data-list">
+    </div>
+
+
+
+    <script src="../../js/model/dataList.js"></script>
+    <script src="../../js/common/combobox.js"></script>
+    <script src="../../js/common/radioButton.js"></script>
     <script src="../../js/page/base.js"></script>
-    <script src="../../js/page/cilivian.js"></script>
+    <script src="../../js/page/cilivian/cilivianDeclaration.js"></script>
 </body>
 
 </html>

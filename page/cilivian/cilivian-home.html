@@ -30,7 +30,8 @@
                 <i class="fas fa-file-contract"></i>
                 <p>Tờ khai y tế</p>
             </div>
-            <div id="cilivianSituation" class="menu-item" toHref="cilivian-epidemic-situation" title="Tình hình dịch bệnh">
+            <div id="cilivianSituation" class="menu-item" toHref="cilivian-epidemic-situation"
+                title="Tình hình dịch bệnh">
                 <i class="fas fa-globe-asia"></i>
                 <p>Tình hình dịch</p>
             </div>
@@ -63,7 +64,79 @@
             </div>
         </div>
         <div class="content-body">
-            <h1>Home cilivian here</h1>
+            <div class="form">
+                <div class="form-header">
+                    <div class="form-title">
+                        <h2>Thông tin cá nhân</h2>
+                    </div>
+                    <div class="close-from"> <i class="fas fa-times"></i> </div>
+                </div>
+                <div class="form-body">
+                    <div class="row">
+                        <div class="form-item divide-2-row">
+                            <div class="item-title">Họ và tên:</div>
+                            <input type="text" class="input">
+                        </div>
+                        <div class="form-item divide-2-row">
+                            <div class="item-title">Ngày sinh: </div>
+                            <input type="date" class="input">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-item divide-2-3-row">
+                            <div class="item-title">Giới tính</div>
+                            <input type="text" class="input">
+                        </div>
+                        <div class="form-item divide-3-row">
+                            <div class="item-title">Quốc tịch:</div>
+                            <input type="text" class="input">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-item divide-3-row">
+                            <div class="item-title">Tỉnh/Thành phố: </div>
+                            <div id="cbbProvince" type="Province" local="1" class="combobox">
+                                <input type="text" class="input">
+                                <i class="fas fa-angle-down"></i>
+                            </div>                        
+                        </div>
+                        <div class="form-item divide-3-row">
+                            <div class="item-title">Quận/Huyện: </div>
+                            <div id="cbbProvince" type="Province" local="1" class="combobox">
+                                <input type="text" class="input">
+                                <i class="fas fa-angle-down"></i>
+                            </div>
+                        </div>
+                        <div class="form-item divide-3-row">
+                            <div class="item-title">Phường/xã: </div>
+                            <div id="cbbProvince" type="Province" local="1" class="combobox">
+                                <input type="text" class="input">
+                                <i class="fas fa-angle-down"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-item divide-1-row">
+                            <div class="item-title">Địa chỉ cụ thể:  </div>
+                            <div class="textarea-wrapper">
+                                <textarea></textarea>
+                            </div>                    
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-item divide-1-row">
+                            <div class="item-title">Thông tin dịch tễ(F0, F1, F2):  </div>
+                            <input type="text" class="input">                 
+                        </div>
+                    </div>
+                    <div class="row">
+                        <img src="../../assets/img/giphy.gif" alt="">
+                    </div>
+                </div>
+                <div class="form-footer">
+                    <button class="button button-primary">Cập nhật thông tin</button>
+                </div>
+            </div>
         </div>
     </div>
 
