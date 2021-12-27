@@ -189,10 +189,40 @@
     width: 100%;
     height: calc(100% - 54px);
     background-color: #F4F5F8;
+    float: left;
+}
+
+.function-bar{
+    width: 100%;
+    height: auto;
+    background: #ddd;
+    padding: 8px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    float: left;
 }
+
+.content-content{
+    width: 100%;
+    float: left;
+    height: calc(100% - 52px);
+}
+
+.function-bar > *{
+    margin-right: 10px;
+}
+
+.function-bar > *:last-child{
+    margin-right: 0;
+}
+
+.function-bar p,h1,h3,h4,h5,h6{
+    font-size: 14px;
+    margin: 0;
+    line-height: 36px;
+}
+
 
 .list-option {
     width: 170px;

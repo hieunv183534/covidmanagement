@@ -57,7 +57,7 @@
 
 body {
     margin: 0;
-    padding: 50px;
+    padding: 0;
     width: 100vw;
     height: 100vh;
     font-family: NotosansRegular;
@@ -84,4 +84,16 @@ hr {
 
   .body>*{
       float: left;
+  }
+
+  .data-list{
+      position: fixed;
+  }
+
+  .d-none{
+      display: none !important;
+  }
+
+  .d-block{
+      display: block !important;
   }

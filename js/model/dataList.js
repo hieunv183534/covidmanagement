@@ -120,4 +120,17 @@ class listDatas {
     },
     ];
 
+    static DeclarationType = [{
+        name: 'Khai báo toàn dân',
+        id: '1'
+    },
+    {
+        name: 'Khai báo nhập cảnh',
+        id: '2'
+    },
+    {
+        name: 'Khai báo di chuyển',
+        id: '3'
+    }];
+
 }
