@@ -1,10 +1,134 @@
 ﻿<!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../lib/fontawesome/css/all.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/layout/main-layout.css">
+    <link rel="stylesheet" href="../../css/layout/cilivian-epidemic-situation.css">
+</head>
+
+<body>
+    <div class="menu">
+        <div class="menu-header">
+            <i class="fas fa-shield-virus"></i>
+            <h5>ANTI COVID</h5>
+        </div>
+        <div class="menu-body">
+            <div id="cilivianHome" class="menu-item" toHref="medicalstaff-home" title="Trang chủ">
+                <i class="fas fa-home"></i>
+                <p>Trang chủ</p>
+            </div>
+            <div id="cilivianFeed" class="menu-item" toHref="medicalstaff-feed" title="Thông tin">
+                <i class="fas fa-newspaper"></i>
+                <p>Thông tin</p>
+            </div>
+            <div id="cilivianSituation" class="menu-item menu-item-active" toHref="medicalstaff-epidemic-situation"
+                title="Tình hình dịch bệnh">
+                <i class="fas fa-globe-asia"></i>
+                <p>Tình hình dịch</p>
+            </div>
+        </div>
+        <div class="toggle-menu">
+            <i class="fas fa-angle-left"></i>
+        </div>
+    </div>
+    <div class="content">
+        <div class="content-header">
+            <div class="content-header-left">
+                <i class="fas fa-user-nurse"></i>
+                <h2>| PHƯỜNG ĐỒNG TÂM</h2>
+            </div>
+            <div class="content-header-right">
+                <div class="notification">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <button class="user">
+                    <div class="avatar"></div>
+                    <p class="display-user">Nguyễn Văn Hiếu</p>
+                    <i class="fas fa-angle-down"></i>
+                </button>
+                <div class="list-option">
+                    <div class="item-option">Chỉnh sửa thông tin</div>
+                    <div class="item-option">Hotline</div>
+                    <div class="item-option">About me</div>
+                    <div class="item-option btn-logout">Đăng xuất</div>
+                </div>
+            </div>
+        </div>
+        <div class="content-body">
+            <div class="function-bar">
+                <span>
+                    
+                </span>
+                <span>
+                    <h4 style="font-size: 16px;">Trong nước</h4>
+                </span>
+            </div>
+            <div class="content-content">
+                <div class="grid">
+                    <table>
+
+                    </table>
+                </div>
+                <div class="paging-bar">
+                    <div class="paging-bar-left">
+                        <p>Hiển thị 20 đến 40 <i>/</i> 63 bản ghi</p>
+                    </div>
+                    <div class="paging-bar-right">
+                        <div class="dropdown last-dropdown" style="border:none;">
+                            <button class="dropdown-main">
+                                <p>100</p>
+                                <div class="icon"><i class="fas fa-chevron-down"></i></div>
+                            </button>
+                            <div class="dropdown-data">
+                                <div class="dropdown-item" valuename="200">
+                                    <i class="fas fa-check"></i>
+                                    <p>200</p>
+                                </div>
+                                <div class="dropdown-item item-selected" valuename="100">
+                                    <i class="fas fa-check"></i>
+                                    <p>100</p>
+                                </div>
+                                <div class="dropdown-item" valuename="50">
+                                    <i class="fas fa-check"></i>
+                                    <p>50</p>
+                                </div>
+                                <div class="dropdown-item" valuename="20">
+                                    <i class="fas fa-check"></i>
+                                    <p>20</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p>bản ghi/trang</p>
+
+                        <button class="pre-page">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="next-page">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="data-list">
+    </div>
+
+
+
+    <script src="../../js/model/dataList.js"></script>
+    <script src="../../js/model/tableColums.js"></script>
+    <script src="../../js/common/common.js"></script>
+    <script src="../../js/page/base.js"></script>
+    <script src="../../js/page/cilivian/cilivianEpidemicSituation.js"></script>
 </body>
+
 </html>

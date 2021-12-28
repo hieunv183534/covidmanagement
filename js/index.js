@@ -12,11 +12,11 @@ function initEvent() {
     });
 
     document.querySelector("#btnManager").addEventListener('click', () => {
-        alert("okok");
+        window.location.href = "./page/manager/manager-home.html";
     })
 
     document.querySelector("#btnMedicalStaff").addEventListener('click', () => {
-        alert("okok");
+        window.location.href = "./page/medicalstaff/medicalstaff-home.html";
     });
 }
 
