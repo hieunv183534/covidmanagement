@@ -50,11 +50,11 @@
                 <div class="notification">
                     <i class="fas fa-bell"></i>
                 </div>
-                <div class="user">
+                <button class="user">
                     <div class="avatar"></div>
                     <p class="display-user">Nguyễn Văn Hiếu</p>
                     <i class="fas fa-angle-down"></i>
-                </div>
+                </button>
                 <div class="list-option">
                     <div class="item-option">Chỉnh sửa thông tin</div>
                     <div class="item-option">Hotline</div>
@@ -65,17 +65,57 @@
         </div>
         <div class="content-body">
             <div class="function-bar">
-                <h4>Chọn loại khai báo:</h4>
-                <div id="cbbDeclarationType" local="1" class="combobox">
-                    <input type="text" class="input">
-                    <i class="fas fa-angle-down"></i>
-                </div>
+                <span>
+                    
+                </span>
+                <span>
+                    <h4 style="font-size: 16px;">Trong nước</h4>
+                </span>
             </div>
             <div class="content-content">
                 <div class="grid">
                     <table>
-            
+
                     </table>
+                </div>
+                <div class="paging-bar">
+                    <div class="paging-bar-left">
+                        <p>Hiển thị 20 đến 40 <i>/</i> 63 bản ghi</p>
+                    </div>
+                    <div class="paging-bar-right">
+                        <div class="dropdown last-dropdown" style="border:none;">
+                            <button class="dropdown-main">
+                                <p>100</p>
+                                <div class="icon"><i class="fas fa-chevron-down"></i></div>
+                            </button>
+                            <div class="dropdown-data">
+                                <div class="dropdown-item" valuename="200">
+                                    <i class="fas fa-check"></i>
+                                    <p>200</p>
+                                </div>
+                                <div class="dropdown-item item-selected" valuename="100">
+                                    <i class="fas fa-check"></i>
+                                    <p>100</p>
+                                </div>
+                                <div class="dropdown-item" valuename="50">
+                                    <i class="fas fa-check"></i>
+                                    <p>50</p>
+                                </div>
+                                <div class="dropdown-item" valuename="20">
+                                    <i class="fas fa-check"></i>
+                                    <p>20</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p>bản ghi/trang</p>
+
+                        <button class="pre-page">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="next-page">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -89,9 +129,7 @@
 
     <script src="../../js/model/dataList.js"></script>
     <script src="../../js/model/tableColums.js"></script>
-    <script src="../../js/common/combobox.js"></script>
-    <script src="../../js/common/radioButton.js"></script>
-    <script src="../../js/common/table.js"></script>
+    <script src="../../js/common/common.js"></script>
     <script src="../../js/page/base.js"></script>
     <script src="../../js/page/cilivian/cilivianEpidemicSituation.js"></script>
 </body>
