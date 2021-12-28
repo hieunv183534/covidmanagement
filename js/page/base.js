@@ -9,13 +9,13 @@
         // sự kiện click menu-item
         var menuItems = document.querySelectorAll(".menu-item");
         menuItems.forEach(menuItem => {
-            menuItem.addEventListener('click', function() {
+            menuItem.addEventListener('click', function () {
                 seft.menuItemOnClick(this);
             });
         });
 
         // sự kiện toggle menu
-        document.querySelector('.toggle-menu').addEventListener('click', function() {
+        document.querySelector('.toggle-menu').addEventListener('click', function () {
             seft.toggleMenu();
         });
 
@@ -37,6 +37,15 @@
         document.querySelector(".item-option.btn-logout").addEventListener('click', () => {
             window.location.href = "../../index.html";
         });
+
+        if (document.querySelector('.paging-bar')) {
+            document.querySelectorAll('.paging-bar .dropdown-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    this.count = Number(item.getAttribute('valuename'));
+                    console.log('pagingSize= ' + this.count);
+                })
+            })
+        }
     }
 
     menuItemOnClick(thisElement) {
@@ -54,9 +63,4 @@
         }
     }
 
-    parseHTML(html) {
-        var t = document.createElement('template');
-        t.innerHTML = html;
-        return t.content.firstChild;
-    }
 }

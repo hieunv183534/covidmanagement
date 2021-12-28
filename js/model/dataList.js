@@ -73,7 +73,89 @@ class listDatas {
         title: "Thông báo 4!",
         content: "Laboriosam sunt senectus et, proin tempore primis soluta aliquid dis cupidatat corrupti habitasse sagittis debitis! Ac lorem quibusdam, nisi luctus tempore optio. Ex laoreet, dicta exercitationem tortor doloribus sagittis numquam sagittis dis sagittis aliquam nobis hac nonummy curae amet recusandae.",
         time: "20h 20/11/2021"
-    }];
+    },
+    {
+        poster: {
+            name: "Nguyễn Văn Hiếu2",
+            unitName: "Phường Đồng Râm"
+        },
+        title: "Thông báo 2!",
+        content: "Laboriosam sunt senectus et, proin tempore primis soluta aliquid dis cupidatat corrupti habitasse sagittis debitis! Ac lorem quibusdam, nisi luctus tempore optio. Ex laoreet, dicta exercitationem tortor doloribus sagittis numquam sagittis dis sagittis aliquam nobis hac nonummy curae amet recusandae.",
+        time: "20h 20/11/2021"
+    },
+    {
+        poster: {
+            name: "Nguyễn Văn Hiếu3",
+            unitName: "Phường Đồng Dâm"
+        },
+        title: "Thông báo 3!",
+        content: "Laboriosam sunt senectus et, proin tempore primis soluta aliquid dis cupidatat corrupti habitasse sagittis debitis! Ac lorem quibusdam, nisi luctus tempore optio. Ex laoreet, dicta exercitationem tortor doloribus sagittis numquam sagittis dis sagittis aliquam nobis hac nonummy curae amet recusandae.",
+        time: "20h 20/11/2021"
+    },
+    {
+        poster: {
+            name: "Nguyễn Văn Hiếu4",
+            unitName: "Phường Đồng Lâm"
+        },
+        title: "Thông báo 4!",
+        content: "Laboriosam sunt senectus et, proin tempore primis soluta aliquid dis cupidatat corrupti habitasse sagittis debitis! Ac lorem quibusdam, nisi luctus tempore optio. Ex laoreet, dicta exercitationem tortor doloribus sagittis numquam sagittis dis sagittis aliquam nobis hac nonummy curae amet recusandae.",
+        time: "20h 20/11/2021"
+    },
+    {
+        poster: {
+            name: "Nguyễn Văn Hiếu2",
+            unitName: "Phường Đồng Râm"
+        },
+        title: "Thông báo 2!",
+        content: "Laboriosam sunt senectus et, proin tempore primis soluta aliquid dis cupidatat corrupti habitasse sagittis debitis! Ac lorem quibusdam, nisi luctus tempore optio. Ex laoreet, dicta exercitationem tortor doloribus sagittis numquam sagittis dis sagittis aliquam nobis hac nonummy curae amet recusandae.",
+        time: "20h 20/11/2021"
+    },
+    {
+        poster: {
+            name: "Nguyễn Văn Hiếu3",
+            unitName: "Phường Đồng Dâm"
+        },
+        title: "Thông báo 3!",
+        content: "Laboriosam sunt senectus et, proin tempore primis soluta aliquid dis cupidatat corrupti habitasse sagittis debitis! Ac lorem quibusdam, nisi luctus tempore optio. Ex laoreet, dicta exercitationem tortor doloribus sagittis numquam sagittis dis sagittis aliquam nobis hac nonummy curae amet recusandae.",
+        time: "20h 20/11/2021"
+    },
+    {
+        poster: {
+            name: "Nguyễn Văn Hiếu4",
+            unitName: "Phường Đồng Lâm"
+        },
+        title: "Thông báo 4!",
+        content: "Laboriosam sunt senectus et, proin tempore primis soluta aliquid dis cupidatat corrupti habitasse sagittis debitis! Ac lorem quibusdam, nisi luctus tempore optio. Ex laoreet, dicta exercitationem tortor doloribus sagittis numquam sagittis dis sagittis aliquam nobis hac nonummy curae amet recusandae.",
+        time: "20h 20/11/2021"
+    },
+    {
+        poster: {
+            name: "Nguyễn Văn Hiếu2",
+            unitName: "Phường Đồng Râm"
+        },
+        title: "Thông báo 2!",
+        content: "Laboriosam sunt senectus et, proin tempore primis soluta aliquid dis cupidatat corrupti habitasse sagittis debitis! Ac lorem quibusdam, nisi luctus tempore optio. Ex laoreet, dicta exercitationem tortor doloribus sagittis numquam sagittis dis sagittis aliquam nobis hac nonummy curae amet recusandae.",
+        time: "20h 20/11/2021"
+    },
+    {
+        poster: {
+            name: "Nguyễn Văn Hiếu3",
+            unitName: "Phường Đồng Dâm"
+        },
+        title: "Thông báo 3!",
+        content: "Laboriosam sunt senectus et, proin tempore primis soluta aliquid dis cupidatat corrupti habitasse sagittis debitis! Ac lorem quibusdam, nisi luctus tempore optio. Ex laoreet, dicta exercitationem tortor doloribus sagittis numquam sagittis dis sagittis aliquam nobis hac nonummy curae amet recusandae.",
+        time: "20h 20/11/2021"
+    },
+    {
+        poster: {
+            name: "Nguyễn Văn Hiếu4",
+            unitName: "Phường Đồng Lâm"
+        },
+        title: "Thông báo 4!",
+        content: "Laboriosam sunt senectus et, proin tempore primis soluta aliquid dis cupidatat corrupti habitasse sagittis debitis! Ac lorem quibusdam, nisi luctus tempore optio. Ex laoreet, dicta exercitationem tortor doloribus sagittis numquam sagittis dis sagittis aliquam nobis hac nonummy curae amet recusandae.",
+        time: "20h 20/11/2021"
+    }
+];
 
 
     static Province = [{
@@ -132,5 +214,344 @@ class listDatas {
         name: 'Khai báo di chuyển',
         id: '3'
     }];
+
+    static Unit = `[
+        {
+            "unitName": "Thành phố Hà Nội",
+            "unitCode": "|1",
+            "warningLevel": 0,
+            "totalCases": 0,
+            "totalDeaths": 0,
+            "totalRecovereds": 0,
+            "lastUpdateCases": 0,
+            "lastUpdateDeaths": 0,
+            "lastUpdateRecovereds": 0,
+            "type": "p"
+        },
+        {
+            "unitName": "Tỉnh Hà Giang",
+            "unitCode": "|2",
+            "warningLevel": 0,
+            "totalCases": 0,
+            "totalDeaths": 0,
+            "totalRecovereds": 0,
+            "lastUpdateCases": 0,
+            "lastUpdateDeaths": 0,
+            "lastUpdateRecovereds": 0,
+            "type": "p"
+        },
+        {
+            "unitName": "Tỉnh Cao Bằng",
+            "unitCode": "|4",
+            "warningLevel": 0,
+            "totalCases": 0,
+            "totalDeaths": 0,
+            "totalRecovereds": 0,
+            "lastUpdateCases": 0,
+            "lastUpdateDeaths": 0,
+            "lastUpdateRecovereds": 0,
+            "type": "p"
+        },
+        {
+            "unitName": "Tỉnh Bắc Kạn",
+            "unitCode": "|6",
+            "warningLevel": 0,
+            "totalCases": 0,
+            "totalDeaths": 0,
+            "totalRecovereds": 0,
+            "lastUpdateCases": 0,
+            "lastUpdateDeaths": 0,
+            "lastUpdateRecovereds": 0,
+            "type": "p"
+        },
+        {
+            "unitName": "Tỉnh Tuyên Quang",
+            "unitCode": "|8",
+            "warningLevel": 0,
+            "totalCases": 0,
+            "totalDeaths": 0,
+            "totalRecovereds": 0,
+            "lastUpdateCases": 0,
+            "lastUpdateDeaths": 0,
+            "lastUpdateRecovereds": 0,
+            "type": "p"
+        },
+        {
+            "unitName": "Tỉnh Lào Cai",
+            "unitCode": "|10",
+            "warningLevel": 0,
+            "totalCases": 0,
+            "totalDeaths": 0,
+            "totalRecovereds": 0,
+            "lastUpdateCases": 0,
+            "lastUpdateDeaths": 0,
+            "lastUpdateRecovereds": 0,
+            "type": "p"
+        },
+        {
+            "unitName": "Tỉnh Điện Biên",
+            "unitCode": "|11",
+            "warningLevel": 0,
+            "totalCases": 0,
+            "totalDeaths": 0,
+            "totalRecovereds": 0,
+            "lastUpdateCases": 0,
+            "lastUpdateDeaths": 0,
+            "lastUpdateRecovereds": 0,
+            "type": "p"
+        },
+        {
+            "unitName": "Tỉnh Lai Châu",
+            "unitCode": "|12",
+            "warningLevel": 0,
+            "totalCases": 0,
+            "totalDeaths": 0,
+            "totalRecovereds": 0,
+            "lastUpdateCases": 0,
+            "lastUpdateDeaths": 0,
+            "lastUpdateRecovereds": 0,
+            "type": "p"
+        },
+        {
+            "unitName": "Tỉnh Sơn La",
+            "unitCode": "|14",
+            "warningLevel": 0,
+            "totalCases": 0,
+            "totalDeaths": 0,
+            "totalRecovereds": 0,
+            "lastUpdateCases": 0,
+            "lastUpdateDeaths": 0,
+            "lastUpdateRecovereds": 0,
+            "type": "p"
+        },
+        {
+            "unitName": "Tỉnh Yên Bái",
+            "unitCode": "|15",
+            "warningLevel": 0,
+            "totalCases": 0,
+            "totalDeaths": 0,
+            "totalRecovereds": 0,
+            "lastUpdateCases": 0,
+            "lastUpdateDeaths": 0,
+            "lastUpdateRecovereds": 0,
+            "type": "p"
+        },
+        {
+            "unitName": "Tỉnh Hoà Bình",
+            "unitCode": "|17",
+            "warningLevel": 0,
+            "totalCases": 0,
+            "totalDeaths": 0,
+            "totalRecovereds": 0,
+            "lastUpdateCases": 0,
+            "lastUpdateDeaths": 0,
+            "lastUpdateRecovereds": 0,
+            "type": "p"
+        },
+        {
+            "unitName": "Tỉnh Thái Nguyên",
+            "unitCode": "|19",
+            "warningLevel": 0,
+            "totalCases": 0,
+            "totalDeaths": 0,
+            "totalRecovereds": 0,
+            "lastUpdateCases": 0,
+            "lastUpdateDeaths": 0,
+            "lastUpdateRecovereds": 0,
+            "type": "p"
+        },
+        {
+            "unitName": "Tỉnh Lạng Sơn",
+            "unitCode": "|20",
+            "warningLevel": 0,
+            "totalCases": 0,
+            "totalDeaths": 0,
+            "totalRecovereds": 0,
+            "lastUpdateCases": 0,
+            "lastUpdateDeaths": 0,
+            "lastUpdateRecovereds": 0,
+            "type": "p"
+        },
+        {
+            "unitName": "Tỉnh Quảng Ninh",
+            "unitCode": "|22",
+            "warningLevel": 0,
+            "totalCases": 0,
+            "totalDeaths": 0,
+            "totalRecovereds": 0,
+            "lastUpdateCases": 0,
+            "lastUpdateDeaths": 0,
+            "lastUpdateRecovereds": 0,
+            "type": "p"
+        },
+        {
+            "unitName": "Tỉnh Bắc Giang",
+            "unitCode": "|24",
+            "warningLevel": 0,
+            "totalCases": 0,
+            "totalDeaths": 0,
+            "totalRecovereds": 0,
+            "lastUpdateCases": 0,
+            "lastUpdateDeaths": 0,
+            "lastUpdateRecovereds": 0,
+            "type": "p"
+        },
+        {
+            "unitName": "Tỉnh Phú Thọ",
+            "unitCode": "|25",
+            "warningLevel": 0,
+            "totalCases": 0,
+            "totalDeaths": 0,
+            "totalRecovereds": 0,
+            "lastUpdateCases": 0,
+            "lastUpdateDeaths": 0,
+            "lastUpdateRecovereds": 0,
+            "type": "p"
+        },
+        {
+            "unitName": "Tỉnh Vĩnh Phúc",
+            "unitCode": "|26",
+            "warningLevel": 0,
+            "totalCases": 0,
+            "totalDeaths": 0,
+            "totalRecovereds": 0,
+            "lastUpdateCases": 0,
+            "lastUpdateDeaths": 0,
+            "lastUpdateRecovereds": 0,
+            "type": "p"
+        },
+        {
+            "unitName": "Tỉnh Bắc Ninh",
+            "unitCode": "|27",
+            "warningLevel": 0,
+            "totalCases": 0,
+            "totalDeaths": 0,
+            "totalRecovereds": 0,
+            "lastUpdateCases": 0,
+            "lastUpdateDeaths": 0,
+            "lastUpdateRecovereds": 0,
+            "type": "p"
+        },
+        {
+            "unitName": "Tỉnh Hải Dương",
+            "unitCode": "|30",
+            "warningLevel": 0,
+            "totalCases": 0,
+            "totalDeaths": 0,
+            "totalRecovereds": 0,
+            "lastUpdateCases": 0,
+            "lastUpdateDeaths": 0,
+            "lastUpdateRecovereds": 0,
+            "type": "p"
+        },
+        {
+            "unitName": "Thành phố Hải Phòng",
+            "unitCode": "|31",
+            "warningLevel": 0,
+            "totalCases": 0,
+            "totalDeaths": 0,
+            "totalRecovereds": 0,
+            "lastUpdateCases": 0,
+            "lastUpdateDeaths": 0,
+            "lastUpdateRecovereds": 0,
+            "type": "p"
+        },
+        {
+            "unitName": "Tỉnh Hưng Yên",
+            "unitCode": "|33",
+            "warningLevel": 0,
+            "totalCases": 0,
+            "totalDeaths": 0,
+            "totalRecovereds": 0,
+            "lastUpdateCases": 0,
+            "lastUpdateDeaths": 0,
+            "lastUpdateRecovereds": 0,
+            "type": "p"
+        },
+        {
+            "unitName": "Tỉnh Thái Bình",
+            "unitCode": "|34",
+            "warningLevel": 0,
+            "totalCases": 0,
+            "totalDeaths": 0,
+            "totalRecovereds": 0,
+            "lastUpdateCases": 0,
+            "lastUpdateDeaths": 0,
+            "lastUpdateRecovereds": 0,
+            "type": "p"
+        },
+        {
+            "unitName": "Tỉnh Hà Nam",
+            "unitCode": "|35",
+            "warningLevel": 0,
+            "totalCases": 0,
+            "totalDeaths": 0,
+            "totalRecovereds": 0,
+            "lastUpdateCases": 0,
+            "lastUpdateDeaths": 0,
+            "lastUpdateRecovereds": 0,
+            "type": "p"
+        },
+        {
+            "unitName": "Tỉnh Nam Định",
+            "unitCode": "|36",
+            "warningLevel": 0,
+            "totalCases": 0,
+            "totalDeaths": 0,
+            "totalRecovereds": 0,
+            "lastUpdateCases": 0,
+            "lastUpdateDeaths": 0,
+            "lastUpdateRecovereds": 0,
+            "type": "p"
+        },
+        {
+            "unitName": "Tỉnh Ninh Bình",
+            "unitCode": "|37",
+            "warningLevel": 0,
+            "totalCases": 0,
+            "totalDeaths": 0,
+            "totalRecovereds": 0,
+            "lastUpdateCases": 0,
+            "lastUpdateDeaths": 0,
+            "lastUpdateRecovereds": 0,
+            "type": "p"
+        },
+        {
+            "unitName": "Tỉnh Thanh Hóa",
+            "unitCode": "|38",
+            "warningLevel": 0,
+            "totalCases": 0,
+            "totalDeaths": 0,
+            "totalRecovereds": 0,
+            "lastUpdateCases": 0,
+            "lastUpdateDeaths": 0,
+            "lastUpdateRecovereds": 0,
+            "type": "p"
+        },
+        {
+            "unitName": "Tỉnh Nghệ An",
+            "unitCode": "|40",
+            "warningLevel": 0,
+            "totalCases": 0,
+            "totalDeaths": 0,
+            "totalRecovereds": 0,
+            "lastUpdateCases": 0,
+            "lastUpdateDeaths": 0,
+            "lastUpdateRecovereds": 0,
+            "type": "p"
+        },
+        {
+            "unitName": "Tỉnh Hà Tĩnh",
+            "unitCode": "|42",
+            "warningLevel": 0,
+            "totalCases": 0,
+            "totalDeaths": 0,
+            "totalRecovereds": 0,
+            "lastUpdateCases": 0,
+            "lastUpdateDeaths": 0,
+            "lastUpdateRecovereds": 0,
+            "type": "p"
+        }
+    ]`;
 
 }

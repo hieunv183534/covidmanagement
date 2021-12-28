@@ -49,11 +49,11 @@
                 <div class="notification">
                     <i class="fas fa-bell"></i>
                 </div>
-                <div class="user">
+                <button class="user">
                     <div class="avatar"></div>
                     <p class="display-user">Nguyễn Văn Hiếu</p>
                     <i class="fas fa-angle-down"></i>
-                </div>
+                </button>
                 <div class="list-option">
                     <div class="item-option">Chỉnh sửa thông tin</div>
                     <div class="item-option">Hotline</div>
@@ -64,11 +64,13 @@
         </div>
         <div class="content-body">
             <div class="function-bar">
-                <h4>Chọn loại khai báo:</h4>
-                <div id="cbbDeclarationType" type="DeclarationType" local="1" class="combobox">
-                    <input type="text" class="input" value="Khai báo toàn dân">
-                    <i class="fas fa-angle-down"></i>
-                </div>
+                <span>
+                    <h4>Chọn loại khai báo:</h4>
+                    <div id="cbbDeclarationType" type="DeclarationType" local="1" class="combobox">
+                        <input type="text" class="input" value="Khai báo toàn dân">
+                        <i class="fas fa-angle-down"></i>
+                    </div>
+                </span>
             </div>
             <div class="content-content">
                 <div class="form form-1" id="formDomesticGuests">
@@ -305,7 +307,8 @@
                     </div>
                     <div class="form-footer">
                         <button class="button button-primary">Khai báo</button>
-                    </div></div>
+                    </div>
+                </div>
                 <div class="form" id="formEntryDeclaration" style="display: none;">
                     <div class="form-header">
                         <div class="form-title">
@@ -563,7 +566,8 @@
                     </div>
                     <div class="form-footer">
                         <button class="button button-primary">Khai báo</button>
-                    </div></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -575,8 +579,7 @@
 
 
     <script src="../../js/model/dataList.js"></script>
-    <script src="../../js/common/combobox.js"></script>
-    <script src="../../js/common/radioButton.js"></script>
+    <script src="../../js/common/common.js"></script>
     <script src="../../js/page/base.js"></script>
     <script src="../../js/page/cilivian/cilivianDeclaration.js"></script>
 </body>
