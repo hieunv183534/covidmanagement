@@ -49,21 +49,63 @@
                 <div class="notification">
                     <i class="fas fa-bell"></i>
                 </div>
-                <div class="user">
+                <button class="user">
                     <div class="avatar"></div>
                     <p class="display-user">Nguyễn Văn Hiếu</p>
                     <i class="fas fa-angle-down"></i>
+                </button>
+                <div class="list-option">
+                    <div class="item-option">Chỉnh sửa thông tin</div>
+                    <div class="item-option">Hotline</div>
+                    <div class="item-option">About me</div>
+                    <div class="item-option btn-logout">Đăng xuất</div>
                 </div>
             </div>
         </div>
         <div class="content-body">
-            <h1>Feed cilivian here</h1>
+            <div class="function-bar">
+                <span>
+                    <h4>Chọn thông báo từ:</h4>
+                    <div class="dropdown" style="border:none;">
+                        <button class="dropdown-main">
+                            <p>Tin từ người dân</p>
+                            <div class="icon"><i class="fas fa-chevron-down"></i></div>
+                        </button>
+                        <div class="dropdown-data">
+                            <div class="dropdown-item item-selected" id="cilivianPost" valuename="Tin từ người dân">
+                                <i class="fas fa-check"></i>
+                                <p>Tin từ người dân</p>
+                            </div>
+                            <div class="dropdown-item" id="medicalStaffPost" valuename="Tin từ NVYT">
+                                <i class="fas fa-check"></i>
+                                <p>Tin từ NVYT</p>
+                            </div>
+                            <div class="dropdown-item" id="managerPost" valuename="Tin từ quản lí">
+                                <i class="fas fa-check"></i>
+                                <p>Tin từ quản lí</p>
+                            </div>
+                        </div>
+                    </div>
+                </span>
+                <span>
+                    <button class="button button-primary">
+                        <i class="fas fa-plus"></i>
+                        Đăng bài mới
+                    </button>
+                </span>
+            </div>
+            <div class="content-content">
+                <div class="post-list">
+
+                </div>
+            </div>
         </div>
     </div>
 
-
+    <script src="../../js/model/dataList.js"></script>
+    <script src="../../js/common/common.js"></script>
     <script src="../../js/page/base.js"></script>
-    <script src="../../js/page/cilivian.js"></script>
+    <script src="../../js/page/cilivian/cilivianFeed.js"></script>
 </body>
 
 </html>
