@@ -177,8 +177,8 @@ if (radioButtons) {
         var rbGroup = radioButton.parentElement;
         radioButton.addEventListener('click', (e) => {
             if (e.target.getAttribute('value') == '1') {
-                e.target.setAttribute('value', '0');
-                rbGroup.setAttribute('value', null);
+                // e.target.setAttribute('value', '0');
+                // rbGroup.setAttribute('value', null);
             } else {
                 rbGroup.querySelectorAll('.radio-button').forEach(rb => {
                     rb.setAttribute('value', '0');
@@ -270,4 +270,44 @@ function initEventCheckbox() {
 
 }
 
+//---------------------------------------------------------------------------------------------------------------------
+//-----------------PopupDialog-----------------------------------------------------------------------------------------
+function showPopupDialog(title,content,buttons){
+    var popupHeader = parseHTML(`<div class="popup-header">
+                                    <h2>${title}</h2>
+                                </div>`);
+    var popupBody = parseHTML(`<div class="popup-body">
+                                    <p>${content}</p>
+                                </div>`);
+    var popupFooter = parseHTML(`<div class="popup-footer"></div>`);
+    var btn1 = parseHTML(`<button class="button button-secondary" id="btn1">${buttons[0].text}</button>`);
+    var btn2 = parseHTML(`<button class="button button-primary" id="btn2">${buttons[1].text}</button>`);
+    var btn3 = parseHTML(`<button class="button button-secondary" id="btn3">${buttons[2].text}</button>`);
+    if(!buttons[0].enable){
+        btn1.classList.add('d-none');
+    }
+    if(!buttons[1].enable){
+        btn2.classList.add('d-none');
+    }
+    if(!buttons[2].enable){
+        btn3.classList.add('d-none');
+    }
+    let span1 = parseHTML(`<span></span>`);
+    span1.append(btn1);
+    let span2 = parseHTML(`<span></span>`);
+    span2.append(btn2);
+    span2.append(btn3);
+    popupFooter.append(span1);
+    popupFooter.append(span2);
+    var popup = parseHTML(`<div class="popup"></div>`);
+    popup.append(popupHeader);
+    popup.append(popupBody);
+    popup.append(popupFooter);
+    document.body.appendChild(popup);
+    return [btn1,btn2,btn3];
+}
+
+function hidePopupDialog(){
+    document.querySelector('.popup').remove();
+}
 //---------------------------------------------------------------------------------------------------------------------

@@ -254,6 +254,8 @@ class NotificationApi extends BaseApi {
 				    title,
                     notificationContent,
                     timePost,
+                    posterName,
+                    unitName
                 },...
             ],
 		}

@@ -89,7 +89,7 @@
                     </div>
                 </span>
                 <span>
-                    <button class="button button-primary">
+                    <button class="button button-primary" id="btnAddNewPost">
                         <i class="fas fa-plus"></i>
                         Đăng bài mới
                     </button>
@@ -103,10 +103,41 @@
         </div>
     </div>
 
+    <div class="dialog">
+        <div class="dialog-modal"></div>
+        <div class="form">
+            <div class="form-header">
+                <div class="form-title">
+                    <h2>Tạo bài viết</h2>
+                </div>
+                <div class="close-from"> <i class="fas fa-times"></i> </div>
+            </div>
+            <div class="form-body">
+                <div class="row">
+                    <div class="form-item divide-1-row">
+                        <div class="item-title">Tiêu đề bài viết:</div>
+                        <input type="text" class="input">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-item divide-1-row">
+                        <div class="item-title">Nội dung bài viết:</div>
+                        <div class="textarea-wrapper">
+                            <textarea></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-footer">
+                <button class="button button-primary">Đăng bài</button>
+            </div>
+        </div>
+    </div>
+
     <script src="../../js/model/dataList.js"></script>
     <script src="../../js/common/common.js"></script>
     <script src="../../js/page/base.js"></script>
-    <script src="../../js/page/cilivian/cilivianFeed.js"></script>
+    <script src="../../js/page/manager/managerFeed.js"></script>
 </body>
 
 </html>

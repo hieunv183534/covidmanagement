@@ -11,6 +11,7 @@
 @import url('base/form.css');
 @import url('base/dropdown.css');
 @import url('base/checkbox.css');
+@import url('base/popup.css');
 @font-face {
     font-family: 'NotosansBold';
     src: url('../assets/font/notosans-bold.3ede5aff.woff2') format('woff2');
@@ -98,4 +99,7 @@ hr {
 
   .d-block{
       display: block !important;
+  }
+  .hidden{
+      visibility: hidden;
   }

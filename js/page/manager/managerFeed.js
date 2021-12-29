@@ -1,10 +1,10 @@
-cilivianFeed = null;
+managerFeed = null;
 
 window.onload = () => {
-    cilivianFeed = new CilivianFeed();
+    managerFeed = new ManagerFeed();
 }
 
-class CilivianFeed extends Base{
+class ManagerFeed extends Base{
     constructor() {
         super();
         this.initEvent();

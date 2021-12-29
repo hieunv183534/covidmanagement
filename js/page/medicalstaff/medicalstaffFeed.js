@@ -1,10 +1,10 @@
-cilivianFeed = null;
+medicalstaffFeed = null;
 
 window.onload = () => {
-    cilivianFeed = new CilivianFeed();
+    medicalstaffFeed = new MedicalstaffFeed();
 }
 
-class CilivianFeed extends Base{
+class MedicalstaffFeed extends Base{
     constructor() {
         super();
         this.initEvent();
