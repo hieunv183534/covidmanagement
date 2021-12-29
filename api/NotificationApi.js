@@ -239,7 +239,7 @@ class NotificationApi extends BaseApi {
     };
 
     /**
-     * Lấy danh sách các thông báo của người cấp cao hơn hoặc bằng(cùng cấp phường, quận xã)
+     * Lấy danh sách các thông báo của nhân viên y tế cấp cao hơn hoặc bằng(cùng cấp phường, quận xã)
      * @param {
      * index,
      * count, 
@@ -254,8 +254,14 @@ class NotificationApi extends BaseApi {
 				    title,
                     notificationContent,
                     timePost,
+<<<<<<< HEAD
                     posterName,
                     unitName
+=======
+                    type,
+                    postName,
+                    unitName,
+>>>>>>> c127b85b6e4bd83347db73a3db33f68d5eb69341
                 },...
             ],
 		}
@@ -267,7 +273,7 @@ class NotificationApi extends BaseApi {
      * 
      * status: 500    
      */
-    viewNotification(body){
+    viewMedicalNotification(body){
         const options = {
             method: 'GET',
             headers: {
@@ -277,7 +283,52 @@ class NotificationApi extends BaseApi {
             body: JSON.stringify(body),
         };
 
-        return fetch(this.baseUrl + `${this.apiController}` + "viewnotification", options).then(res => {
+        return fetch(this.baseUrl + `${this.apiController}` + "viewmedicalnotification", options).then(res => {
+            return res.json()
+        });
+    };
+
+    /**
+     * Lấy danh sách các thông báo của quản lý cấp cao hơn hoặc bằng(cùng cấp phường, quận xã)
+     * @param {
+     * index,
+     * count, 
+     * } body 
+     * @returns 
+     * +, Thành công
+     * status:200
+     * {
+			message: "Successfully",
+			data: [
+			    {
+				    title,
+                    notificationContent,
+                    timePost,
+                    type,
+                    postName,
+                    unitName,
+                },...
+            ],
+		}
+     * +, Thất bại
+     * status: 404
+     * {
+            message: "Have not notification",
+       }
+     * 
+     * status: 500    
+     */
+    viewAdminNotification(body){
+        const options = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': localStorage['token']
+            },
+            body: JSON.stringify(body),
+        };
+
+        return fetch(this.baseUrl + `${this.apiController}` + "viewadminnotification", options).then(res => {
             return res.json()
         });
     };
