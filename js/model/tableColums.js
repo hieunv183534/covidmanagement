@@ -86,4 +86,25 @@ class listColums {
         }
     ];
 
+    static Account = [
+        {
+            title : "Số điện thoại",
+            style : "text-align: left;",
+            width: "min-width: 250px;",
+            field: 'phoneNumber'
+        },
+        {
+            title : "Mã đơn vị",
+            style : "text-align: left;",
+            width: "min-width: 250px;",
+            field: 'unitCode'
+        },
+        {
+            title : "Thông tin đơn vị",
+            style : "text-align: left;",
+            width: "min-width: 600px;",
+            field: 'unitDetail'
+        }
+    ]
+
 }

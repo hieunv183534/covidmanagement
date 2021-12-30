@@ -125,6 +125,9 @@ function loadTable(columns, datas, startIndex) {
             if (typeof medicalstaffEpidemicSituation !== "undefined") {
                 medicalstaffEpidemicSituation.tableRowOnDBClick(item);
             }
+            if (typeof medicalstaffEpidemicSituation !== "undefined") {
+                medicalstaffEpidemicSituation.tableRowOnDBClick(item);
+            }
         })
     });
     document.querySelector("table").append(tbody);
