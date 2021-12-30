@@ -43,6 +43,7 @@ class AuthApi extends BaseApi {
      * dang nhap tai khoan
      * @param {
      *  phoneNumber: so dien thoai
+
      * password: mat khau
      * } body
      * 
@@ -50,6 +51,7 @@ class AuthApi extends BaseApi {
      * +, Thành công
      * {
      *      token,
+     *      type,
      *      userId: loadedUser._id.toString(),
      * }
      * +, Thất bại
