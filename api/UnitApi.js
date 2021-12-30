@@ -48,6 +48,29 @@ class UnitApi extends BaseApi{
     }
 
     /**
+     * Lay thong tin cua chinh don vi do
+     * @param {
+     *  unit: unit code cua don vi
+     * } params
+     * @returns
+     * +, Thành công
+     * status: 200
+     * {
+     *      message: "fetching unit successfully",
+     *      data: unit,
+     * }
+     * +, Thất bại
+     * status: 403
+     * {
+     *  err
+     * }
+     */
+
+    getSingleUnitInfo(){
+
+    }
+
+    /**
      * Cap nhat thong tin cac don vi con. Cac don vi cha, ong se duoc tu dong cap nhap
      * @param {
      * lastUpdateCases: so ca mac moi
