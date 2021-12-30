@@ -66,3 +66,51 @@
     font-size: 16px;
     line-height: 20px;
 }
+
+.post-footer{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-top: 1px dotted #888;
+    float: left;
+}
+
+#btnUpdatePost,#btnApprovePost{
+    margin-right: 10px;
+}
+
+.post-list[mode="default"] .post-footer{
+    display: none;
+}
+
+.post-list[mode="seft"] .post-footer{
+    display: flex;
+}
+
+.post-list[mode="seft"] .post-footer #btnUpdatePost{
+    display: flex !important;
+}
+.post-list[mode="seft"] .post-footer #btnDeletePost{
+    display: flex !important;
+}
+.post-list[mode="seft"] .post-footer #btnApprovePost{
+    display: none !important;
+}
+.post-list[mode="seft"] .post-footer #btnRefusePost{
+    display: none !important;
+}
+
+.post-list[mode="approve"] .post-footer #btnUpdatePost{
+    display: none !important;
+}
+.post-list[mode="approve"] .post-footer #btnDeletePost{
+    display: none !important;
+}
+.post-list[mode="approve"] .post-footer #btnApprovePost{
+    display: flex !important;
+}
+.post-list[mode="approve"] .post-footer #btnRefusePost{
+    display: flex !important;
+}
