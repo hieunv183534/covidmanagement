@@ -72,6 +72,20 @@ class UnitApi extends BaseApi{
      *  err
      * }
      */
+    update(body) {
+        const options = {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': localStorage['token']
+            },
+            body: JSON.stringify(body),
+        };
+
+        return fetch(this.baseUrl + `${this.apiController}/unit-update/${unit}`, options).then(res => {
+            return res.json()
+        });
+    }
 
 
 }
