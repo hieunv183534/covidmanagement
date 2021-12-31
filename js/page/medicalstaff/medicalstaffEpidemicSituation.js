@@ -20,4 +20,15 @@ class MedicalstaffEpidemicSituation extends Base {
     initEvent() {
     
     }
+
+    tableRowOnDBClick(item){
+        var popupBtns = [{text: "Đóng", enable: true},{text: "Xem các đơn vị con", enable: true},{text: "Xóa", enable: false}]
+         var btns = showPopupDialog("CilivianEpidemicSituation",item.unitName + " dzz",popupBtns );
+         btns[0].addEventListener('click',()=>{
+            hidePopupDialog();
+         })
+         btns[1].addEventListener('click',()=>{
+            showToastMessenger('success',"load thành công!")
+        })
+    }
 }

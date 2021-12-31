@@ -151,14 +151,14 @@ function initEventCheckboxTable() {
 //-------------------------------loader-----------------------------------------------------------------------------------
 var loader = document.querySelector('.loader');
 
-if (loader) {
-    document.querySelector('#btnTestLoader').addEventListener('click', (e) => {
-        loader.setAttribute('isShow', 'show');
-        setTimeout(() => {
-            loader.setAttribute('isShow', 'hide');
-        }, 10000);
-    });
+function showLoader(){
+    loader.setAttribute('isShow', 'show');
 }
+
+function hideLoader(){
+    loader.setAttribute('isShow', 'hide');
+}
+
 
 //-----------------------------------------------------------------------------------------------------------------------
 //-----------------------------toastMessenger---------------------------------------------------------------------------
@@ -229,16 +229,19 @@ function loadListPost(posts) {
 }
 //---------------------------------------------------------------------------------------------------------------------
 //------------------dropdown-------------------------------------------------------------------------------------------
-var dropdownmain = document.querySelector('.dropdown-main');
-if (dropdownmain) {
-    dropdownmain.addEventListener('click', () => {
-        dropdownmain.parentElement.querySelector('.dropdown-data').classList.add('dropdown-data-show');
-    });
+var dropdownmains = document.querySelectorAll('.dropdown-main');
+if (dropdownmains) {
 
-    dropdownmain.addEventListener('blur', () => {
-        setTimeout(() => {
-            dropdownmain.parentElement.querySelector('.dropdown-data').classList.remove('dropdown-data-show');
-        }, 150);
+    dropdownmains.forEach(dropdownmain=>{
+        dropdownmain.addEventListener('click', () => {
+            dropdownmain.parentElement.querySelector('.dropdown-data').classList.add('dropdown-data-show');
+        });
+
+        dropdownmain.addEventListener('blur', () => {
+            setTimeout(() => {
+                dropdownmain.parentElement.querySelector('.dropdown-data').classList.remove('dropdown-data-show');
+            }, 150);
+        })
     })
 }
 

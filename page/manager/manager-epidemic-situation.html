@@ -67,10 +67,13 @@
         <div class="content-body">
             <div class="function-bar">
                 <span>
-                    <input type="text" class="input search-box">
+                    <h4 style="font-size: 16px;">Trong nước</h4>
                 </span>
                 <span>
-                    <h4 style="font-size: 16px;">Trong nước</h4>
+                    <input type="text" class="input search-box" placeholder="Tìm theo tên đơn vị">
+                    <button class="button button-secondary button-icon" id="btnRefresh">
+                        <i class="fas fa-sync-alt"></i>
+                    </button>
                 </span>
             </div>
             <div class="content-content">
@@ -130,6 +133,11 @@
         <i class="mes-icon fas fa-exclamation-circle"></i>
         <i class="mes-icon fas fa-check-circle"></i>
         <div class="mes-text">Thêm mới thành công</div>
+    </div>
+
+    <div class="loader" isShow="hide">
+        <div class="loader-modal"></div>
+        <div class="loader-icon"></div>
     </div>
 
     <script src="../../js/model/dataList.js"></script>

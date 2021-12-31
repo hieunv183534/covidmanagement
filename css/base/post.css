@@ -1,11 +1,13 @@
 .post-list{
-    width: 1000px;
-    height: 100%;
+    width: 100%;
+    height: calc(100% - 56px) !important;
     background-color: #eee;
     padding: 10px;
     overflow-y: auto;
     margin-left: 50%;
     transform: translate(-50% , 0);
+    float: left;
+    border-bottom: 1px solid #ccc;
 }
 
 .post{

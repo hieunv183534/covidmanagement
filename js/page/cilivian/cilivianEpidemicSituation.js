@@ -17,9 +17,9 @@ class CilivianEpidemicSituation extends Base {
         loadTable(listColums.Unit, JSON.parse(listDatas.Unit), 1);
     }
 
-    tableRowOnDBClick(name){
+    tableRowOnDBClick(item){
         var popupBtns = [{text: "Đóng", enable: true},{text: "Xem các đơn vị con", enable: true},{text: "Xóa", enable: false}]
-         var btns = showPopupDialog("CilivianEpidemicSituation",name.unitName + " dzz",popupBtns );
+         var btns = showPopupDialog("CilivianEpidemicSituation",item.unitName + " dzz",popupBtns );
          btns[0].addEventListener('click',()=>{
             hidePopupDialog();
          })

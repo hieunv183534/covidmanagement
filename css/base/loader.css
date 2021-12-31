@@ -42,5 +42,5 @@
     background-repeat: no-repeat;
     background-size: contain;
     z-index: 445;
-    animation: rotate 0.9s linear infinite;
+    animation: rotate 0.1s linear infinite;
 }
