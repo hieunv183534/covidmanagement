@@ -33,7 +33,7 @@ class NotificationApi extends BaseApi {
             body: JSON.stringify(body),
         };
 
-        return fetch(this.baseUrl + `${this.apiController}` + "addnotification", options).then(res => {
+        return fetch(this.baseUrl + `${this.apiController}` + "postnotification", options).then(res => {
             return res.json()
         });
     };
