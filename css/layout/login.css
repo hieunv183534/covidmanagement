@@ -1,13 +1,13 @@
-<style>
-    body{
+    body {
         display: flex;
         height: 100vh;
         justify-content: center;
         align-items: center;
         padding: 10px;
-        
+
     }
-    .container{
+
+    .container {
         max-width: 500px;
         width: 100%;
         background: #fff;
@@ -15,12 +15,14 @@
         border-radius: 5px;
         background-color: #ddd;
     }
-    .container .title{
+
+    .container .title {
         font-size: 25px;
         font-weight: 500;
         position: relative;
     }
-    .container .title ::before{
+
+    .container .title ::before {
         content: '';
         position: absolute;
         left: 0;
@@ -29,11 +31,13 @@
         width: 30px;
         background: line;
     }
-    form .user-details .input-box{
+
+    form .user-details .input-box {
         margin: 20px 0 12px 0;
         width: calc(100% / 2 - 20px);
     }
-    .user-details .input-box input{
+
+    .user-details .input-box input {
         height: 45px;
         width: 100%;
         outline: none;
@@ -42,17 +46,20 @@
         padding-left: 15px;
         font-size: 16px;
     }
-    .user-details .input-box .details{
+
+    .user-details .input-box .details {
         font-weight: 500;
         font-size: 16px;
         margin-bottom: 15px;
     }
-    .role-box{
+
+    .role-box {
         padding: 10px 0px;
         display: flex;
         justify-content: flex-start;
     }
-    .role-button{
+
+    .role-button {
         padding: 10px;
         display: flex;
         align-items: center;
@@ -60,44 +67,44 @@
     }
 
     form .button {
-  border-radius: 4px;
-  background-color: #178f5d;
-  border: none;
-  color: #fff;
-  text-align: center;
-  font-size: 14px;
-  transition: all 0.5s;
-  cursor: pointer;
-  box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
-}
+        border-radius: 4px;
+        background-color: #178f5d;
+        border: none;
+        color: #fff;
+        text-align: center;
+        font-size: 14px;
+        transition: all 0.5s;
+        cursor: pointer;
+        box-shadow: 0 10px 20px -8px rgba(0, 0, 0, .7);
+    }
 
-form .button{
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
+    form .button {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
 
-form .button:after {
-  content: '»';
-  position: absolute;
-  opacity: 0;  
-  top: 14px;
-  right: -5px;
-  transition: 0.5s;
-}
+    form .button:after {
+        content: '»';
+        position: absolute;
+        opacity: 0;
+        top: 14px;
+        right: -5px;
+        transition: 0.5s;
+    }
 
-form .button:hover{
-  padding-right: 24px;
-  padding-left:8px;
-}
+    form .button:hover {
+        padding-right: 24px;
+        padding-left: 8px;
+    }
 
-form .button:hover:after {
-  opacity: 1;
-  right: 10px;
-}
-    .bottom{
+    form .button:hover:after {
+        opacity: 1;
+        right: 10px;
+    }
+
+    .bottom {
         display: flex;
         justify-content: space-between;
     }
-</style>

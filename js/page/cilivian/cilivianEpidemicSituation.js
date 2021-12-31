@@ -15,6 +15,18 @@ class CilivianEpidemicSituation extends Base {
         console.log(listColums.Unit);
         console.log(JSON.parse(listDatas.Unit));
         loadTable(listColums.Unit, JSON.parse(listDatas.Unit), 1);
+        this.initEventTable();
+    }
+
+    tableRowOnDBClick(item){
+        var popupBtns = [{text: "Đóng", enable: true},{text: "Xem các đơn vị con", enable: true},{text: "Xóa", enable: false}]
+         var btns = showPopupDialog("CilivianEpidemicSituation",item.unitName + " dzz",popupBtns );
+         btns[0].addEventListener('click',()=>{
+            hidePopupDialog();
+         })
+         btns[1].addEventListener('click',()=>{
+            showToastMessenger('success',"load thành công!")
+        })
     }
 
     initEvent() {

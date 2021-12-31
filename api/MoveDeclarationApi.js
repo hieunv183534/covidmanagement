@@ -13,7 +13,7 @@ class MoveDeclarationApi extends BaseApi {
      * departureAddress: Địa chỉ xuất phát /String
      * arrivalAddress: Địa chỉ đến /String
      * ismovingThroughTerritory: Có di chuyển qua quốc gia lãnh thổ nào /Boolean
-     * nCoVConPSignal: Có dấu hiệu mắc nCoV /Boolean
+     * nCoVSignal: Có dấu hiệu mắc nCoV /Boolean
      * patientContact: Có tiếp xúc với người bênh hoạc nghi ngờ /Boolean
      * nCoVConPCountry: Có tiếp xúc với người từ nước có nCoV /Boolean
      * nCoVConPSignal: Có tiếp xúc với người có dấu hiệu mắc nCoV /Boolean
@@ -39,7 +39,7 @@ class MoveDeclarationApi extends BaseApi {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': localStorage['token']
+                'Authorization': sessionStorage.getItem('token')
             },
             body: JSON.stringify(body),
         };
@@ -86,7 +86,7 @@ class MoveDeclarationApi extends BaseApi {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': localStorage['token']
+                'Authorization': sessionStorage.getItem('token')
             },
         };
 
@@ -117,7 +117,7 @@ class MoveDeclarationApi extends BaseApi {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': localStorage['token']
+                'Authorization': sessionStorage.getItem('token')
             },
         };
 

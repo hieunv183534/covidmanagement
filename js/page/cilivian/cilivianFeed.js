@@ -13,13 +13,20 @@ class CilivianFeed extends Base{
 
     initEvent(){
         document.querySelector('#cilivianPost').addEventListener('click',()=>{
-            alert('tin người dân')
+            alert('tin người dân');
+            document.querySelector('.post-list').setAttribute('mode', "default")
         })
         document.querySelector('#medicalStaffPost').addEventListener('click',()=>{
-            alert('tin nhân viên y tế')
+            alert('tin nhân viên y tế');
+            document.querySelector('.post-list').setAttribute('mode', "default")
         })
         document.querySelector('#managerPost').addEventListener('click',()=>{
-            alert('tin quản lí')
+            alert('tin quản lí');
+            document.querySelector('.post-list').setAttribute('mode', "default")
+        });
+        document.querySelector('#seftPost').addEventListener('click',()=>{
+            alert('tin quản lí');
+            document.querySelector('.post-list').setAttribute('mode', "seft");
         })
         document.querySelector('#btnAddNewPost').addEventListener('click',()=>{
             document.querySelector('.dialog').classList.add('d-block');

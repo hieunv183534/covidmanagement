@@ -33,7 +33,7 @@ class DomesticGuestsApi extends BaseApi {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': localStorage['token']
+                'Authorization': sessionStorage.getItem('token')
             },
             body: JSON.stringify(body),
         };
@@ -74,7 +74,7 @@ class DomesticGuestsApi extends BaseApi {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': localStorage['token']
+                'Authorization': sessionStorage.getItem('token')
             },
         };
 
@@ -105,7 +105,7 @@ class DomesticGuestsApi extends BaseApi {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': localStorage['token']
+                'Authorization': sessionStorage.getItem('token')
             },
         };
 

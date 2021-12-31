@@ -33,7 +33,7 @@ class PersonApi extends BaseApi {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': localStorage['token']
+                'Authorization': sessionStorage.getItem('token')
             },
             body: JSON.stringify(body),
         };
@@ -73,7 +73,7 @@ class PersonApi extends BaseApi {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': localStorage['token']
+                'Authorization': sessionStorage.getItem('token')
             },
             body: JSON.stringify(body),
         };
@@ -115,7 +115,7 @@ class PersonApi extends BaseApi {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': localStorage['token']
+                'Authorization': sessionStorage.getItem('token')
             },
         };
 
@@ -144,7 +144,7 @@ class PersonApi extends BaseApi {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': localStorage['token']
+                'Authorization': sessionStorage.getItem('token')
             },
         };
 
