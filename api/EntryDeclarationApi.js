@@ -53,7 +53,7 @@ class EntryDeclarationApi extends BaseApi {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': localStorage['token']
+                'Authorization': lsessionStorage.getItem('token')
             },
             body: JSON.stringify(body),
         };
@@ -114,7 +114,7 @@ class EntryDeclarationApi extends BaseApi {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': localStorage['token']
+                'Authorization': sessionStorage.getItem('token')
             },
         };
 
@@ -145,7 +145,7 @@ class EntryDeclarationApi extends BaseApi {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': localStorage['token']
+                'Authorization': sessionStorage.getItem('token')
             },
         };
 

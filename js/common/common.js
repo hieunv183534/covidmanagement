@@ -55,7 +55,7 @@ if (cbbs) {
         var dataList = document.querySelector('.data-list');
         dataList.innerHTML = '';
         if (local == '1') {
-            listDatas[`${type}`].forEach(element => {
+            listDatas[`${type}`].forEach(element => {k
                 if (element.id == document.querySelector(`#${idCbb}`).getAttribute('value')) {
                     dataList.append(parseHTML(`<div class="data-item item-active" valueid="${element.id}" valuename="${element.name}" >${element.name}</div>`));
                 } else {
@@ -101,6 +101,7 @@ function loadTable(columns, datas, startIndex) {
     var tbody = parseHTML('<tbody></tbody>');
     datas.forEach(item => {
         var tr = parseHTML(`<tr></tr>`);
+        tr.setAttribute("myItem",JSON.stringify(item));
         tr.append(parseHTML(`<td style="text-align: right;">
         <div class="checkbox" value="0">
         <i class="fas fa-check"></i>
@@ -112,23 +113,24 @@ function loadTable(columns, datas, startIndex) {
             tr.append(td);
         });
         tbody.append(tr);
-        tr.addEventListener('dblclick', () => {
-            if (typeof cilivianEpidemicSituation !== "undefined") {
-                cilivianEpidemicSituation.tableRowOnDBClick(item);
-            }
-            if (typeof managerEpidemicSituation !== "undefined") {
-                managerEpidemicSituation.tableRowOnDBClick(item);
-            }
-            if (typeof managerApproveAccount !== "undefined") {
-                managerApproveAccount.tableRowOnDBClick(item);
-            }
-            if (typeof medicalstaffEpidemicSituation !== "undefined") {
-                medicalstaffEpidemicSituation.tableRowOnDBClick(item);
-            }
-            if (typeof medicalstaffEpidemicSituation !== "undefined") {
-                medicalstaffEpidemicSituation.tableRowOnDBClick(item);
-            }
-        })
+        // tr.addEventListener('dblclick', () => {
+        //     console.log(JSON.parse(tr.getAttribute("myItem")) );
+        //     if (typeof cilivianEpidemicSituation !== "undefined") {
+        //         cilivianEpidemicSituation.tableRowOnDBClick(item);
+        //     }
+        //     if (typeof managerEpidemicSituation !== "undefined") {
+        //         managerEpidemicSituation.tableRowOnDBClick(item);
+        //     }
+        //     if (typeof managerApproveAccount !== "undefined") {
+        //         managerApproveAccount.tableRowOnDBClick(item);
+        //     }
+        //     if (typeof medicalstaffEpidemicSituation !== "undefined") {
+        //         medicalstaffEpidemicSituation.tableRowOnDBClick(item);
+        //     }
+        //     if (typeof medicalstaffEpidemicSituation !== "undefined") {
+        //         medicalstaffEpidemicSituation.tableRowOnDBClick(item);
+        //     }
+        // })
     });
     document.querySelector("table").append(tbody);
 

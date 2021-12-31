@@ -15,6 +15,7 @@ class MedicalstaffEpidemicSituation extends Base {
         console.log(listColums.Unit);
         console.log(JSON.parse(listDatas.Unit));
         loadTable(listColums.Unit, JSON.parse(listDatas.Unit), 1);
+        this.initEventTable();
     }
 
     initEvent() {

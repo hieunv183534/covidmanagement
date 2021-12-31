@@ -89,4 +89,13 @@
         }
     }
 
+    initEventTable(){
+        var trs = document.querySelectorAll('tbody tr');
+        trs.forEach(tr=>{
+           tr.addEventListener('dblclick',()=>{
+               var item = JSON.parse(tr.getAttribute("myItem"));
+               this.tableRowOnDBClick(item);
+           }) 
+        });
+    }
 }

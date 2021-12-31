@@ -35,7 +35,7 @@ class AccountApi extends BaseApi{
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': localStorage['token']
+                'Authorization': sessionStorage.getItem('token')
             },
             body: JSON.stringify(body),
         };
@@ -77,7 +77,7 @@ class AccountApi extends BaseApi{
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': localStorage['token']
+                'Authorization': sessionStorage.getItem('token')
             },
             body: JSON.stringify(body),
         };
@@ -111,7 +111,7 @@ class AccountApi extends BaseApi{
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': localStorage['token']
+                'Authorization': sessionStorage.getItem('token')
             },
             body: JSON.stringify(body),
         };

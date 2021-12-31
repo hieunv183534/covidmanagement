@@ -9,6 +9,7 @@ class ManagerApproveAccount extends Base{
         super();
         this.initEvent();
         loadTable(listColums.Account, listDatas.Account, 1);
+        this.initEventTable();
     }
 
     initEvent(){

@@ -37,7 +37,7 @@ class UnitApi extends BaseApi{
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': localStorage['token']
+                'Authorization': sessionStorage.getItem('token')
             },
             body: JSON.stringify(body),
         };
@@ -100,7 +100,7 @@ class UnitApi extends BaseApi{
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': localStorage['token']
+                'Authorization': sessionStorage.getItem('token')
             },
             body: JSON.stringify(body),
         };

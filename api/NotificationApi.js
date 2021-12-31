@@ -28,7 +28,7 @@ class NotificationApi extends BaseApi {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': localStorage['token']
+                'Authorization': sessionStorage.getItem('token')
             },
             body: JSON.stringify(body),
         };
@@ -69,7 +69,7 @@ class NotificationApi extends BaseApi {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': localStorage['token']
+                'Authorization': sessionStorage.getItem('token')
             },
             body: JSON.stringify(body),
         };
@@ -113,7 +113,7 @@ class NotificationApi extends BaseApi {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': localStorage['token']
+                'Authorization': sessionStorage.getItem('token')
             },
             body: JSON.stringify(body),
         };
@@ -147,7 +147,7 @@ class NotificationApi extends BaseApi {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': localStorage['token']
+                'Authorization': sessionStorage.getItem('token')
             },
             body: JSON.stringify(body),
         };
@@ -190,7 +190,7 @@ class NotificationApi extends BaseApi {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': localStorage['token']
+                'Authorization': sessionStorage.getItem('token')
             },
             body: JSON.stringify(body),
         };
@@ -228,7 +228,7 @@ class NotificationApi extends BaseApi {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': localStorage['token']
+                'Authorization': sessionStorage.getItem('token')
             },
             body: JSON.stringify(body),
         };
@@ -254,14 +254,8 @@ class NotificationApi extends BaseApi {
 				    title,
                     notificationContent,
                     timePost,
-<<<<<<< HEAD
                     posterName,
                     unitName
-=======
-                    type,
-                    postName,
-                    unitName,
->>>>>>> c127b85b6e4bd83347db73a3db33f68d5eb69341
                 },...
             ],
 		}
@@ -278,7 +272,7 @@ class NotificationApi extends BaseApi {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': localStorage['token']
+                'Authorization': sessionStorage.getItem('token')
             },
             body: JSON.stringify(body),
         };
@@ -323,7 +317,7 @@ class NotificationApi extends BaseApi {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': localStorage['token']
+                'Authorization': sessionStorage.getItem('token')
             },
             body: JSON.stringify(body),
         };
@@ -366,7 +360,7 @@ class NotificationApi extends BaseApi {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': localStorage['token']
+                'Authorization': sessionStorage.getItem('token')
             },
             body: JSON.stringify(body),
         };
