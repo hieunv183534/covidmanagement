@@ -4,13 +4,9 @@ class UnitApi extends BaseApi{
     }
 
     /**
-     * Lay thong tin cua cac don vi con. VD truy van Ha Noi se lay duoc cac quan (khong lay xa)
+     * Lay thong tin cua cac don vi con. VD truy van Ha Noi se lay duoc cac quan (khong lay xa) 
      * @param {
      *  unit: unitcode cua don vi: VD: |1|1|
-     * } params 
-     * 
-     * 
-     * @param {
      *  page: trang nao dang duoc truy van - phuc vu cho phan trang
      *  total: tong so cac don vi muon duoc truy van ( mac dinh la 20 don vi)
      * } query 
@@ -34,7 +30,7 @@ class UnitApi extends BaseApi{
      */
     getById(body){
         const options = {
-            method: 'GET',
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': localStorage['token']
@@ -42,7 +38,7 @@ class UnitApi extends BaseApi{
             body: JSON.stringify(body),
         };
 
-        return fetch(this.baseUrl + `${this.apiController}/unit-info/${unit}`, options).then(res => {
+        return fetch(this.baseUrl + `${this.apiController}/unit-info?unit=${unit}?page=${page}?total=${total}`, options).then(res => {
             return res.json()
         });
     }
@@ -67,7 +63,17 @@ class UnitApi extends BaseApi{
      */
 
     getSingleUnitInfo(){
+        const options = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': localStorage['token']
+            },
+        };
 
+        return fetch(this.baseUrl + `${this.apiController}/unit-single/${unit}`, options).then(res => {
+            return res.json()
+        });
     }
 
     /**
