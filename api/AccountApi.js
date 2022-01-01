@@ -7,8 +7,9 @@ class AccountApi extends BaseApi{
      * Lấy về danh sách tài khoản nhân viên y tế cần duyệt
      * @param {
      * index,
-     * count, 
-     * } body 
+     * count,
+     * keyword, 
+     * } query 
      * @returns 
      * +, Thành công
      * status:200
@@ -19,6 +20,7 @@ class AccountApi extends BaseApi{
                     userId,
 				    phoneNumber,
                     unitCode,
+                    unitDetail,
                 },...
             ],
 		}
@@ -30,17 +32,16 @@ class AccountApi extends BaseApi{
      * 
      * status: 500    
      */
-    getListMedical(body){
+    getListMedical(index, count, keyword){
         const options = {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': sessionStorage.getItem('token')
             },
-            body: JSON.stringify(body),
         };
 
-        return fetch(this.baseUrl + `${this.apiController}` + "getListMedical", options).then(res => {
+        return fetch(this.baseUrl + `${this.apiController}getListMedical?index=${index}&count=${count}&keyword=${keyword}`, options).then(res => {
             return res.json()
         });
     };
@@ -49,8 +50,9 @@ class AccountApi extends BaseApi{
      * Lấy về danh sách tài khoản quản lý cần duyệt
      * @param {
      * index,
-     * count, 
-     * } body 
+     * count,
+     * keyword 
+     * } query
      * @returns 
      * +, Thành công
      * status:200
@@ -61,6 +63,7 @@ class AccountApi extends BaseApi{
                     userId,
 				    phoneNumber,
                     unitCode,
+                    unitDetail,
                 },...
             ],
 		}
@@ -72,17 +75,16 @@ class AccountApi extends BaseApi{
      * 
      * status: 500    
      */
-    getListAdmin(index,count){
+    getListAdmin(index,count,keyword){
         const options = {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': sessionStorage.getItem('token')
             },
-            body: JSON.stringify(body),
         };
 
-        return fetch(this.baseUrl + `${this.apiController}` + "getListAdmin", options).then(res => {
+        return fetch(this.baseUrl + `${this.apiController}getListAdmin?index=${index}&count=${count}&keyword=${keyword}`, options).then(res => {
             return res.json()
         });
     };
@@ -90,7 +92,8 @@ class AccountApi extends BaseApi{
     /**
      * Duyệt tài khoản
      * @param {
-     * userId, 
+     * userId,
+     * status, /0 là xoá, 1 là duyệt 
      * } body 
      * @returns 
      * +, Thành công
