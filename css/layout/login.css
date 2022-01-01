@@ -1,4 +1,4 @@
-<style>
+
     body{
         display: flex;
         height: 100vh;
@@ -60,44 +60,43 @@
     }
 
     form .button {
-  border-radius: 4px;
-  background-color: #178f5d;
-  border: none;
-  color: #fff;
-  text-align: center;
-  font-size: 14px;
-  transition: all 0.5s;
-  cursor: pointer;
-  box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
-}
+        border-radius: 4px;
+        background-color: #178f5d;
+        border: none;
+        color: #fff;
+        text-align: center;
+        font-size: 14px;
+        transition: all 0.5s;
+        cursor: pointer;
+        box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
+    }
 
-form .button{
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
+    form .button{
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+    }
 
-form .button:after {
-  content: '»';
-  position: absolute;
-  opacity: 0;  
-  top: 14px;
-  right: -5px;
-  transition: 0.5s;
-}
+    form .button:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;  
+    top: 14px;
+    right: -5px;
+    transition: 0.5s;
+    }
 
-form .button:hover{
-  padding-right: 24px;
-  padding-left:8px;
-}
+    form .button:hover{
+    padding-right: 24px;
+    padding-left:8px;
+    }
 
-form .button:hover:after {
-  opacity: 1;
-  right: 10px;
-}
+    form .button:hover:after {
+    opacity: 1;
+    right: 10px;
+    }
     .bottom{
         display: flex;
         justify-content: space-between;
     }
-</style>
