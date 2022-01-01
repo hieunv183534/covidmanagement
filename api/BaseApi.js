@@ -66,3 +66,15 @@ class BaseApi{
         });
     };
 }
+
+
+class ClassError extends Error {
+
+    constructor(message = 'Something went wrong', data = '', code = '') {
+      super();
+      this.message = message;
+      this.data = data;
+      this.code = code;
+    }
+  
+  }

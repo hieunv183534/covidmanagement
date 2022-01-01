@@ -19,7 +19,12 @@ class ManagerEpidemicSituation extends Base {
     }
 
     initEvent() {
-    
+        document.querySelector('#btnUpdateUnit').addEventListener('click',()=>{
+            document.querySelector('.dialog').classList.add('d-block');
+        })
+        document.querySelector('.close-from').addEventListener('click',()=>{
+            document.querySelector('.dialog').classList.remove('d-block');
+        })
     }
 
     tableRowOnDBClick(item){

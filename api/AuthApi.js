@@ -1,5 +1,7 @@
+
 class AuthApi extends BaseApi {
     constructor(){
+        super();
         this.apiController = "auth/"
     }
 
@@ -35,7 +37,11 @@ class AuthApi extends BaseApi {
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "/signup", options).then(res => {
-            return res.json()
+            if(res.ok){
+                return res.json();
+            }else{
+                return Promise.reject(res);
+            }
         });
     }
 
@@ -70,7 +76,11 @@ class AuthApi extends BaseApi {
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "/login", options).then(res => {
-            return res.json()
+            if(res.ok){
+                return res.json()
+            }else{
+                return Promise.reject(res);
+            }
         });
     }
 }

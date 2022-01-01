@@ -52,7 +52,7 @@
                 </div>
                 <button class="user">
                     <div class="avatar"></div>
-                    <p class="display-user">Nguyễn Văn Hiếu</p>
+                    <p class="display-user"></p>
                     <i class="fas fa-angle-down"></i>
                 </button>
                 <div class="list-option">
@@ -75,7 +75,7 @@
                     <div class="row">
                         <div class="form-item divide-2-row">
                             <div class="item-title">Họ và tên:</div>
-                            <input type="text" class="input">
+                            <input type="text" class="input" id="valueFullName">
                         </div>
                         <div class="form-item divide-2-row">
                             <div class="item-title">Ngày sinh: </div>
@@ -187,7 +187,13 @@
         <div class="loader-icon"></div>
     </div>
 
+    <div class="data-list">
+    </div>
+
     <script src="../../js/common/common.js"></script>
+    <script src="../../api/BaseApi.js"></script>
+    <script src="../../api/PersonApi.js"></script>
+    <script src="../../api/UnitApi.js"></script>
     <script src="../../js/page/base.js"></script>
     <script src="../../js/page/cilivian/cilivianHome.js"></script>
 </body>

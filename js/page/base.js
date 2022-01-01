@@ -1,4 +1,8 @@
-﻿class Base {
+﻿unitApi = null;
+personApi = null;
+listUnitForCbb = null;
+
+class Base {
     constructor() {
         this.initEventBase();
     }
@@ -97,5 +101,13 @@
                this.tableRowOnDBClick(item);
            }) 
         });
+    }
+
+    loadUnit(unitCode,page,total){
+        unitApi.getById(unitCode,page, total).then(res=>{
+            console.log(res);
+        }).catch(error=>{
+            console.log(error);
+        })
     }
 }

@@ -70,6 +70,10 @@
                     <h4 style="font-size: 16px;">Trong nước</h4>
                 </span>
                 <span>
+                    <button class="button button-primary" id="btnUpdateUnit">
+                        <i class="fas fa-edit"></i>
+                        Cập nhật đơn vị mình
+                    </button>
                     <input type="text" class="input search-box" placeholder="Tìm theo tên đơn vị">
                     <button class="button button-secondary button-icon" id="btnRefresh">
                         <i class="fas fa-sync-alt"></i>
@@ -121,6 +125,43 @@
                         </button>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dialog">
+        <div class="dialog-modal"></div>
+        <div class="form" style="width: 600px;">
+            <div class="form-header">
+                <div class="form-title">
+                    <h2>Cập nhật tình hình đơn vị<span style="font-size: 14px;">(cấp xã)</span></h2>
+                </div>
+                <div class="close-from"> <i class="fas fa-times"></i> </div>
+            </div>
+            <div class="form-body">
+                <div class="row">
+                    <div class="form-item divide-1-row">
+                        <div class="item-title">Thông tin đơn vị:</div>
+                        <input type="text" class="input" disabled>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-item divide-3-row">
+                        <div class="item-title">Số ca mắc mới:</div>
+                        <input type="number" class="input">
+                    </div>
+                    <div class="form-item divide-3-row">
+                        <div class="item-title">Số ca tử vong mới:</div>
+                        <input type="number" class="input">
+                    </div>
+                    <div class="form-item divide-3-row">
+                        <div class="item-title">Số ca phục hồi mới:</div>
+                        <input type="number" class="input">
+                    </div>
+                </div>
+            </div>
+            <div class="form-footer">
+                <button class="button button-primary">Cập nhật</button>
             </div>
         </div>
     </div>

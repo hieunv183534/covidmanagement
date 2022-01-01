@@ -1,5 +1,6 @@
 class UnitApi extends BaseApi{
     constructor(){
+        super();
         this.apiController = "unit/"
     }
 
@@ -32,18 +33,22 @@ class UnitApi extends BaseApi{
      *  err
      * }
      */
-    getById(body){
+    getById(unitCode, page, total){
         const options = {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': sessionStorage.getItem('token')
             },
-            body: JSON.stringify(body),
+            // body: JSON.stringify({page, total}),
         };
 
-        return fetch(this.baseUrl + `${this.apiController}/unit-info/${unit}`, options).then(res => {
-            return res.json()
+        return fetch(this.baseUrl + `${this.apiController}/unit-info/${unitCode}`, options).then(res => {
+            if(res.ok){
+                return res.json();
+            }else{
+                return Promise.reject(res);
+            }
         });
     }
 
@@ -106,7 +111,11 @@ class UnitApi extends BaseApi{
         };
 
         return fetch(this.baseUrl + `${this.apiController}/unit-update/${unit}`, options).then(res => {
-            return res.json()
+            if(res.ok){
+                return res.json();
+            }else{
+                return Promise.reject(res);
+            }
         });
     }
 

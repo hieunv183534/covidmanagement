@@ -1,5 +1,6 @@
 class PersonApi extends BaseApi {
     constructor() {
+        super();
         this.apiController = "personinfo/";
     }
 
@@ -39,7 +40,11 @@ class PersonApi extends BaseApi {
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "addPerson", options).then(res => {
-            return res.json()
+            if(res.ok){
+                return res.json();
+            }else{
+                return Promise.reject(res);
+            }
         });
     };
 
@@ -79,7 +84,11 @@ class PersonApi extends BaseApi {
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "editPerson", options).then(res => {
-            return res.json()
+            if(res.ok){
+                return res.json();
+            }else{
+                return Promise.reject(res);
+            }
         });
     };
 
@@ -120,7 +129,11 @@ class PersonApi extends BaseApi {
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "getPerson", options).then(res => {
-            return res.json()
+            if(res.ok){
+                return res.json();
+            }else{
+                return Promise.reject(res);
+            }
         });
     };
 
@@ -149,7 +162,11 @@ class PersonApi extends BaseApi {
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "deletePerson", options).then(res => {
-            return res.json()
+            if(res.ok){
+                return res.json();
+            }else{
+                return Promise.reject(res);
+            }
         });
     };
 }

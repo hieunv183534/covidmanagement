@@ -43,9 +43,9 @@ if (cbbs) {
                 document.querySelector(`#${element.parentElement.getAttribute('forCbbId')}`).querySelector('.input').value = element.getAttribute('valuename');
                 document.querySelector(`#${element.parentElement.getAttribute('forCbbId')}`).setAttribute('value', element.getAttribute('valueid'));
 
-                if (document.querySelector(`#${element.parentElement.getAttribute('forCbbId')}`).getAttribute('id') == 'cbbDeclarationType') {
-                    cilivianDeclaration.chooseDeclarationType(element.getAttribute('valueid'));
-                }
+                // if (document.querySelector(`#${element.parentElement.getAttribute('forCbbId')}`).getAttribute('id') == 'cbbDeclarationType') {
+                //     cilivianDeclaration.chooseDeclarationType(element.getAttribute('valueid'));
+                // }
             });
         })
     };
@@ -55,7 +55,7 @@ if (cbbs) {
         var dataList = document.querySelector('.data-list');
         dataList.innerHTML = '';
         if (local == '1') {
-            listDatas[`${type}`].forEach(element => {k
+            listDatas[`${type}`].forEach(element => {
                 if (element.id == document.querySelector(`#${idCbb}`).getAttribute('value')) {
                     dataList.append(parseHTML(`<div class="data-item item-active" valueid="${element.id}" valuename="${element.name}" >${element.name}</div>`));
                 } else {
@@ -63,6 +63,8 @@ if (cbbs) {
                 }
             });
             eventForItem();
+        }else{
+            
         }
     };
 }
