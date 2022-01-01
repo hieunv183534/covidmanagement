@@ -1,6 +1,6 @@
 class AccountApi extends BaseApi{
     constructor(){
-        this.apiController = "accountbrowsing/";
+        this.apiController = "account/";
     }
 
     /**
@@ -25,7 +25,7 @@ class AccountApi extends BaseApi{
             ],
 		}
      * +, Thất bại
-     * status: 404
+     * status: 204
      * {
             message: "No medical account to approve",
        }
@@ -68,7 +68,7 @@ class AccountApi extends BaseApi{
             ],
 		}
      * +, Thất bại
-     * status: 404
+     * status: 204
      * {
             message: "No admin account to approve",
         }

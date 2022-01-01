@@ -57,7 +57,7 @@ class NotificationApi extends BaseApi {
      *       message: "Notification Content not null!",
      * }
      * 
-     * status: 404
+     * status: 204
      * {
      *       message: "Fail",
      * }
@@ -104,7 +104,7 @@ class NotificationApi extends BaseApi {
             ]
         } 
      * +,Thất bại
-     * status: 404
+     * status: 204
      * {
      *       message: "Have not notification"
      * }
@@ -137,7 +137,7 @@ class NotificationApi extends BaseApi {
          *       message: "Successful delete notification",
          *} 
          * +,Thất bại
-         * status: 404
+         * status: 204
          * {
          *       message: "Fail"
          * }
@@ -184,7 +184,7 @@ class NotificationApi extends BaseApi {
             ],
 		}
      * +, Thất bại
-     * status: 404
+     * status: 204
      * {
             message: "Have not notification",
        }
@@ -267,7 +267,7 @@ class NotificationApi extends BaseApi {
             ],
 		}
      * +, Thất bại
-     * status: 404
+     * status: 204
      * {
             message: "Have not notification",
        }
@@ -313,7 +313,7 @@ class NotificationApi extends BaseApi {
             ],
 		}
      * +, Thất bại
-     * status: 404
+     * status: 204
      * {
             message: "Have not notification",
        }
@@ -359,7 +359,7 @@ class NotificationApi extends BaseApi {
             ],
 		}
      * +, Thất bại
-     * status: 404
+     * status: 204
      * {
             message: "Have not notification",
        }

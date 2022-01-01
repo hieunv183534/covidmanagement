@@ -102,7 +102,7 @@ class EntryDeclarationApi extends BaseApi {
 	 * }
      * 
      * +,Thất bại
-     * status: 404
+     * status: 204
      * {
      *       message: "The account has not yet entry declaration",
      * }
@@ -133,7 +133,7 @@ class EntryDeclarationApi extends BaseApi {
 	 * }
      * 
      * +,Thất bại
-     * status: 404
+     * status: 204
      * {
      *       message: "The account has not yet entry declaration",
      * }

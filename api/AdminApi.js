@@ -63,7 +63,7 @@ class AdminApi extends BaseApi {
 	 *	    link: process.env.SERVER_URL + "/admininfo/getadmin",
 	 *	}
      * +, Thất bại
-     * status: 404
+     * status: 204
      * {
      *      message: "The account has not yet registered information",
      *  }
@@ -105,7 +105,7 @@ class AdminApi extends BaseApi {
 			},
 		}
      * +, Thất bại
-     * status: 404
+     * status: 204
      * {
      *      message: "The account has not yet registered information",
      *  }
@@ -135,7 +135,7 @@ class AdminApi extends BaseApi {
             message: "Delete infomation successful"
        }
      * +, Thất bại
-     * status: 404
+     * status: 204
      * {
      *      message: "The account has not yet registered information",
      *  }
