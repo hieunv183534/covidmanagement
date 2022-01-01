@@ -17,6 +17,7 @@ class AuthApi extends BaseApi {
      * {
      *      message: "Signup successful",
      *      userId: result._id,
+     *      
      * }
      * +, Thất bại
      * status: 400
@@ -52,6 +53,8 @@ class AuthApi extends BaseApi {
      * {
      *      token,
      *      type,
+     *      unitCode,
+     *      UnitDetail
      *      userId: loadedUser._id.toString(),
      * }
      * +, Thất bại
