@@ -13,11 +13,11 @@
         background: #fff;
         padding: 25px 30px;
         border-radius: 5px;
-        background-color: #ddd;
+        background-color: rgb(243, 239, 239);
     }
 
     .container .title {
-        font-size: 25px;
+        font-size: 18px;
         font-weight: 500;
         position: relative;
     }
@@ -64,6 +64,11 @@
         display: flex;
         align-items: center;
         margin-right: 40px;
+    }
+    .unit-box{
+        padding: 10px 0px;
+        display: flex;
+        justify-content: flex-start;
     }
 
     form .button {
