@@ -62,7 +62,7 @@ class PersonApi extends BaseApi {
 	 *	    link: process.env.SERVER_URL + "/medicalinfo/getmedical",
 	 *	}
      * +, Thất bại
-     * status: 404
+     * status: 204
      * {
      *      message: "The account has not yet registered information",
      *  }
@@ -103,7 +103,7 @@ class PersonApi extends BaseApi {
 			},
 		}
      * +, Thất bại
-     * status: 404
+     * status: 204
      * {
      *      message: "The account has not yet registered information",
      *  }
@@ -132,7 +132,7 @@ class PersonApi extends BaseApi {
             message: "Delete infomation successful"
        }
      * +, Thất bại
-     * status: 404
+     * status: 204
      * {
      *      message: "The account has not yet registered information",
      *  }

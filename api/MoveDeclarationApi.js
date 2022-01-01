@@ -74,7 +74,7 @@ class MoveDeclarationApi extends BaseApi {
 	 * }
      * 
      * +,Thất bại
-     * status: 404
+     * status: 204
      * {
      *       message: "The account has not yet move declaration",
      * }
@@ -105,7 +105,7 @@ class MoveDeclarationApi extends BaseApi {
 	 * }
      * 
      * +,Thất bại
-     * status: 404
+     * status: 204
      * {
      *       message: "The account has not yet move declaration",
      * }

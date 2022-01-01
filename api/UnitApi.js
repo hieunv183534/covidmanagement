@@ -5,20 +5,14 @@ class UnitApi extends BaseApi{
     }
 
     /**
-     * Lay thong tin cua cac don vi con. VD truy van Ha Noi se lay duoc cac quan (khong lay xa)
+     * Lay thong tin cua cac don vi con. VD truy van Ha Noi se lay duoc cac quan (khong lay xa) 
      * @param {
      *  unit: unitcode cua don vi: VD: |1|1|
-     * } params 
-     * 
-     * 
-     * @param {
      *  page: trang nao dang duoc truy van - phuc vu cho phan trang
      *  total: tong so cac don vi muon duoc truy van ( mac dinh la 20 don vi)
+     *  keyword: tu de seach ten cac don vi
      * } query 
      *
-     * @param {
-     *  keyword: tu de seach ten cac don vi
-     * } body
      * 
      * @returns 
      * +, Thành công
@@ -33,17 +27,17 @@ class UnitApi extends BaseApi{
      *  err
      * }
      */
-    getById(unitCode, page, total){
+
+     getById(unit,page,total,keyword){
         const options = {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': sessionStorage.getItem('token')
             },
-            // body: JSON.stringify({page, total}),
         };
 
-        return fetch(this.baseUrl + `${this.apiController}/unit-info/${unitCode}`, options).then(res => {
+        return fetch(this.baseUrl + `${this.apiController}/unit-info?unit=${unit}&page=${page}&total=${total}&keyword=${keyword}`, options).then(res => {
             if(res.ok){
                 return res.json();
             }else{
@@ -72,7 +66,21 @@ class UnitApi extends BaseApi{
      */
 
     getSingleUnitInfo(){
+        const options = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': localStorage['token']
+            },
+        };
 
+        return fetch(this.baseUrl + `${this.apiController}/unit-single/${unit}`, options).then(res => {
+            if(res.ok){
+                return res.json();
+            }else{
+                return Promise.reject(res);
+            }
+        });
     }
 
     /**

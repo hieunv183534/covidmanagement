@@ -62,7 +62,7 @@ class DomesticGuestsApi extends BaseApi {
 		}
      * 
      * +,Thất bại
-     * status: 404
+     * status: 204
      * {
             message: "The account has not yet domestic guests",
         }
@@ -93,7 +93,7 @@ class DomesticGuestsApi extends BaseApi {
 		}
      * 
      * +,Thất bại
-     * status: 404
+     * status: 204
      * {
             message: "The account has not yet domestic guests",
         }
