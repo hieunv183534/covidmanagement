@@ -84,7 +84,7 @@ class NotificationApi extends BaseApi {
      * @param {
      * index,
      * count, 
-     * } body 
+     * } query
      * @returns
      * +,Thành công
      * status: 200
@@ -92,11 +92,14 @@ class NotificationApi extends BaseApi {
             message: "Successful get notification",
             data: [
                 {
+                    type,
                     notificationId,
-                    title,
+				    title,
                     notificationContent,
-                    status,
                     timePost,
+                    unitName,
+                    posterName,
+                    unitDetal,
                 }
             ]
         } 
@@ -108,17 +111,16 @@ class NotificationApi extends BaseApi {
      * 
      * status: 500       
      */
-    get(body){
+    get(index,count){
         const options = {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': sessionStorage.getItem('token')
             },
-            body: JSON.stringify(body),
         };
 
-        return fetch(this.baseUrl + `${this.apiController}` + "getnotification", options).then(res => {
+        return fetch(this.baseUrl + `${this.apiController}getnotification?index=${index}&count=${count}`, options).then(res => {
             return res.json()
         });
     };
@@ -162,7 +164,7 @@ class NotificationApi extends BaseApi {
      * @param {
      * index,
      * count, 
-     * } body 
+     * } query
      * @returns 
      * +, Thành công
      * status:200
@@ -170,10 +172,14 @@ class NotificationApi extends BaseApi {
 			message: "Successfully",
 			data: [
 			    {
+                    type,
                     notificationId,
 				    title,
                     notificationContent,
                     timePost,
+                    unitName,
+                    posterName,
+                    unitDetal,
                 },...
             ],
 		}
@@ -185,17 +191,16 @@ class NotificationApi extends BaseApi {
      * 
      * status: 500    
      */
-    getListNotification(body){
+    getListNotification(index,count){
         const options = {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': sessionStorage.getItem('token')
             },
-            body: JSON.stringify(body),
         };
 
-        return fetch(this.baseUrl + `${this.apiController}` + "getlistnotification", options).then(res => {
+        return fetch(this.baseUrl + `${this.apiController}getlistnotification?index=${index}&count=${count}`, options).then(res => {
             return res.json()
         });
     };
@@ -230,7 +235,6 @@ class NotificationApi extends BaseApi {
                 'Content-Type': 'application/json',
                 'Authorization': sessionStorage.getItem('token')
             },
-            body: JSON.stringify(body),
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "browsingNotification", options).then(res => {
@@ -251,11 +255,14 @@ class NotificationApi extends BaseApi {
 			message: "Successfully",
 			data: [
 			    {
+                    type,
+                    notificationId,
 				    title,
                     notificationContent,
                     timePost,
+                    unitName,
                     posterName,
-                    unitName
+                    unitDetal,
                 },...
             ],
 		}
@@ -267,17 +274,16 @@ class NotificationApi extends BaseApi {
      * 
      * status: 500    
      */
-    viewMedicalNotification(body){
+    viewMedicalNotification(index,count){
         const options = {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': sessionStorage.getItem('token')
             },
-            body: JSON.stringify(body),
         };
 
-        return fetch(this.baseUrl + `${this.apiController}` + "viewmedicalnotification", options).then(res => {
+        return fetch(this.baseUrl + `${this.apiController}viewmedicalnotification?index=${index}&count=${count}`, options).then(res => {
             return res.json()
         });
     };
@@ -295,12 +301,14 @@ class NotificationApi extends BaseApi {
 			message: "Successfully",
 			data: [
 			    {
+                    type,
+                    notificationId,
 				    title,
                     notificationContent,
                     timePost,
-                    type,
-                    postName,
                     unitName,
+                    posterName,
+                    unitDetal,
                 },...
             ],
 		}
@@ -319,10 +327,9 @@ class NotificationApi extends BaseApi {
                 'Content-Type': 'application/json',
                 'Authorization': sessionStorage.getItem('token')
             },
-            body: JSON.stringify(body),
         };
 
-        return fetch(this.baseUrl + `${this.apiController}` + "viewadminnotification", options).then(res => {
+        return fetch(this.baseUrl + `${this.apiController}viewadminnotification?index=${index}&count=${count}`, options).then(res => {
             return res.json()
         });
     };
@@ -340,10 +347,14 @@ class NotificationApi extends BaseApi {
 			message: "Successfully",
 			data: [
 			    {
+                    type,
                     notificationId,
 				    title,
                     notificationContent,
                     timePost,
+                    unitName,
+                    posterName,
+                    unitDetal,
                 },...
             ],
 		}
@@ -362,10 +373,9 @@ class NotificationApi extends BaseApi {
                 'Content-Type': 'application/json',
                 'Authorization': sessionStorage.getItem('token')
             },
-            body: JSON.stringify(body),
         };
 
-        return fetch(this.baseUrl + `${this.apiController}` + "viewdifficultnotification", options).then(res => {
+        return fetch(this.baseUrl + `${this.apiController}viewdifficultnotification?index=${index}&count=${count}`, options).then(res => {
             return res.json()
         });
     };
