@@ -9,11 +9,9 @@ class UnitApi extends BaseApi{
      *  unit: unitcode cua don vi: VD: |1|1|
      *  page: trang nao dang duoc truy van - phuc vu cho phan trang
      *  total: tong so cac don vi muon duoc truy van ( mac dinh la 20 don vi)
+     *  keyword: tu de seach ten cac don vi
      * } query 
      *
-     * @param {
-     *  keyword: tu de seach ten cac don vi
-     * } body
      * 
      * @returns 
      * +, Thành công
@@ -28,17 +26,16 @@ class UnitApi extends BaseApi{
      *  err
      * }
      */
-    getById(body){
+    getById(query){
         const options = {
-            method: 'POST',
+            method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': sessionStorage.getItem('token')
             },
-            body: JSON.stringify(body),
         };
 
-        return fetch(this.baseUrl + `${this.apiController}/unit-info?unit=${unit}?page=${page}?total=${total}`, options).then(res => {
+        return fetch(this.baseUrl + `${this.apiController}/unit-info?unit=${unit}?page=${page}?total=${total}?keyword=${keyword}`, options).then(res => {
             return res.json()
         });
     }
