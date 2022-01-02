@@ -42,10 +42,36 @@
             document.querySelectorAll('.paging-bar .dropdown-item').forEach(item => {
                 item.addEventListener('click', () => {
                     this.count = Number(item.getAttribute('valuename'));
-                    console.log('pagingSize= ' + this.count);
+                    showToastMessenger('success',"count= "+ this.count);
                 })
+            });
+
+            document.querySelector(".paging-bar .next-page").addEventListener('click',()=>{
+                showToastMessenger('success',"trang sau");
+            });
+
+            document.querySelector(".paging-bar .pre-page").addEventListener('click',()=>{
+                showToastMessenger('success',"trang trước");
+            });
+        };
+
+        if (document.querySelector("#btnRefresh")) {
+            document.querySelector("#btnRefresh").addEventListener("click", () => {
+                showLoader();
+                setTimeout(()=>{
+                    hideLoader();
+                    showToastMessenger('danger', "Refresh thất bại!");
+                },5000)
             })
-        }
+        };
+
+        if (document.querySelector(".search-box")) {
+            document.querySelector(".search-box").addEventListener("keypress", (e) => {
+                if (e.key === 'Enter') {
+                    showToastMessenger('danger', e.target.value);
+                }
+            })
+        };
     }
 
     menuItemOnClick(thisElement) {
@@ -63,4 +89,13 @@
         }
     }
 
+    initEventTable(){
+        var trs = document.querySelectorAll('tbody tr');
+        trs.forEach(tr=>{
+           tr.addEventListener('dblclick',()=>{
+               var item = JSON.parse(tr.getAttribute("myItem"));
+               this.tableRowOnDBClick(item);
+           }) 
+        });
+    }
 }

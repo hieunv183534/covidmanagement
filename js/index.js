@@ -18,6 +18,25 @@ function initEvent() {
     document.querySelector("#btnMedicalStaff").addEventListener('click', () => {
         window.location.href = "./page/medicalstaff/medicalstaff-home.html";
     });
+
+    document.querySelector('#pop1').addEventListener('click',()=>{
+        console.log("show popup");
+        var popupBtns = [{text: "Thêm", enable: true},{text: "Sửa", enable: true},{text: "Xóa", enable: false}]
+        resultBtns = showPopupDialog("Cảnh báo","Bạn có muốn xóa tất cả bản ghi?", popupBtns );
+        resultBtns[0].addEventListener('click',()=>{
+            alert("thêm");
+        })
+        resultBtns[1].addEventListener('click',()=>{
+            alert("sửa");
+        })
+        resultBtns[2].addEventListener('click',()=>{
+            alert("xóa");
+        })
+    });
+
+    document.querySelector('#pop2').addEventListener('click',()=>{
+        hidePopupDialog();
+    })
 }
 
 function loadTable(columns, datas) {

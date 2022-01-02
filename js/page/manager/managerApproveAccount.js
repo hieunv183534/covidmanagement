@@ -1,26 +1,24 @@
-cilivianEpidemicSituation = null;
-
+managerApproveAccount = null;
 window.onload = () => {
-    cilivianEpidemicSituation = new CilivianEpidemicSituation();
+    managerApproveAccount = new ManagerApproveAccount();
 }
 
-class CilivianEpidemicSituation extends Base {
+
+class ManagerApproveAccount extends Base{
     constructor() {
         super();
-
-        this.count =100;
-        this.index =1;
-
         this.initEvent();
-        console.log(listColums.Unit);
-        console.log(JSON.parse(listDatas.Unit));
-        loadTable(listColums.Unit, JSON.parse(listDatas.Unit), 1);
+        loadTable(listColums.Account, listDatas.Account, 1);
         this.initEventTable();
+    }
+
+    initEvent(){
+        
     }
 
     tableRowOnDBClick(item){
         var popupBtns = [{text: "Đóng", enable: true},{text: "Xem các đơn vị con", enable: true},{text: "Xóa", enable: false}]
-         var btns = showPopupDialog("CilivianEpidemicSituation",item.unitName + " dzz",popupBtns );
+         var btns = showPopupDialog("CilivianEpidemicSituation",item.phoneNumber + " dzz",popupBtns );
          btns[0].addEventListener('click',()=>{
             hidePopupDialog();
          })
@@ -29,7 +27,4 @@ class CilivianEpidemicSituation extends Base {
         })
     }
 
-    initEvent() {
-    
-    }
 }

@@ -28,12 +28,12 @@ class NotificationApi extends BaseApi {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': localStorage['token']
+                'Authorization': sessionStorage.getItem('token')
             },
             body: JSON.stringify(body),
         };
 
-        return fetch(this.baseUrl + `${this.apiController}` + "addnotification", options).then(res => {
+        return fetch(this.baseUrl + `${this.apiController}` + "postnotification", options).then(res => {
             return res.json()
         });
     };
@@ -69,7 +69,7 @@ class NotificationApi extends BaseApi {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': localStorage['token']
+                'Authorization': sessionStorage.getItem('token')
             },
             body: JSON.stringify(body),
         };
@@ -84,7 +84,7 @@ class NotificationApi extends BaseApi {
      * @param {
      * index,
      * count, 
-     * } body 
+     * } query
      * @returns
      * +,Thành công
      * status: 200
@@ -92,11 +92,14 @@ class NotificationApi extends BaseApi {
             message: "Successful get notification",
             data: [
                 {
+                    type,
                     notificationId,
-                    title,
+				    title,
                     notificationContent,
-                    status,
                     timePost,
+                    unitName,
+                    posterName,
+                    unitDetal,
                 }
             ]
         } 
@@ -108,17 +111,16 @@ class NotificationApi extends BaseApi {
      * 
      * status: 500       
      */
-    get(body){
+    get(index,count){
         const options = {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': localStorage['token']
+                'Authorization': sessionStorage.getItem('token')
             },
-            body: JSON.stringify(body),
         };
 
-        return fetch(this.baseUrl + `${this.apiController}` + "getnotification", options).then(res => {
+        return fetch(this.baseUrl + `${this.apiController}getnotification?index=${index}&count=${count}`, options).then(res => {
             return res.json()
         });
     };
@@ -147,7 +149,7 @@ class NotificationApi extends BaseApi {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': localStorage['token']
+                'Authorization': sessionStorage.getItem('token')
             },
             body: JSON.stringify(body),
         };
@@ -162,7 +164,7 @@ class NotificationApi extends BaseApi {
      * @param {
      * index,
      * count, 
-     * } body 
+     * } query
      * @returns 
      * +, Thành công
      * status:200
@@ -170,10 +172,14 @@ class NotificationApi extends BaseApi {
 			message: "Successfully",
 			data: [
 			    {
+                    type,
                     notificationId,
 				    title,
                     notificationContent,
                     timePost,
+                    unitName,
+                    posterName,
+                    unitDetal,
                 },...
             ],
 		}
@@ -185,17 +191,16 @@ class NotificationApi extends BaseApi {
      * 
      * status: 500    
      */
-    getListNotification(body){
+    getListNotification(index,count){
         const options = {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': localStorage['token']
+                'Authorization': sessionStorage.getItem('token')
             },
-            body: JSON.stringify(body),
         };
 
-        return fetch(this.baseUrl + `${this.apiController}` + "getlistnotification", options).then(res => {
+        return fetch(this.baseUrl + `${this.apiController}getlistnotification?index=${index}&count=${count}`, options).then(res => {
             return res.json()
         });
     };
@@ -228,9 +233,8 @@ class NotificationApi extends BaseApi {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': localStorage['token']
+                'Authorization': sessionStorage.getItem('token')
             },
-            body: JSON.stringify(body),
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "browsingNotification", options).then(res => {
@@ -239,7 +243,7 @@ class NotificationApi extends BaseApi {
     };
 
     /**
-     * Lấy danh sách các thông báo của người cấp cao hơn hoặc bằng(cùng cấp phường, quận xã)
+     * Lấy danh sách các thông báo của nhân viên y tế cấp cao hơn hoặc bằng(cùng cấp phường, quận xã)
      * @param {
      * index,
      * count, 
@@ -251,9 +255,14 @@ class NotificationApi extends BaseApi {
 			message: "Successfully",
 			data: [
 			    {
+                    type,
+                    notificationId,
 				    title,
                     notificationContent,
                     timePost,
+                    unitName,
+                    posterName,
+                    unitDetal,
                 },...
             ],
 		}
@@ -265,17 +274,62 @@ class NotificationApi extends BaseApi {
      * 
      * status: 500    
      */
-    viewNotification(body){
+    viewMedicalNotification(index,count){
         const options = {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': localStorage['token']
+                'Authorization': sessionStorage.getItem('token')
             },
-            body: JSON.stringify(body),
         };
 
-        return fetch(this.baseUrl + `${this.apiController}` + "viewnotification", options).then(res => {
+        return fetch(this.baseUrl + `${this.apiController}viewmedicalnotification?index=${index}&count=${count}`, options).then(res => {
+            return res.json()
+        });
+    };
+
+    /**
+     * Lấy danh sách các thông báo của quản lý cấp cao hơn hoặc bằng(cùng cấp phường, quận xã)
+     * @param {
+     * index,
+     * count, 
+     * } body 
+     * @returns 
+     * +, Thành công
+     * status:200
+     * {
+			message: "Successfully",
+			data: [
+			    {
+                    type,
+                    notificationId,
+				    title,
+                    notificationContent,
+                    timePost,
+                    unitName,
+                    posterName,
+                    unitDetal,
+                },...
+            ],
+		}
+     * +, Thất bại
+     * status: 404
+     * {
+            message: "Have not notification",
+       }
+     * 
+     * status: 500    
+     */
+    viewAdminNotification(body){
+        const options = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': sessionStorage.getItem('token')
+            },
+        };
+
+        return fetch(this.baseUrl + `${this.apiController}viewadminnotification?index=${index}&count=${count}`, options).then(res => {
             return res.json()
         });
     };
@@ -293,10 +347,14 @@ class NotificationApi extends BaseApi {
 			message: "Successfully",
 			data: [
 			    {
+                    type,
                     notificationId,
 				    title,
                     notificationContent,
                     timePost,
+                    unitName,
+                    posterName,
+                    unitDetal,
                 },...
             ],
 		}
@@ -313,12 +371,11 @@ class NotificationApi extends BaseApi {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': localStorage['token']
+                'Authorization': sessionStorage.getItem('token')
             },
-            body: JSON.stringify(body),
         };
 
-        return fetch(this.baseUrl + `${this.apiController}` + "viewdifficultnotification", options).then(res => {
+        return fetch(this.baseUrl + `${this.apiController}viewdifficultnotification?index=${index}&count=${count}`, options).then(res => {
             return res.json()
         });
     };

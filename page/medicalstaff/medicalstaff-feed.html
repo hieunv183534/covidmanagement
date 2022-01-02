@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../../lib/fontawesome/css/all.css">
     <link rel="stylesheet" href="../../css/main.css">
     <link rel="stylesheet" href="../../css/layout/main-layout.css">
+    <link rel="stylesheet" href="../../css/layout/feed-layout.css">
 </head>
 
 <body>
@@ -81,28 +82,118 @@
                                 <i class="fas fa-check"></i>
                                 <p>Tin từ quản lí</p>
                             </div>
+                            <div class="dropdown-item" id="seftPost" valuename="Tin của bản thân">
+                                <i class="fas fa-check"></i>
+                                <p>Tin của bản thân</p>
+                            </div>
                         </div>
                     </div>
                 </span>
                 <span>
-                    <button class="button button-primary">
+                    <button class="button button-primary" id="btnAddNewPost">
                         <i class="fas fa-plus"></i>
                         Đăng bài mới
+                    </button>
+                    <button class="button button-secondary button-icon" id="btnRefresh">
+                        <i class="fas fa-sync-alt"></i>
                     </button>
                 </span>
             </div>
             <div class="content-content">
-                <div class="post-list">
+                <div class="container">
+                    <div class="post-list"  mode="default">
 
+                    </div>
+                    <div class="paging-bar">
+                        <div class="paging-bar-left">
+                            <p>Hiển thị 20 đến 40 <i>/</i> 63 bản ghi</p>
+                        </div>
+                        <div class="paging-bar-right">
+                            <div class="dropdown last-dropdown" style="border:none;">
+                                <button class="dropdown-main">
+                                    <p>100</p>
+                                    <div class="icon"><i class="fas fa-chevron-down"></i></div>
+                                </button>
+                                <div class="dropdown-data">
+                                    <div class="dropdown-item" valuename="200">
+                                        <i class="fas fa-check"></i>
+                                        <p>200</p>
+                                    </div>
+                                    <div class="dropdown-item item-selected" valuename="100">
+                                        <i class="fas fa-check"></i>
+                                        <p>100</p>
+                                    </div>
+                                    <div class="dropdown-item" valuename="50">
+                                        <i class="fas fa-check"></i>
+                                        <p>50</p>
+                                    </div>
+                                    <div class="dropdown-item" valuename="20">
+                                        <i class="fas fa-check"></i>
+                                        <p>20</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>bản ghi/trang</p>
+    
+                            <button class="pre-page">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="next-page">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <div class="dialog">
+        <div class="dialog-modal"></div>
+        <div class="form">
+            <div class="form-header">
+                <div class="form-title">
+                    <h2>Tạo bài viết</h2>
+                </div>
+                <div class="close-from"> <i class="fas fa-times"></i> </div>
+            </div>
+            <div class="form-body">
+                <div class="row">
+                    <div class="form-item divide-1-row">
+                        <div class="item-title">Tiêu đề bài viết:</div>
+                        <input type="text" class="input">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-item divide-1-row">
+                        <div class="item-title">Nội dung bài viết:</div>
+                        <div class="textarea-wrapper">
+                            <textarea></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-footer">
+                <button class="button button-primary">Đăng bài</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast-messenger" type="success" isShow="hide">
+        <i class="mes-icon fas fa-exclamation-circle"></i>
+        <i class="mes-icon fas fa-check-circle"></i>
+        <div class="mes-text">Thêm mới thành công</div>
+    </div>
+
+    <div class="loader" isShow="hide">
+        <div class="loader-modal"></div>
+        <div class="loader-icon"></div>
+    </div>
+
     <script src="../../js/model/dataList.js"></script>
     <script src="../../js/common/common.js"></script>
     <script src="../../js/page/base.js"></script>
-    <script src="../../js/page/cilivian/cilivianFeed.js"></script>
+    <script src="../../js/page/medicalstaff/medicalstaffFeed.js"></script>
 </body>
 
 </html>

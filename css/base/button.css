@@ -27,9 +27,9 @@
     background-color: #FA6000;
 }
 
-.button-primary:focus {
+/* .button-primary:focus {
     background-color: #FA6000;
-}
+} */
 
 .button-secondary {
     background-color: #fff;
@@ -41,6 +41,15 @@
     background-color: #EFF1F6;
 }
 
-.button-secondary:focus {
+/* .button-secondary:focus {
     background-color: #EFF1F6;
+} */
+
+.button-icon{
+    width: 40px !important;
+    min-width: 10px !important;
+}
+
+.button-icon i{
+    margin-left: 5px !important;
 }

@@ -1,10 +1,10 @@
-cilivianEpidemicSituation = null;
+managerEpidemicSituation = null;
 
 window.onload = () => {
-    cilivianEpidemicSituation = new CilivianEpidemicSituation();
+    managerEpidemicSituation = new ManagerEpidemicSituation();
 }
 
-class CilivianEpidemicSituation extends Base {
+class ManagerEpidemicSituation extends Base {
     constructor() {
         super();
 
@@ -18,6 +18,10 @@ class CilivianEpidemicSituation extends Base {
         this.initEventTable();
     }
 
+    initEvent() {
+    
+    }
+
     tableRowOnDBClick(item){
         var popupBtns = [{text: "Đóng", enable: true},{text: "Xem các đơn vị con", enable: true},{text: "Xóa", enable: false}]
          var btns = showPopupDialog("CilivianEpidemicSituation",item.unitName + " dzz",popupBtns );
@@ -27,9 +31,5 @@ class CilivianEpidemicSituation extends Base {
          btns[1].addEventListener('click',()=>{
             showToastMessenger('success',"load thành công!")
         })
-    }
-
-    initEvent() {
-    
     }
 }
