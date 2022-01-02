@@ -26,7 +26,7 @@
         <h5>ANTI COVID</h5>
     </div>
     <div class="container"> 
-        <div class="title">Đăng ký</div>
+        <div class="title">Đăng ký tài khoản:</div>
         <form class="" action="#">
             <div class="user-details">
                 <div class="input-box">
@@ -44,27 +44,82 @@
             </div>
 
             <div class="role ">
-                <span class="title">Chức vụ:</span>
+                <span class="item-title">Chức vụ:</span>
                 <br>
-                <div class="role-box">
-                    <div  class="role-button">
-                        <input class="radio-button2" type="radio" id="css" name="role" value="nguoi-thuong"> 
-                        <label for="javascript">Không </label>
+                <div class="radio-button-group2">
+                    <button class="radio-button" value="1" label="Không">
+                        <div class="radio-button-check"></div>
+                        <div class="radio-button-focus"></div>
+                    </button>
+                    <p>Không</p>
+                    <button class="radio-button" value="2" label="Nv">
+                        <div class="radio-button-check"></div>
+                        <div class="radio-button-focus"></div>
+                    </button>
+                    <p>Nhân viên y tế</p>
+                    <button class="radio-button" value="3" label="Ql">
+                        <div class="radio-button-check"></div>
+                        <div class="radio-button-focus"></div>
+                    </button>
+                    <p>Quản lý</p>
+                </div>  
+            </div>
+
+            <div class="unit">
+                <span class="item-title">Địa phương:</span>
+                <div class="row">
+                    <div class="form-item divide-3-row">
+                        <div class="pro-box">
+                            <button class="radio-button" value="1" label="Có">
+                            <div class="radio-button-check"></div>
+                            <div class="radio-button-focus"></div>
+                            </button>
+                        <div class="item-title">Tỉnh/Thành phố: </div>
+                        </div>
+                        <div id="cbbProvince" type="Province" local="1" class="combobox">
+                            <input type="text" class="input">
+                            <i class="fas fa-angle-down"></i>
+                        </div>                        
                     </div>
-                    <div class="role-button">
-                        <input class="radio-button2" type="radio" id="javascript" name="role" value="nhan-vien">
-                        <label for="javascript">Nhân viên y tế </label>
+                    <div class="form-item divide-3-row">
+                        <div class="pro-box">
+                            <button class="radio-button" value="1" label="Có">
+                            <div class="radio-button-check"></div>
+                            <div class="radio-button-focus"></div>
+                            </button>
+                            <div class="item-title">Quận/Huyện: </div>
+                        </div>
+                            <div id="cbbProvince" type="Province" local="1" class="combobox">
+                                <input type="text" class="input">
+                                <i class="fas fa-angle-down"></i>
+                            
+                        </div>
                     </div>
-                    <div class="role-button">
-                        <input class="radio-button2" type="radio" id="javascript" name="role" value="quan-ly">
-                        <label for="javascript">Quản lý</label>
+                    <div class="form-item divide-3-row">
+                        <div class="pro-box">
+                            <button class="radio-button" value="1" label="Có">
+                            <div class="radio-button-check"></div>
+                            <div class="radio-button-focus"></div>
+                            </button>
+                       
+                            <div class="item-title">Phường/xã: </div>
+                        </div>
+                            <div id="cbbProvince" type="Province" local="1" class="combobox">
+                                <input type="text" class="input">
+                                <i class="fas fa-angle-down"></i>
+                            </div>
+                        
                     </div>
-            </div>  
+                </div>  
+            </div>
+            
             <div class="bottom">
                 <a href="login.html">Đăng nhập</a>
                 <input class="button" type="submit" value="Đăng ký">
             </div>
+            
         </form>
     </div>
+    <script src="../../js/common/common.js"></script>
 </body>
 </html>

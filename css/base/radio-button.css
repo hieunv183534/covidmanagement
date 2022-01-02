@@ -70,6 +70,17 @@
     margin-left: 5px !important;
 }
 
+.radio-button-group2 {
+    height: 32px;
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    margin-left: 5px !important;
+}
+
+
 .radio-button-group p {
     font-size: 13px;
     line-height: 32px;
