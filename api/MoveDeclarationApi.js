@@ -1,5 +1,6 @@
 class MoveDeclarationApi extends BaseApi {
     constructor() {
+        super();
         this.apiController = "movedeclaration/";
     }
 
@@ -45,7 +46,11 @@ class MoveDeclarationApi extends BaseApi {
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "addmovedeclaration", options).then(res => {
-            return res.json()
+            if(res.ok){
+                return res.json();
+            }else{
+                return Promise.reject(res);
+            }
         });
     };
 
@@ -91,7 +96,11 @@ class MoveDeclarationApi extends BaseApi {
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "getmovedeclaration", options).then(res => {
-            return res.json()
+            if(res.ok){
+                return res.json();
+            }else{
+                return Promise.reject(res);
+            }
         });
     };
 
@@ -122,7 +131,11 @@ class MoveDeclarationApi extends BaseApi {
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "deletemovedeclaration", options).then(res => {
-            return res.json()
+            if(res.ok){
+                return res.json();
+            }else{
+                return Promise.reject(res);
+            }
         });
     };
 }

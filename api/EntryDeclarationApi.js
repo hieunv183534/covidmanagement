@@ -1,5 +1,6 @@
 class EntryDeclarationApi extends BaseApi {
     constructor() {
+        super();
         this.apiController = "entrydeclaration/";
     }
 
@@ -59,7 +60,11 @@ class EntryDeclarationApi extends BaseApi {
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "addentrydeclaration", options).then(res => {
-            return res.json()
+            if(res.ok){
+                return res.json();
+            }else{
+                return Promise.reject(res);
+            }
         });
     };
 
@@ -119,7 +124,11 @@ class EntryDeclarationApi extends BaseApi {
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "getentrydeclaration", options).then(res => {
-            return res.json()
+            if(res.ok){
+                return res.json();
+            }else{
+                return Promise.reject(res);
+            }
         });
     };
 
@@ -150,7 +159,11 @@ class EntryDeclarationApi extends BaseApi {
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "deleteentrydeclaration", options).then(res => {
-            return res.json()
+            if(res.ok){
+                return res.json();
+            }else{
+                return Promise.reject(res);
+            }
         });
     };
 }

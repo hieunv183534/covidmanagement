@@ -1,5 +1,6 @@
 class AccountApi extends BaseApi{
     constructor(){
+        super();
         this.apiController = "account/";
     }
 
@@ -42,7 +43,11 @@ class AccountApi extends BaseApi{
         };
 
         return fetch(this.baseUrl + `${this.apiController}getListMedical?index=${index}&count=${count}&keyword=${keyword}`, options).then(res => {
-            return res.json()
+            if(res.ok){
+                return res.json();
+            }else{
+                return Promise.reject(res);
+            }
         });
     };
 
@@ -85,7 +90,11 @@ class AccountApi extends BaseApi{
         };
 
         return fetch(this.baseUrl + `${this.apiController}getListAdmin?index=${index}&count=${count}&keyword=${keyword}`, options).then(res => {
-            return res.json()
+            if(res.ok){
+                return res.json();
+            }else{
+                return Promise.reject(res);
+            }
         });
     };
 
@@ -120,7 +129,11 @@ class AccountApi extends BaseApi{
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "accountbrowsing", options).then(res => {
-            return res.json()
+            if(res.ok){
+                return res.json();
+            }else{
+                return Promise.reject(res);
+            }
         });
     };
 }

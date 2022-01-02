@@ -1,6 +1,7 @@
-authApi = null;
 window.onload = () => {
     authApi = new AuthApi();
+    personApi = new PersonApi();
+    adminApi = new AdminApi();
     initEvent();
 }
 
@@ -10,17 +11,53 @@ function initEvent() {
             phoneNumber: "0971883025",
             password: "abcd1221"
         }
+        usernull = {
+            userId : "000"
+        }
         authApi.login(acc).then(res => {
             console.log(res);
             sessionStorage.setItem('token', "Bearer " + res.token);
-            window.location.href = "./page/cilivian/cilivian-home.html";
+            sessionStorage.setItem('unitDetail',res.unitDetail);
+            personApi.get().then(res=>{
+                console.log(res);
+                // sessionStorage.setItem('userinfo',JSON.stringify(usernull));
+                sessionStorage.setItem('userinfo',JSON.stringify(res.data));
+                window.location.href = "./page/cilivian/cilivian-home.html";
+            }).catch(error=>{
+                showToastMessenger('danger', "Có lỗi vui lòng thử lại sau!")
+            })
+            
         }).catch(error => {
+            console.log(error);
             showToastMessenger("danger","Tài khoản không hợp lệ hoặc chưa được duyệt");
         })
     });
 
     document.querySelector("#btnManager").addEventListener('click', () => {
-        window.location.href = "./page/manager/manager-home.html";
+        acc = {
+            phoneNumber: "0123456789",
+            password: "12345678"
+        }
+        usernull = {
+            userId : "000"
+        }
+        authApi.login(acc).then(res => {
+            console.log(res);
+            sessionStorage.setItem('token', "Bearer " + res.token);
+            sessionStorage.setItem('unitDetail',res.unitDetail);
+            adminApi.get().then(res=>{
+                console.log(res);
+                // sessionStorage.setItem('userinfo',JSON.stringify(usernull));
+                sessionStorage.setItem('userinfo',JSON.stringify(res.data));
+                window.location.href = "./page/manager/manager-home.html";
+            }).catch(error=>{
+                showToastMessenger('danger', "Có lỗi vui lòng thử lại sau!")
+            })
+            
+        }).catch(error => {
+            console.log(error);
+            showToastMessenger("danger","Tài khoản không hợp lệ hoặc chưa được duyệt");
+        })
     })
 
     document.querySelector("#btnMedicalStaff").addEventListener('click', () => {

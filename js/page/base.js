@@ -1,10 +1,18 @@
 ﻿unitApi = null;
 personApi = null;
 listUnitForCbb = null;
+authApi = null;
+notificationApi = null;
+
 
 class Base {
     constructor() {
         this.initEventBase();
+        this.index = 0;
+        this.count = 100;
+        this.total = null;
+        this.postMode = "add";
+        this.postId ="";
     }
 
     initEventBase() {
@@ -46,27 +54,23 @@ class Base {
             document.querySelectorAll('.paging-bar .dropdown-item').forEach(item => {
                 item.addEventListener('click', () => {
                     this.count = Number(item.getAttribute('valuename'));
-                    showToastMessenger('success',"count= "+ this.count);
+                    this.loadNotification(this.mode);
                 })
             });
 
-            document.querySelector(".paging-bar .next-page").addEventListener('click',()=>{
-                showToastMessenger('success',"trang sau");
+            document.querySelector(".paging-bar .next-page").addEventListener('click', () => {
+                this.index = this.index + this.count;
+                this.loadNotification(this.mode);
             });
 
-            document.querySelector(".paging-bar .pre-page").addEventListener('click',()=>{
-                showToastMessenger('success',"trang trước");
+            document.querySelector(".paging-bar .pre-page").addEventListener('click', () => {
+                if ((this.index - this.count) < 0) {
+                    this.index = 0;
+                } else {
+                    this.index = this.index - this.count;
+                    this.loadNotification(this.mode);
+                }
             });
-        };
-
-        if (document.querySelector("#btnRefresh")) {
-            document.querySelector("#btnRefresh").addEventListener("click", () => {
-                showLoader();
-                setTimeout(()=>{
-                    hideLoader();
-                    showToastMessenger('danger', "Refresh thất bại!");
-                },5000)
-            })
         };
 
         if (document.querySelector(".search-box")) {
@@ -76,6 +80,46 @@ class Base {
                 }
             })
         };
+
+
+        if (document.querySelector("#btnPostPost")) {
+            document.querySelector("#btnPostPost").addEventListener('click', () => {
+                
+                if (this.postMode == "add") {
+                    var newPost = {
+                        title: document.querySelector('#valueTitle').value,
+                        notificationContent: document.querySelector('#valueContent').value
+                    }
+                    notificationApi.add(newPost).then(res => {
+                        console.log(res);
+                        this.loadNotification(this.mode);
+                        document.querySelector('.dialog').classList.remove('d-block');
+                        showToastMessenger('success', 'Thêm thành công 1 thông báo mới!');
+                    }).catch(error => {
+                        console.log(error);
+                    });
+                } else {
+                    var newPost = {
+                        title: document.querySelector('#valueTitle').value,
+                        notificationContent: document.querySelector('#valueContent').value,
+                        notificationId: this.postId
+                    }
+                    notificationApi.update(newPost).then(res => {
+                        console.log(res);
+                        this.loadNotification(this.mode);
+                        document.querySelector('.dialog').classList.remove('d-block');
+                        showToastMessenger('success', 'Thông báo đã được cập nhật thành công!');
+                    }).catch(error => {
+                        console.log(error);
+                    });
+                }
+            })
+        }
+    }
+
+    reloadPagingInfo() {
+        document.querySelector('#pagingInfo').innerHTML =
+            `Hiển thị bản ghi từ ${this.index + 1} đến ${this.index+this.total}`;
     }
 
     menuItemOnClick(thisElement) {
@@ -93,21 +137,217 @@ class Base {
         }
     }
 
-    initEventTable(){
+    initEventTable() {
         var trs = document.querySelectorAll('tbody tr');
-        trs.forEach(tr=>{
-           tr.addEventListener('dblclick',()=>{
-               var item = JSON.parse(tr.getAttribute("myItem"));
-               this.tableRowOnDBClick(item);
-           }) 
+        trs.forEach(tr => {
+            tr.addEventListener('dblclick', () => {
+                var item = JSON.parse(tr.getAttribute("myItem"));
+                this.tableRowOnDBClick(item, tr);
+            })
         });
     }
 
-    loadUnit(unitCode,page,total){
-        unitApi.getById(unitCode,page, total).then(res=>{
-            console.log(res);
-        }).catch(error=>{
+    loadUnit(unitCode, page, total, keyword, keyListUnit) {
+        unitApi.getById(unitCode, page, total, keyword).then(res => {
+            console.log(res.data);
+            localStorage.setItem(keyListUnit, JSON.stringify(res.data));
+        }).catch(error => {
             console.log(error);
         })
+    };
+
+    loadUserInfo() {
+        document.querySelector('h2#unitDetail').innerHTML = sessionStorage.getItem('unitDetail');
+
+        var userinfo = JSON.parse(sessionStorage.getItem('userinfo'));
+        console.log(userinfo);
+        if (userinfo.userId !== "000") {
+            document.querySelector('p.display-user').innerHTML = userinfo.fullName;
+
+            document.querySelector('#valueFullName').value = userinfo.fullName;
+            document.querySelector('#valueDateOfBirth').value = Util.formatDateToValue(userinfo.dateOfBirth);
+            document.querySelector('#valueAddress').value = userinfo.address;
+            document.querySelector('#valueNationality').value = userinfo.nationality;
+            setValueForRBG(document.querySelector('#valueSex'), userinfo.Sex);
+            setValueForRBG(document.querySelector('#valueDiseaseStatus'), userinfo.diseaseStatus);
+
+            this.loadUnitCbbs(userinfo.addressCode);
+
+
+        } else {
+            var popupBtns = [{ text: "", enable: false }, { text: "Đồng ý", enable: true }, { text: "", enable: false }]
+            var btns = showPopupDialog("Thông báo!", "Vui lòng đăng kí thông tin trước khi sử dụng!", popupBtns);
+            btns[1].addEventListener('click', () => {
+                hidePopupDialog();
+                document.querySelector("#valueFullName").focus();
+            })
+        }
+    }
+
+    loadUnitCbbs(wardCode) {
+        var codeArr = wardCode.split('|');
+        let a = codeArr[1];
+        let b = codeArr[2];
+        let c = codeArr[3];
+
+        var districtCode = `|${a}|${b}|`;
+        var provinceCode = `|${a}|`;
+
+        setValueCbb(document.querySelector('#valueProvince'), provinceCode);
+        setValueCbb(document.querySelector('#valueDistrict'), districtCode);
+        setValueCbb(document.querySelector('#valueWard'), wardCode);
+    }
+
+    getUserInfo() {
+        personApi.get().then(res => {
+            sessionStorage.setItem('userinfo', JSON.stringify(res.data));
+            window.location.reload();
+        }).catch(error => {
+            showToastMessenger('danger', "Có lỗi vui lòng thử lại sau!")
+        })
+    }
+
+    initEventForPost() {
+        var btnDeletePosts = document.querySelectorAll('#btnDeletePost');
+        btnDeletePosts.forEach(btnDeletePost => {
+            btnDeletePost.addEventListener('click', () => {
+                var post = JSON.parse(btnDeletePost.parentElement.getAttribute('myPost'));
+                notificationApi.delete({ notificationId: post.notificationId }).then(res => {
+                    showToastMessenger('success', 'Xóa thành công thông báo!');
+                    btnDeletePost.parentElement.parentElement.remove();
+                }).catch(error => {
+                    console.log(error);
+                })
+            })
+        });
+
+        var btnUpdatePosts = document.querySelectorAll('#btnUpdatePost');
+        btnUpdatePosts.forEach(btnUpdatePost => {
+            btnUpdatePost.addEventListener('click', () => {
+                this.postMode = "update";
+                var post = JSON.parse(btnDeletePost.parentElement.getAttribute('myPost'));
+                this.postId = post.notificationId;
+                document.querySelector('#valueTitle').value = post.title;
+                document.querySelector('#valueContent').value = post.notificationContent;
+                document.querySelector('.dialog').classList.add('d-block');
+            })
+        })
+    }
+
+    loadNotification(mode) {
+        showLoader();
+        switch (mode) {
+            case 1:
+                notificationApi.viewDifficultNotification(this.index, this.count).then(res => {
+                    console.log(res.data);
+                    this.total = res.data.length;
+                    this.reloadPagingInfo();
+                    loadListPost(res.data);
+                }).catch(error => {
+                    console.log(error);
+                    hideLoader();
+                    if (error.status == 405) {
+                        if (this.index == 0) {
+                            loadListPost([]);
+                            showToastMessenger('success', "Không có bản ghi nào cả hiuhiu!");
+                        } else {
+                            showToastMessenger('danger', "Bạn đã đến trang cuối mất rồi!");
+                            this.index = this.index - this.count;
+                        }
+                    } else {
+                        showToastMessenger('danger', "Đã có lỗi, vui lòng thử lại sau!");
+                    }
+                })
+                break;
+            case 2:
+                notificationApi.viewMedicalNotification(this.index, this.count).then(res => {
+                    console.log(res.data);
+                    this.total = res.data.length;
+                    this.reloadPagingInfo();
+                    loadListPost(res.data);
+                }).catch(error => {
+                    console.log(error);
+                    hideLoader();
+                    if (error.status == 405) {
+                        if (this.index == 0) {
+                            loadListPost([]);
+                            showToastMessenger('success', "Không có bản ghi nào cả hiuhiu!");
+                        } else {
+                            showToastMessenger('danger', "Bạn đã đến trang cuối mất rồi!");
+                            this.index = this.index - this.count;
+                        }
+                    } else {
+                        showToastMessenger('danger', "Đã có lỗi, vui lòng thử lại sau!");
+                    }
+                })
+                break;
+            case 3:
+                notificationApi.viewAdminNotification(this.index, this.count).then(res => {
+                    console.log(res.data);
+                    this.total = res.data.length;
+                    this.reloadPagingInfo();
+                    loadListPost(res.data);
+                }).catch(error => {
+                    console.log(error);
+                    hideLoader();
+                    if (error.status == 405) {
+                        if (this.index == 0) {
+                            loadListPost([]);
+                            showToastMessenger('success', "Không có bản ghi nào cả hiuhiu!");
+                        } else {
+                            showToastMessenger('danger', "Bạn đã đến trang cuối mất rồi!");
+                            this.index = this.index - this.count;
+                        }
+                    } else {
+                        showToastMessenger('danger', "Đã có lỗi, vui lòng thử lại sau!");
+                    }
+                })
+                break;
+            case 4:
+                notificationApi.get(this.index, this.count).then(res => {
+                    console.log(res.data);
+                    this.total = res.data.length;
+                    this.reloadPagingInfo();
+                    loadListPost(res.data);
+                    this.initEventForPost();
+                }).catch(error => {
+                    console.log(error);
+                    hideLoader();
+                    if (error.status == 405) {
+                        if (this.index == 0) {
+                            loadListPost([]);
+                            showToastMessenger('success', "Không có bản ghi nào cả hiuhiu!");
+                        } else {
+                            showToastMessenger('danger', "Bạn đã đến trang cuối mất rồi!");
+                            this.index = this.index - this.count;
+                        }
+                    } else {
+                        showToastMessenger('danger', "Đã có lỗi, vui lòng thử lại sau!");
+                    }
+                })
+                break;
+            case 5:
+                notificationApi.getListNotification(this.index, this.count).then(res => {
+                    console.log(res.data);
+                    this.total = res.data.length;
+                    this.reloadPagingInfo();
+                    loadListPost(res.data);
+                    this.initEventForPost();
+                }).catch(error => {
+                    console.log(error);
+                    hideLoader();
+                    if (error.status == 405) {
+                        if (this.index == 0) {
+                            loadListPost([]);
+                            showToastMessenger('success', "Không có bản ghi nào cả hiuhiu!");
+                        } else {
+                            showToastMessenger('danger', "Bạn đã đến trang cuối mất rồi!");
+                            this.index = this.index - this.count;
+                        }
+                    } else {
+                        showToastMessenger('danger', "Đã có lỗi, vui lòng thử lại sau!");
+                    }
+                });
+        }
     }
 }

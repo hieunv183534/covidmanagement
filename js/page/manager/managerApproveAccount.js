@@ -16,14 +16,16 @@ class ManagerApproveAccount extends Base{
         
     }
 
-    tableRowOnDBClick(item){
+    tableRowOnDBClick(item, thisTr){
         var popupBtns = [{text: "Đóng", enable: true},{text: "Xem các đơn vị con", enable: true},{text: "Xóa", enable: false}]
          var btns = showPopupDialog("CilivianEpidemicSituation",item.phoneNumber + " dzz",popupBtns );
          btns[0].addEventListener('click',()=>{
             hidePopupDialog();
          })
-         btns[1].addEventListener('click',()=>{
-            showToastMessenger('success',"load thành công!")
+         btns[1].addEventListener('click',()=>{ 
+            console.log(thisTr);
+            showToastMessenger('success',"load thành công!");
+            thisTr.remove();
         })
     }
 

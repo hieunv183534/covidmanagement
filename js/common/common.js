@@ -16,10 +16,11 @@ if (cbbs) {
         element.addEventListener('click', (e) => {
             var top = e.target.getBoundingClientRect().top + 37;
             var left = e.target.getBoundingClientRect().left;
+            var width = e.target.offsetWidth;
             console.log(top + "    " + left);
             dataList.setAttribute('forCbbId', element.parentElement.getAttribute('id'));
-            loadComboboxList(element.parentElement.getAttribute('type'), element.parentElement.getAttribute('local'), element.parentElement.getAttribute('id'));
-            dataList.style.cssText = `left: ${left}px; top: ${top}px;`;
+            loadComboboxList(element.parentElement.getAttribute('type'), element.parentElement.getAttribute('id'));
+            dataList.style.cssText = `left: ${left}px; top: ${top}px; width: ${width}px;`;
             dataList.classList.add('data-list-show');
         });
 
@@ -32,7 +33,6 @@ if (cbbs) {
 
     function eventForItem() {
         var items = document.querySelectorAll('.data-list .data-item');
-        console.log(items);
         items.forEach(element => {
             element.addEventListener('click', () => {
                 items.forEach(item => {
@@ -43,30 +43,52 @@ if (cbbs) {
                 document.querySelector(`#${element.parentElement.getAttribute('forCbbId')}`).querySelector('.input').value = element.getAttribute('valuename');
                 document.querySelector(`#${element.parentElement.getAttribute('forCbbId')}`).setAttribute('value', element.getAttribute('valueid'));
 
-                // if (document.querySelector(`#${element.parentElement.getAttribute('forCbbId')}`).getAttribute('id') == 'cbbDeclarationType') {
-                //     cilivianDeclaration.chooseDeclarationType(element.getAttribute('valueid'));
-                // }
+                
+                if (element.getAttribute('valuetype') !== "w") {
+                    showLoader();
+                    // load list unit con cho unit vừa đc chọn
+                    unitApi.getById(element.getAttribute('valueid'), 1, 70, "").then(res => {
+                        console.log(res.data);
+                        res.data.shift();
+                        if (element.getAttribute('valuetype') == "p") {
+                            localStorage.setItem("listDistrict", JSON.stringify(res.data));
+                            document.querySelector('#valueDistrict input').value = "Chọn quận,huyện";
+                            document.querySelector('#valueWard input').value = "Chọn xã,phường";
+                        } else if (element.getAttribute('valuetype') == "d") {
+                            localStorage.setItem("listWard", JSON.stringify(res.data));
+                            document.querySelector('#valueWard input').value = "Chọn xã,phường";
+                        }
+                        hideLoader();
+                    }).catch(error => {
+                        console.log(error);
+                    })
+                }
             });
         })
     };
 
-    function loadComboboxList(type, local, idCbb) {
-        console.log(type + '   ' + local);
+    function loadComboboxList(type, idCbb) {
         var dataList = document.querySelector('.data-list');
         dataList.innerHTML = '';
-        if (local == '1') {
-            listDatas[`${type}`].forEach(element => {
-                if (element.id == document.querySelector(`#${idCbb}`).getAttribute('value')) {
-                    dataList.append(parseHTML(`<div class="data-item item-active" valueid="${element.id}" valuename="${element.name}" >${element.name}</div>`));
-                } else {
-                    dataList.append(parseHTML(`<div class="data-item" valueid="${element.id}" valuename="${element.name}" >${element.name}</div>`));
-                }
-            });
-            eventForItem();
-        }else{
-            
-        }
+        listCbbData = JSON.parse(localStorage.getItem(`list${type}`));
+        listCbbData.forEach(element => {
+            if (element.unitCode == document.querySelector(`#${idCbb}`).getAttribute('value')) {
+                dataList.append(parseHTML(`<div class="data-item item-active" valueid="${element.unitCode}" valuename="${element.unitName}" valuetype="${element.type}">${element.unitName}</div>`));
+            } else {
+                dataList.append(parseHTML(`<div class="data-item" valueid="${element.unitCode}" valuename="${element.unitName}" valuetype="${element.type}">${element.unitName}</div>`));
+            }
+        });
+        eventForItem();
     };
+};
+
+function setValueCbb(cbbElement, value) {
+    cbbElement.setAttribute('value', value)
+    unitApi.getSingleUnitInfo(value).then(res => {
+        cbbElement.querySelector('input').value = res.data.unitName;
+    }).catch(error => {
+        console.log(error);
+    })
 }
 
 //----------------------------------------------------------------------------------------------------------------------------
@@ -103,7 +125,7 @@ function loadTable(columns, datas, startIndex) {
     var tbody = parseHTML('<tbody></tbody>');
     datas.forEach(item => {
         var tr = parseHTML(`<tr></tr>`);
-        tr.setAttribute("myItem",JSON.stringify(item));
+        tr.setAttribute("myItem", JSON.stringify(item));
         tr.append(parseHTML(`<td style="text-align: right;">
         <div class="checkbox" value="0">
         <i class="fas fa-check"></i>
@@ -155,11 +177,11 @@ function initEventCheckboxTable() {
 //-------------------------------loader-----------------------------------------------------------------------------------
 var loader = document.querySelector('.loader');
 
-function showLoader(){
+function showLoader() {
     loader.setAttribute('isShow', 'show');
 }
 
-function hideLoader(){
+function hideLoader() {
     loader.setAttribute('isShow', 'hide');
 }
 
@@ -198,7 +220,39 @@ if (radioButtons) {
             }
         });
     });
+};
+
+function setValueForRBG( RbgEle,newValue) {
+    newValue = newValue + "";
+    rbs = RbgEle.querySelectorAll(".radio-button");
+    rbs.forEach(rb => {
+        rb.setAttribute('value', '0');
+        if (rb.getAttribute('label') == newValue) {
+            rb.setAttribute('value', '1');
+        }
+    })
+};
+
+function getValueRGB(RbgEle) {
+    value = RbgEle.getAttribute('value');
+    datatype = RbgEle.getAttribute('datatype');
+    switch (datatype) {
+        case 'number':
+            value = Number(value);
+            break;
+        case 'boolean':
+            if (value === 'true') {
+                value = true;
+            } else {
+                value = false;
+            }
+            break;
+        case 'string':
+            break;
+    }
+    return value;
 }
+
 //---------------------------------------------------------------------------------------------------------------------
 //---------------post--------------------------------------------------------------------------------------------------
 function loadListPost(posts) {
@@ -209,34 +263,38 @@ function loadListPost(posts) {
         <div class="post-header">
             <div class="left">
                 <p class="poster">${post.posterName}</p>
-                <p class="post-time">${post.time}</p>
+                <p class="post-time">${Util.formatDateTime(post.timePost)}</p>
             </div>
             <div class="right">
                 <i class="fas fa-map-marker-alt"></i>
-                <div class="post-position">${post.unitName}</div>
+                <div class="post-position">${post.unitDetail}</div>
             </div>
             
         </div>
         <div class="post-body">
             <h2 class="post-title">${post.title}</h2>
-            <p class="post-content">${post.content}</p>
-        </div>
-        <div class="post-footer">
-            <button class="button button-primary" id="btnUpdatePost">Chỉnh sửa</button>
-            <button class="button button-secondary" id="btnDeletePost">Xóa</button>
-            <button class="button button-primary" id="btnApprovePost">Duyệt</button>
-            <button class="button button-secondary" id="btnRefusePost">Từ chối</button>
+            <p class="post-content">${post.notificationContent}</p>
         </div>
     </div>`);
+
+        var postFooter = parseHTML(`<div class="post-footer">
+        <button class="button button-primary" id="btnUpdatePost">Chỉnh sửa</button>
+        <button class="button button-secondary" id="btnDeletePost">Xóa</button>
+        <button class="button button-primary" id="btnApprovePost">Duyệt</button>
+        <button class="button button-secondary" id="btnRefusePost">Từ chối</button>
+        </div>`);
+        postFooter.setAttribute('myPost', JSON.stringify(post));
+        postEle.append(postFooter);
         postList.append(postEle);
     });
+    hideLoader();
 }
 //---------------------------------------------------------------------------------------------------------------------
 //------------------dropdown-------------------------------------------------------------------------------------------
 var dropdownmains = document.querySelectorAll('.dropdown-main');
 if (dropdownmains) {
 
-    dropdownmains.forEach(dropdownmain=>{
+    dropdownmains.forEach(dropdownmain => {
         dropdownmain.addEventListener('click', () => {
             dropdownmain.parentElement.querySelector('.dropdown-data').classList.add('dropdown-data-show');
         });

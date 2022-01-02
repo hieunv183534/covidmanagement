@@ -65,16 +65,16 @@ class UnitApi extends BaseApi{
      * }
      */
 
-    getSingleUnitInfo(){
+    getSingleUnitInfo(unit){
         const options = {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': localStorage['token']
+                'Authorization': sessionStorage.getItem('token')
             },
         };
 
-        return fetch(this.baseUrl + `${this.apiController}/unit-single/${unit}`, options).then(res => {
+        return fetch(this.baseUrl + `${this.apiController}unit-single?unit=${unit}`, options).then(res => {
             if(res.ok){
                 return res.json();
             }else{
@@ -108,7 +108,7 @@ class UnitApi extends BaseApi{
      *  err
      * }
      */
-    update(body) {
+    update(body,unit) {
         const options = {
             method: 'PUT',
             headers: {
@@ -118,7 +118,7 @@ class UnitApi extends BaseApi{
             body: JSON.stringify(body),
         };
 
-        return fetch(this.baseUrl + `${this.apiController}/unit-update/${unit}`, options).then(res => {
+        return fetch(this.baseUrl + `${this.apiController}/unit-update?unit=${unit}`, options).then(res => {
             if(res.ok){
                 return res.json();
             }else{

@@ -9,32 +9,35 @@ window.onload = () => {
 class CilivianHome extends Base {
     constructor() {
         super();
-        this.initEvent();
         this.loadUserInfo();
+        this.initEvent();
     }
 
     initEvent() {
+        document.querySelector('#btnUpdateUserInfo').addEventListener('click', () => {
 
-    }
+            var newInfo={
+                fullName: document.querySelector('#valueFullName').value,
+                dateOfBirth: new Date(document.querySelector('#valueDateOfBirth').value) ,
+                address: document.querySelector('#valueAddress').value,
+                nationality: document.querySelector('#valueNationality').value,
+                Sex: getValueRGB(document.querySelector('#valueSex')),
+                diseaseStatus: getValueRGB(document.querySelector('#valueDiseaseStatus')),
+                addressCode: document.querySelector('#valueWard').getAttribute('value')
+            }
+            console.log(newInfo);
 
-    loadUserInfo() {
-        personApi.get().then(res => {
-            console.log(res);
-            document.querySelector('p.display-user').innerHTML = res.data.fullName;
-            this.loadUnit("|",1,70);
-        }).catch(error => {
-            
-            console.log(error);
-            var popupBtns = [{ text: "Đóng", enable: false }, { text: "Đồng ý", enable: true }, { text: "Xóa", enable: false }]
-            var btns = showPopupDialog("Thông báo!", "Bạn chưa đăng kí thông tin cá nhân. Vui lòng đăng kí trước khi sửa dụng!", popupBtns);
-            btns[0].addEventListener('click', () => {
-                hidePopupDialog();
-            })
-            btns[1].addEventListener('click', () => {
-                document.querySelector("#valueFullName").focus();
-                hidePopupDialog();
-            })
-        })
+            var userinfo = JSON.parse(sessionStorage.getItem('userinfo'));
+            if (userinfo.userId === "000"){
+
+            }else{
+                personApi.update(newInfo).then(res=>{
+                    showToastMessenger('success',"Cập nhật thông tin thành công!");
+                    this.getUserInfo();
+                }).catch(error=>{
+                    console.log(error);
+                })
+            }
+        });
     }
-    
 }

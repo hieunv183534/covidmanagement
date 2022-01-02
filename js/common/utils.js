@@ -5,11 +5,11 @@ class Util {
 
     /**--------------------------------------------------------------------------------------
     * Hàm format ngày tháng
-    * dạng ngày/tháng/năm
+    * dạng giờ:phút ngày/tháng/năm
     * @param {any} _date
     * Author: hieunv 
     */
-     static formatDate(_date) {
+     static formatDateTime(_date) {
         if (_date != null) {
             var date = new Date(_date);
             var day = date.getDate();
@@ -17,7 +17,13 @@ class Util {
             var month = date.getMonth() + 1;
             month = (month < 10) ? '0' + month : month;
             var year = date.getFullYear();
-            return day + '/' + month + '/' + year;
+
+            var hour = date.getHours();
+            hour = (hour < 10) ? '0' + hour : hour;
+            var minit = date.getMinutes();
+            minit = (minit < 10) ? '0' + minit : minit;
+
+            return hour+":"+ minit+" "+ day + '/' + month + '/' + year;
         }
         else {
             return '';

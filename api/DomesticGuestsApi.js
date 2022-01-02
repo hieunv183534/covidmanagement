@@ -1,5 +1,6 @@
 class DomesticGuestsApi extends BaseApi {
     constructor() {
+        super();
         this.apiController = "domesticguests/";
     }
     
@@ -39,7 +40,11 @@ class DomesticGuestsApi extends BaseApi {
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "adddomesticguests", options).then(res => {
-            return res.json()
+            if(res.ok){
+                return res.json();
+            }else{
+                return Promise.reject(res);
+            }
         });
     };
 
@@ -79,7 +84,11 @@ class DomesticGuestsApi extends BaseApi {
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "getdomesticquest", options).then(res => {
-            return res.json()
+            if(res.ok){
+                return res.json();
+            }else{
+                return Promise.reject(res);
+            }
         });
     };
 
@@ -110,7 +119,11 @@ class DomesticGuestsApi extends BaseApi {
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "deletedomesticquest", options).then(res => {
-            return res.json()
+            if(res.ok){
+                return res.json();
+            }else{
+                return Promise.reject(res);
+            }
         });
     };
 }

@@ -1,5 +1,6 @@
 class NotificationApi extends BaseApi {
     constructor() {
+        super();
         this.apiController = "notification/";
     }
 
@@ -34,7 +35,11 @@ class NotificationApi extends BaseApi {
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "postnotification", options).then(res => {
-            return res.json()
+            if(res.ok){
+                return res.json();
+            }else{
+                return Promise.reject(res);
+            }
         });
     };
 
@@ -75,7 +80,11 @@ class NotificationApi extends BaseApi {
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "editnotification", options).then(res => {
-            return res.json()
+            if(res.ok){
+                return res.json();
+            }else{
+                return Promise.reject(res);
+            }
         });
     };
 
@@ -121,7 +130,11 @@ class NotificationApi extends BaseApi {
         };
 
         return fetch(this.baseUrl + `${this.apiController}getnotification?index=${index}&count=${count}`, options).then(res => {
-            return res.json()
+            if(res.ok){
+                return res.json();
+            }else{
+                return Promise.reject(res);
+            }
         });
     };
 
@@ -155,7 +168,11 @@ class NotificationApi extends BaseApi {
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "deletenotification", options).then(res => {
-            return res.json()
+            if(res.ok){
+                return res.json();
+            }else{
+                return Promise.reject(res);
+            }
         });
     };
 
@@ -201,7 +218,11 @@ class NotificationApi extends BaseApi {
         };
 
         return fetch(this.baseUrl + `${this.apiController}getlistnotification?index=${index}&count=${count}`, options).then(res => {
-            return res.json()
+            if(res.ok){
+                return res.json();
+            }else{
+                return Promise.reject(res);
+            }
         });
     };
 
@@ -238,7 +259,11 @@ class NotificationApi extends BaseApi {
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "browsingNotification", options).then(res => {
-            return res.json()
+            if(res.ok){
+                return res.json();
+            }else{
+                return Promise.reject(res);
+            }
         });
     };
 
@@ -284,7 +309,11 @@ class NotificationApi extends BaseApi {
         };
 
         return fetch(this.baseUrl + `${this.apiController}viewmedicalnotification?index=${index}&count=${count}`, options).then(res => {
-            return res.json()
+            if(res.ok){
+                return res.json();
+            }else{
+                return Promise.reject(res);
+            }
         });
     };
 
@@ -320,7 +349,7 @@ class NotificationApi extends BaseApi {
      * 
      * status: 500    
      */
-    viewAdminNotification(body){
+    viewAdminNotification(index,count){
         const options = {
             method: 'GET',
             headers: {
@@ -330,7 +359,11 @@ class NotificationApi extends BaseApi {
         };
 
         return fetch(this.baseUrl + `${this.apiController}viewadminnotification?index=${index}&count=${count}`, options).then(res => {
-            return res.json()
+            if(res.ok){
+                return res.json();
+            }else{
+                return Promise.reject(res);
+            }
         });
     };
 
@@ -366,7 +399,7 @@ class NotificationApi extends BaseApi {
      * 
      * status: 500    
      */
-    viewDifficultNotification(body){
+    viewDifficultNotification(index,count){
         const options = {
             method: 'GET',
             headers: {
@@ -376,7 +409,11 @@ class NotificationApi extends BaseApi {
         };
 
         return fetch(this.baseUrl + `${this.apiController}viewdifficultnotification?index=${index}&count=${count}`, options).then(res => {
-            return res.json()
+            if(res.ok){
+                return res.json();
+            }else{
+                return Promise.reject(res);
+            }
         });
     };
 

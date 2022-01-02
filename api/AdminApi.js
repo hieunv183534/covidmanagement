@@ -1,5 +1,6 @@
 class AdminApi extends BaseApi {
     constructor() {
+        super();
         this.apiController = "admininfo/";
     }
 
@@ -40,7 +41,11 @@ class AdminApi extends BaseApi {
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "addAdmin", options).then(res => {
-            return res.json()
+            if(res.ok){
+                return res.json();
+            }else{
+                return Promise.reject(res);
+            }
         });
     };
 
@@ -81,7 +86,11 @@ class AdminApi extends BaseApi {
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "editAdmin", options).then(res => {
-            return res.json()
+            if(res.ok){
+                return res.json();
+            }else{
+                return Promise.reject(res);
+            }
         });
     };
 
@@ -121,8 +130,12 @@ class AdminApi extends BaseApi {
             },
         };
 
-        return fetch(this.baseUrl + `${this.apiController}` + "getPerson", options).then(res => {
-            return res.json()
+        return fetch(this.baseUrl + `${this.apiController}` + "getAdmin", options).then(res => {
+            if(res.ok){
+                return res.json();
+            }else{
+                return Promise.reject(res);
+            }
         });
     };
 
@@ -151,7 +164,11 @@ class AdminApi extends BaseApi {
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "deletePerson", options).then(res => {
-            return res.json()
+            if(res.ok){
+                return res.json();
+            }else{
+                return Promise.reject(res);
+            }
         });
     };
 }
