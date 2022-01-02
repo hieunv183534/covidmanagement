@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-
-    body{
-=======
-    body {
->>>>>>> main
-        display: flex;
-        height: 100vh;
-        justify-content: center;
-        align-items: center;
-        padding: 10px;
-
-    }
-
     .container {
         max-width: 500px;
         width: 100%;
@@ -20,14 +6,9 @@
         border-radius: 5px;
         background-color: rgb(243, 239, 239);
     }
-<<<<<<< HEAD
-    .container .title{
-        font-size: 20px;
-=======
 
     .container .title {
         font-size: 18px;
->>>>>>> main
         font-weight: 500;
         position: relative;
     }
@@ -90,47 +71,6 @@
         font-size: 14px;
         transition: all 0.5s;
         cursor: pointer;
-<<<<<<< HEAD
-        box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
-    }
-
-    form .button{
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.5s;
-    }
-
-    form .button:after {
-    content: '»';
-    position: absolute;
-    opacity: 0;  
-    top: 14px;
-    right: -5px;
-    transition: 0.5s;
-    }
-
-    form .button:hover{
-    padding-right: 24px;
-    padding-left:8px;
-    }
-
-    form .button:hover:after {
-    opacity: 1;
-    right: 10px;
-    }
-    .bottom{
-        display: flex;
-        justify-content: space-between;
-    }
-    .pro-box{
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-    }
-    .pro-box .item-title{
-        font-size: 14px;
-=======
         box-shadow: 0 10px 20px -8px rgba(0, 0, 0, .7);
     }
 
@@ -163,5 +103,12 @@
     .bottom {
         display: flex;
         justify-content: space-between;
->>>>>>> main
+    }
+    .pro-box{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    .pro-box .item-title{
+        font-size: 14px;
     }
