@@ -29,7 +29,12 @@ class CilivianHome extends Base {
 
             var userinfo = JSON.parse(sessionStorage.getItem('userinfo'));
             if (userinfo.userId === "000"){
-
+                personApi.add(newInfo).then(res=>{
+                    showToastMessenger('success',"Thêm thông tin thành công!");
+                    this.getUserInfo();
+                }).catch(error=>{
+                    console.log(error);
+                })
             }else{
                 personApi.update(newInfo).then(res=>{
                     showToastMessenger('success',"Cập nhật thông tin thành công!");
@@ -39,5 +44,14 @@ class CilivianHome extends Base {
                 })
             }
         });
+    }
+
+    getUserInfo() {
+        personApi.get().then(res => {
+            sessionStorage.setItem('userinfo', JSON.stringify(res.data));
+            window.location.reload();
+        }).catch(error => {
+            showToastMessenger('danger', "Có lỗi vui lòng thử lại sau!")
+        })
     }
 }

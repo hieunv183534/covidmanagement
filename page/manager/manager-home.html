@@ -44,7 +44,7 @@
         <div class="content-header">
             <div class="content-header-left">
                 <i class="fas fa-user-cog"></i>
-                <h2>| PHƯỜNG ĐỒNG TÂM</h2>
+                <h2>|</h2><h2 id="unitDetail"></h2>
             </div>
             <div class="content-header-right">
                 <div class="notification">
@@ -52,7 +52,7 @@
                 </div>
                 <button class="user">
                     <div class="avatar"></div>
-                    <p class="display-user">Nguyễn Văn Hiếu</p>
+                    <p class="display-user"></p>
                     <i class="fas fa-angle-down"></i>
                 </button>
                 <div class="list-option">
@@ -75,28 +75,28 @@
                     <div class="row">
                         <div class="form-item divide-2-row">
                             <div class="item-title">Họ và tên:</div>
-                            <input type="text" class="input">
+                            <input type="text" class="input" id="valueFullName">
                         </div>
                         <div class="form-item divide-2-row">
                             <div class="item-title">Ngày sinh: </div>
-                            <input type="date" class="input">
+                            <input type="date" class="input" id="valueDateOfBirth">
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-item divide-3-row">
                             <div class="item-title">Giới tính</div>
-                            <div class="radio-button-group">
-                                <button class="radio-button" value="1" label="Nam">
+                            <div class="radio-button-group" id="valueSex" datatype="number" value="1">
+                                <button class="radio-button" value="1" label="1">
                                     <div class="radio-button-check"></div>
                                     <div class="radio-button-focus"></div>
                                 </button>
                                 <p>Nam</p>
-                                <button class="radio-button" value="0" label="Nữ">
+                                <button class="radio-button" value="0" label="2">
                                     <div class="radio-button-check"></div>
                                     <div class="radio-button-focus"></div>
                                 </button>
                                 <p>Nữ</p>
-                                <button class="radio-button" value="0" label="Không">
+                                <button class="radio-button" value="0" label="0">
                                     <div class="radio-button-check"></div>
                                     <div class="radio-button-focus"></div>
                                 </button>
@@ -105,11 +105,11 @@
                         </div>
                         <div class="form-item divide-3-row">
                             <div class="item-title">Quốc tịch:</div>
-                            <input type="text" class="input">
+                            <input type="text" class="input" id="valueNationality">
                         </div>
                         <div class="form-item divide-3-row">
-                            <div class="item-title">Thông tin dịch tễ(F0, F1, F2):  </div>
-                            <div class="radio-button-group">
+                            <div class="item-title">Thông tin dịch tễ(F0, F1, F2): </div>
+                            <div class="radio-button-group" id="valueDiseaseStatus" datatype="string" value="FX">
                                 <button class="radio-button" value="0" label="F0">
                                     <div class="radio-button-check"></div>
                                     <div class="radio-button-focus"></div>
@@ -125,32 +125,32 @@
                                     <div class="radio-button-focus"></div>
                                 </button>
                                 <p>F2</p>
-                                <button class="radio-button" value="1" label="Fx">
+                                <button class="radio-button" value="1" label="FX">
                                     <div class="radio-button-check"></div>
                                     <div class="radio-button-focus"></div>
                                 </button>
                                 <p>Không</p>
-                            </div>                
+                            </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-item divide-3-row">
                             <div class="item-title">Tỉnh/Thành phố: </div>
-                            <div id="cbbProvince" type="Province" local="1" class="combobox">
+                            <div id="valueProvince" type="Province" class="combobox">
                                 <input type="text" class="input">
                                 <i class="fas fa-angle-down"></i>
-                            </div>                        
+                            </div>
                         </div>
                         <div class="form-item divide-3-row">
                             <div class="item-title">Quận/Huyện: </div>
-                            <div id="cbbProvince" type="Province" local="1" class="combobox">
+                            <div id="valueDistrict" type="District" class="combobox">
                                 <input type="text" class="input">
                                 <i class="fas fa-angle-down"></i>
                             </div>
                         </div>
                         <div class="form-item divide-3-row">
                             <div class="item-title">Phường/xã: </div>
-                            <div id="cbbProvince" type="Province" local="1" class="combobox">
+                            <div id="valueWard" type="Ward" class="combobox">
                                 <input type="text" class="input">
                                 <i class="fas fa-angle-down"></i>
                             </div>
@@ -158,10 +158,10 @@
                     </div>
                     <div class="row">
                         <div class="form-item divide-1-row">
-                            <div class="item-title">Địa chỉ cụ thể:  </div>
+                            <div class="item-title">Địa chỉ cụ thể: </div>
                             <div class="textarea-wrapper">
-                                <textarea></textarea>
-                            </div>                    
+                                <textarea id="valueAddress"></textarea>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -169,7 +169,7 @@
                     </div>
                 </div>
                 <div class="form-footer">
-                    <button class="button button-primary">Cập nhật thông tin</button>
+                    <button class="button button-primary" id="btnUpdateUserInfo">Cập nhật thông tin</button>
                 </div>
             </div>
         </div>
@@ -191,6 +191,9 @@
 
     <script src="../../js/common/utils.js"></script>
     <script src="../../js/common/common.js"></script>
+    <script src="../../api/BaseApi.js"></script>
+    <script src="../../api/UnitApi.js"></script>
+    <script src="../../api/AdminApi.js"></script>
     <script src="../../js/page/base.js"></script>
     <script src="../../js/page/manager/managerHome.js"></script>
 </body>

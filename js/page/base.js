@@ -198,14 +198,7 @@ class Base {
         setValueCbb(document.querySelector('#valueWard'), wardCode);
     }
 
-    getUserInfo() {
-        personApi.get().then(res => {
-            sessionStorage.setItem('userinfo', JSON.stringify(res.data));
-            window.location.reload();
-        }).catch(error => {
-            showToastMessenger('danger', "Có lỗi vui lòng thử lại sau!")
-        })
-    }
+    
 
     initEventForPost() {
         var btnDeletePosts = document.querySelectorAll('#btnDeletePost');
