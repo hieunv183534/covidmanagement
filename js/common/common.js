@@ -27,7 +27,7 @@ if (cbbs) {
         element.addEventListener('blur', (e) => {
             setTimeout(() => {
                 dataList.classList.remove('data-list-show');
-            }, 160);
+            }, 500);
         })
     });
 
@@ -319,7 +319,7 @@ if (dropdownmains) {
         dropdownmain.addEventListener('blur', () => {
             setTimeout(() => {
                 dropdownmain.parentElement.querySelector('.dropdown-data').classList.remove('dropdown-data-show');
-            }, 150);
+            }, 500);
         })
     })
 }

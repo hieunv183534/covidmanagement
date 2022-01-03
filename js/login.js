@@ -20,7 +20,7 @@ function loadListProvince(){
         localStorage.setItem('listProvince',JSON.stringify(res.data));
     }).catch(error=>{
         console.log(error);
-    })
+    });
 }
 
 function initEvent(){
