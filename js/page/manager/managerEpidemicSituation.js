@@ -64,9 +64,9 @@ class ManagerEpidemicSituation extends Base {
                 input3.focus();
             }else{
                 let body = {
-                    lastUpdateCases: input1.value,
-                    lastUpdateDeaths: input2.value,
-                    lastUpdateRecovereds: input3.value
+                    lastUpdateCases: Number(input1.value),
+                    lastUpdateDeaths: Number(input2.value) ,
+                    lastUpdateRecovereds: Number(input3.value) 
                 };
                 unitApi.update(body, sessionStorage.getItem('userUnitCode')).then(res=>{
                     console.log(res);

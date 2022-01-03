@@ -41,7 +41,7 @@
         <div class="content-header">
             <div class="content-header-left">
                 <i class="fas fa-user-nurse"></i>
-                <h2>| PHƯỜNG ĐỒNG TÂM</h2>
+                <h2>|</h2><h2 id="unitDetail"></h2>
             </div>
             <div class="content-header-right">
                 <div class="notification">
@@ -49,7 +49,7 @@
                 </div>
                 <button class="user">
                     <div class="avatar"></div>
-                    <p class="display-user">Nguyễn Văn Hiếu</p>
+                    <p class="display-user"></p>
                     <i class="fas fa-angle-down"></i>
                 </button>
                 <div class="list-option">
@@ -106,7 +106,7 @@
                     </div>
                     <div class="paging-bar">
                         <div class="paging-bar-left">
-                            <p>Hiển thị 20 đến 40 <i>/</i> 63 bản ghi</p>
+                            <p id="pagingInfo"></p>
                         </div>
                         <div class="paging-bar-right">
                             <div class="dropdown last-dropdown" style="border:none;">
@@ -161,20 +161,20 @@
                 <div class="row">
                     <div class="form-item divide-1-row">
                         <div class="item-title">Tiêu đề bài viết:</div>
-                        <input type="text" class="input">
+                        <input type="text" class="input" id="valueTitle">
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-item divide-1-row">
                         <div class="item-title">Nội dung bài viết:</div>
                         <div class="textarea-wrapper">
-                            <textarea></textarea>
+                            <textarea id="valueContent"></textarea>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="form-footer">
-                <button class="button button-primary">Đăng bài</button>
+                <button class="button button-primary" id="btnPostPost">Đăng bài</button>
             </div>
         </div>
     </div>
@@ -193,8 +193,10 @@
     <div class="data-list">
     </div>
 
-    <script src="../../js/model/dataList.js"></script>
     <script src="../../js/common/common.js"></script>
+    <script src="../../js/common/utils.js"></script>
+    <script src="../../api/BaseApi.js"></script>
+    <script src="../../api/NotificationApi.js"></script>
     <script src="../../js/page/base.js"></script>
     <script src="../../js/page/medicalstaff/medicalstaffFeed.js"></script>
 </body>
