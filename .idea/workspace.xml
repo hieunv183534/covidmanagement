@@ -2,28 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55e35b5d-5385-4b4c-839f-eebf860a5a7f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/api/AuthApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/AuthApi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/BaseApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/BaseApi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/PersonApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/PersonApi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/UnitApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/UnitApi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/common/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/common/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/common/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/common/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/page/base.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/page/base.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/page/cilivian/cilivianDeclaration.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/page/cilivian/cilivianDeclaration.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/page/cilivian/cilivianHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/page/cilivian/cilivianHome.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/page/manager/managerEpidemicSituation.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/page/manager/managerEpidemicSituation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/cilivian/cilivian-declaration.html" beforeDir="false" afterPath="$PROJECT_DIR$/page/cilivian/cilivian-declaration.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/cilivian/cilivian-epidemic-situation.html" beforeDir="false" afterPath="$PROJECT_DIR$/page/cilivian/cilivian-epidemic-situation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/cilivian/cilivian-feed.html" beforeDir="false" afterPath="$PROJECT_DIR$/page/cilivian/cilivian-feed.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/cilivian/cilivian-home.html" beforeDir="false" afterPath="$PROJECT_DIR$/page/cilivian/cilivian-home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/manager/manager-approve-account.html" beforeDir="false" afterPath="$PROJECT_DIR$/page/manager/manager-approve-account.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/manager/manager-epidemic-situation.html" beforeDir="false" afterPath="$PROJECT_DIR$/page/manager/manager-epidemic-situation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/manager/manager-feed.html" beforeDir="false" afterPath="$PROJECT_DIR$/page/manager/manager-feed.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/manager/manager-home.html" beforeDir="false" afterPath="$PROJECT_DIR$/page/manager/manager-home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/medicalstaff/medicalstaff-feed.html" beforeDir="false" afterPath="$PROJECT_DIR$/page/medicalstaff/medicalstaff-feed.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/medicalstaff/medicalstaff-home.html" beforeDir="false" afterPath="$PROJECT_DIR$/page/medicalstaff/medicalstaff-home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/page/cilivian/cilivianFeed.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/page/cilivian/cilivianFeed.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +34,11 @@
       <option name="presentableId" value="Default" />
       <updated>1641048071039</updated>
       <workItem from="1641048071039" duration="4000" />
+      <workItem from="1641174233297" duration="8000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>

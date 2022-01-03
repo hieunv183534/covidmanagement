@@ -10,27 +10,36 @@ class CilivianFeed extends Base{
         super();
         this.mode = 1;
         this.initEvent();
+        this.loadHeaderInfo();
         this.loadNotification(this.mode);
     }
 
     initEvent(){
         document.querySelector('#cilivianPost').addEventListener('click',()=>{
             this.mode = 1;
+            this.index=0;
+            this.count=100;
             this.loadNotification(this.mode);
             document.querySelector('.post-list').setAttribute('mode', "default")
         });
         document.querySelector('#medicalStaffPost').addEventListener('click',()=>{
             this.mode = 2;
+            this.index=0;
+            this.count=100;
             this.loadNotification(this.mode);
             document.querySelector('.post-list').setAttribute('mode', "default")
         });
         document.querySelector('#managerPost').addEventListener('click',()=>{
             this.mode = 3;
+            this.index=0;
+            this.count=100;
             this.loadNotification(this.mode);
             document.querySelector('.post-list').setAttribute('mode', "default")
         });
         document.querySelector('#seftPost').addEventListener('click',()=>{
             this.mode = 4;
+            this.index=0;
+            this.count=100;
             this.loadNotification(this.mode);
             document.querySelector('.post-list').setAttribute('mode', "seft");
         });

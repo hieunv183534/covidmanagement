@@ -8,6 +8,7 @@ class MedicalstaffFeed extends Base{
     constructor() {
         super();
         this.initEvent();
+        this.loadHeaderInfo();
         loadListPost(listDatas.Posts);
     }
 

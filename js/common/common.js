@@ -160,6 +160,7 @@ function loadTable(columns, datas, startIndex) {
 
     initEventCheckbox();
     initEventCheckboxTable();
+    hideLoader();
 }
 
 function initEventCheckboxTable() {

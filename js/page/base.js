@@ -3,6 +3,7 @@ personApi = null;
 listUnitForCbb = null;
 authApi = null;
 notificationApi = null;
+accountApi = null;
 
 
 class Base {
@@ -54,13 +55,29 @@ class Base {
             document.querySelectorAll('.paging-bar .dropdown-item').forEach(item => {
                 item.addEventListener('click', () => {
                     this.count = Number(item.getAttribute('valuename'));
-                    this.loadNotification(this.mode);
+                    if(document.querySelector('#btnPostPost')){
+                        this.loadNotification(this.mode);
+                    }
+                    if(document.querySelector('#thisIsApproveAccount')){
+                        this.loadListAccount(this.mode);
+                    }
+                    if(document.querySelector('#thisIsListUnit')){
+                        this.loadListUnit(this.unitCode);
+                    }
                 })
             });
 
             document.querySelector(".paging-bar .next-page").addEventListener('click', () => {
                 this.index = this.index + this.count;
-                this.loadNotification(this.mode);
+                if(document.querySelector('#btnPostPost')){
+                    this.loadNotification(this.mode);
+                }
+                if(document.querySelector('#thisIsApproveAccount')){
+                    this.loadListAccount(this.mode);
+                }
+                if(document.querySelector('#thisIsListUnit')){
+                    this.loadListUnit(this.unitCode);
+                }
             });
 
             document.querySelector(".paging-bar .pre-page").addEventListener('click', () => {
@@ -68,19 +85,18 @@ class Base {
                     this.index = 0;
                 } else {
                     this.index = this.index - this.count;
-                    this.loadNotification(this.mode);
+                    if(document.querySelector('#btnPostPost')){
+                        this.loadNotification(this.mode);
+                    }
+                    if(document.querySelector('#thisIsApproveAccount')){
+                        this.loadListAccount(this.mode);
+                    }
+                    if(document.querySelector('#thisIsListUnit')){
+                        this.loadListUnit(this.unitCode);
+                    }
                 }
             });
         };
-
-        if (document.querySelector(".search-box")) {
-            document.querySelector(".search-box").addEventListener("keypress", (e) => {
-                if (e.key === 'Enter') {
-                    showToastMessenger('danger', e.target.value);
-                }
-            })
-        };
-
 
         if (document.querySelector("#btnPostPost")) {
             document.querySelector("#btnPostPost").addEventListener('click', () => {
@@ -156,6 +172,12 @@ class Base {
         })
     };
 
+    loadHeaderInfo(){
+        document.querySelector('h2#unitDetail').innerHTML = sessionStorage.getItem('unitDetail');
+        var userinfo = JSON.parse(sessionStorage.getItem('userinfo'));
+        document.querySelector('p.display-user').innerHTML = userinfo.fullName;
+    }
+
     loadUserInfo() {
         document.querySelector('h2#unitDetail').innerHTML = sessionStorage.getItem('unitDetail');
 
@@ -198,6 +220,22 @@ class Base {
         setValueCbb(document.querySelector('#valueWard'), wardCode);
     }
 
+    setToParentUnit(){
+        var codeArr = this.unitCode.split('|');
+        let a = codeArr[1];
+        let b = codeArr[2];
+        let c = codeArr[3];
+        if(codeArr.length ==2){
+            this.unitCode = '|';
+        }else if(codeArr.length==3){
+            this.unitCode = `|`;
+        }else if(codeArr.length==4){
+            this.unitCode = `|${a}|`;
+        }else if(codeArr.length==5){
+            this.unitCode = `|${a}|${b}|`;
+        }
+    }
+
     
 
     initEventForPost() {
@@ -223,6 +261,36 @@ class Base {
                 document.querySelector('#valueTitle').value = post.title;
                 document.querySelector('#valueContent').value = post.notificationContent;
                 document.querySelector('.dialog').classList.add('d-block');
+            })
+        })
+
+        var btnApprovePosts = document.querySelectorAll('#btnApprovePost');
+        btnApprovePosts.forEach(btnApprovePost => {
+            btnApprovePost.addEventListener('click', () => {
+                var post = JSON.parse(btnApprovePost.parentElement.getAttribute('myPost'));
+                notificationApi.browsingNotification({notificationId: post.notificationId, status: 1}).then(res=>{
+                    console.log(res);
+                    showToastMessenger('success', 'Duyệt thành công thông báo!');
+                    btnApprovePost.parentElement.parentElement.remove();
+                }).catch(error=>{
+                    console.log(error);
+                    showToastMessenger('success', 'Duyệt thất bại. Vui lòng thử lại sau!');
+                })
+            })
+        })
+
+        var btnRefusePosts = document.querySelectorAll('#btnRefusePost');
+        btnRefusePosts.forEach(btnRefusePost => {
+            btnRefusePost.addEventListener('click', () => {
+                var post = JSON.parse(btnRefusePost.parentElement.getAttribute('myPost'));
+                notificationApi.browsingNotification({notificationId: post.notificationId, status: 0}).then(res=>{
+                    console.log(res);
+                    showToastMessenger('success', 'Từ chối thành công thông báo!');
+                    btnRefusePost.parentElement.parentElement.remove();
+                }).catch(error=>{
+                    console.log(error);
+                    showToastMessenger('success', 'Từ chối thất bại. Vui lòng thử lại sau!');
+                })
             })
         })
     }

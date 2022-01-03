@@ -251,11 +251,12 @@ class NotificationApi extends BaseApi {
      */
     browsingNotification(body){
         const options = {
-            method: 'GET',
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': sessionStorage.getItem('token')
             },
+            body: JSON.stringify(body),
         };
 
         return fetch(this.baseUrl + `${this.apiController}` + "browsingNotification", options).then(res => {

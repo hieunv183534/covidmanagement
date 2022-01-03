@@ -36,14 +36,20 @@ function initEvent(){
         var password2 = document.querySelector('#valuePassword2').value;
         var type = getValueRGB(document.querySelector('#valueRole'));
         var unitCode = getUnitCode(type);
-
-        newacc = {phoneNumber,password,type,unitCode,unitDetail};
+        if(password !== password2){
+            showToastMessenger("danger","Mật khẩu nhập lại chưa khớp!");
+        }else{
+            newacc = {phoneNumber,password,type,unitCode,unitDetail};
         console.log(newacc);
         authApi.signup(newacc).then(res=>{
+            showToastMessenger("success","Đăng kí tài khoản thành công!");
+            window.location.href = "./index.html";
             console.log(res);
         }).catch(error=>{
             console.log(error);
+            showToastMessenger("danger","Đăng kí thất bại. Vui lòng thử lại sau!");
         })
+        }
     })
 }
 

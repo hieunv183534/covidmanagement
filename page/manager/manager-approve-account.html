@@ -45,7 +45,7 @@
         <div class="content-header">
             <div class="content-header-left">
                 <i class="fas fa-user-cog"></i>
-                <h2>| PHƯỜNG ĐỒNG TÂM</h2>
+                <h2>|</h2><h2 id="unitDetail"></h2>
             </div>
             <div class="content-header-right">
                 <div class="notification">
@@ -101,7 +101,7 @@
                     </div>
                     <div class="paging-bar">
                         <div class="paging-bar-left">
-                            <p>Hiển thị 20 đến 40 <i>/</i> 63 bản ghi</p>
+                            <p id="pagingInfo">11</p>
                         </div>
                         <div class="paging-bar-right">
                             <div class="dropdown last-dropdown" style="border:none;">
@@ -143,6 +143,7 @@
         </div>
     </div>
 
+    <span id="thisIsApproveAccount" style="display: none;"></span>
 
     <div class="data-list">
     </div>
@@ -158,9 +159,10 @@
         <div class="loader-icon"></div>
     </div>
 
-    <script src="../../js/model/dataList.js"></script>
     <script src="../../js/model/tableColums.js"></script>
     <script src="../../js/common/common.js"></script>
+    <script src="../../api/BaseApi.js"></script>
+    <script src="../../api/AccountApi.js"></script>
     <script src="../../js/page/base.js"></script>
     <script src="../../js/page/manager/managerApproveAccount.js"></script>
 </body>

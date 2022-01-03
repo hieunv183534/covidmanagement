@@ -8,6 +8,7 @@ class CilivianDeclaration extends Base{
     constructor() {
         super();
         this.initEvent();
+        this.loadHeaderInfo();
     }
 
     initEvent(){

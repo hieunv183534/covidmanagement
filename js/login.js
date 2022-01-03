@@ -34,9 +34,11 @@ function initEvent(){
             password: document.querySelector('#valuePassword').value
         };
         authApi.login(acc).then(res => {
+            console.log(res);
             showToastMessenger("success","Đăng nhập thành công!");
             sessionStorage.setItem('token', "Bearer " + res.token);
             sessionStorage.setItem('unitDetail',res.unitDetail);
+            sessionStorage.setItem('userUnitCode',res.unitCode);
             if(res.type == 0){
                 personApi.get().then(res1=>{
                     sessionStorage.setItem('userinfo',JSON.stringify(res1.data));
@@ -51,6 +53,7 @@ function initEvent(){
                 })
             }else if(res.type == 1){
                 medicalApi.get().then(res1=>{
+                    console.log(res1);
                     sessionStorage.setItem('userinfo',JSON.stringify(res1.data));
                     window.location.href = "./page/medicalstaff/medicalstaff-home.html";
                 }).catch(error=>{
