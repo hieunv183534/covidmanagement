@@ -54,7 +54,7 @@ class EntryDeclarationApi extends BaseApi {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': lsessionStorage.getItem('token')
+                'Authorization': sessionStorage.getItem('token')
             },
             body: JSON.stringify(body),
         };
