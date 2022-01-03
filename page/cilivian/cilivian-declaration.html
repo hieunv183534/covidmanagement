@@ -89,6 +89,8 @@
                 </span>
             </div>
             <div class="content-content">
+
+                <!-- tờ khai toàn dân -->
                 <div class="form form-1" id="formDomesticGuests">
                     <div class="form-header">
                         <div class="form-title">
@@ -100,7 +102,7 @@
                         <div class="row">
                             <div class="form-item divide-2-row">
                                 <div class="item-title">Có đi qua vùng bệnh không:</div>
-                                <div class="radio-button-group">
+                                <div class="radio-button-group" id="domes1" datatype = "boolean" value = "Không">
                                     <button class="radio-button" value="1" label="Không">
                                         <div class="radio-button-check"></div>
                                         <div class="radio-button-focus"></div>
@@ -117,7 +119,7 @@
                         <div class="row">
                             <div class="form-item divide-2-row">
                                 <div class="item-title">Có dấu hiệu mắc Covid không:</div>
-                                <div class="radio-button-group">
+                                <div class="radio-button-group" id="domes2" datatype = "boolean" value = "Không">
                                     <button class="radio-button" value="1" label="Không">
                                         <div class="radio-button-check"></div>
                                         <div class="radio-button-focus"></div>
@@ -134,7 +136,7 @@
                         <div class="row">
                             <div class="form-item divide-2-row">
                                 <div class="item-title">Có tiếp xúc với người bệnh hoặc nghi ngờ không:</div>
-                                <div class="radio-button-group">
+                                <div class="radio-button-group" id="domes3" datatype = "boolean" value = "Không">
                                     <button class="radio-button" value="1" label="Không">
                                         <div class="radio-button-check"></div>
                                         <div class="radio-button-focus"></div>
@@ -151,7 +153,7 @@
                         <div class="row">
                             <div class="form-item divide-2-row">
                                 <div class="item-title">Có tiếp xúc với người từ nước có Covid không:</div>
-                                <div class="radio-button-group">
+                                <div class="radio-button-group" id="domes4" datatype = "boolean" value = "Không">
                                     <button class="radio-button" value="1" label="Không">
                                         <div class="radio-button-check"></div>
                                         <div class="radio-button-focus"></div>
@@ -168,7 +170,7 @@
                         <div class="row">
                             <div class="form-item divide-2-row">
                                 <div class="item-title">Có tiếp xúc với người có dấu hiệu mắc nCoV:</div>
-                                <div class="radio-button-group">
+                                <div class="radio-button-group" id="domes5" datatype = "boolean" value = "Không">
                                     <button class="radio-button" value="1" label="Không">
                                         <div class="radio-button-check"></div>
                                         <div class="radio-button-focus"></div>
@@ -186,10 +188,12 @@
                             <img src="../../assets/img/giphy.gif" alt="">
                         </div>
                     </div>
-                    <div class="form-footer">
-                        <button class="button button-primary">Khai báo</button>
+                    <div class="form-footer" >
+                        <button class="button button-primary" id="btnDeclare1">Khai báo</button>
                     </div>
                 </div>
+
+                <!--tờ khai di chuyển -->
                 <div class="form" id="formMoveDeclaration" style="display: none;">
                     <div class="form-header">
                         <div class="form-title">
@@ -201,41 +205,41 @@
                         <div class="row">
                             <div class="form-item divide-2-row">
                                 <div class="item-title">Phương tiện:</div>
-                                <input type="text" class="input">
+                                <input type="text" class="input" id="vehicle">
                             </div>
                             <div class="form-item divide-2-row">
                                 <div class="item-title">Số hiệu phương tiện:</div>
-                                <input type="text" class="input">
+                                <input type="text" class="input" id="vehicleNumber">
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-item divide-2-row">
                                 <div class="item-title">Số ghế:</div>
-                                <input type="number" class="input">
+                                <input type="number" class="input" id="chairNumber">
                             </div>
                             <div class="form-item divide-2-row">
                                 <div class="item-title">Ngày khởi hành:</div>
-                                <input type="date" class="input">
+                                <input type="date" class="input" id="departureDay">
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-item divide-2-row">
                                 <div class="item-title">Địa chỉ xuất phát:</div>
-                                <div class="textarea-wrapper">
-                                    <textarea></textarea>
+                                <div class="textarea-wrapper" >
+                                    <textarea id="departureAddress"></textarea>
                                 </div>
                             </div>
                             <div class="form-item divide-2-row">
                                 <div class="item-title">Địa chỉ đến:</div>
-                                <div class="textarea-wrapper">
-                                    <textarea></textarea>
+                                <div class="textarea-wrapper" >
+                                    <textarea id="arrivalAddress"></textarea>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="form-item divide-2-row">
-                                <div class="item-title">Có di chuyển qua quốc gia lãnh thổ nào:</div>
-                                <div class="radio-button-group">
+                            <div class="form-item divide-2-row" >
+                                <div class="item-title" >Có di chuyển qua quốc gia lãnh thổ nào:</div>
+                                <div class="radio-button-group" id="move1" datatype = "boolean" value = "Không">
                                     <button class="radio-button" value="1" label="Không">
                                         <div class="radio-button-check"></div>
                                         <div class="radio-button-focus"></div>
@@ -250,9 +254,9 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="form-item divide-2-row">
-                                <div class="item-title">Có dấu hiệu mắc nCoV:</div>
-                                <div class="radio-button-group">
+                            <div class="form-item divide-2-row" >
+                                <div class="item-title" >Có dấu hiệu mắc nCoV:</div>
+                                <div class="radio-button-group" id="move2" datatype = "boolean" value = "Không">
                                     <button class="radio-button" value="1" label="Không">
                                         <div class="radio-button-check"></div>
                                         <div class="radio-button-focus"></div>
@@ -269,7 +273,7 @@
                         <div class="row">
                             <div class="form-item divide-2-row">
                                 <div class="item-title">Có tiếp xúc với người bênh hoạc nghi ngờ:</div>
-                                <div class="radio-button-group">
+                                <div class="radio-button-group" id="move3" datatype = "boolean" value = "Không">
                                     <button class="radio-button" value="1" label="Không">
                                         <div class="radio-button-check"></div>
                                         <div class="radio-button-focus"></div>
@@ -286,7 +290,7 @@
                         <div class="row">
                             <div class="form-item divide-2-row">
                                 <div class="item-title">Có tiếp xúc với người từ nước có nCoV:</div>
-                                <div class="radio-button-group">
+                                <div class="radio-button-group" id="move4" datatype = "boolean" value = "Không">
                                     <button class="radio-button" value="1" label="Không">
                                         <div class="radio-button-check"></div>
                                         <div class="radio-button-focus"></div>
@@ -303,7 +307,7 @@
                         <div class="row">
                             <div class="form-item divide-2-row">
                                 <div class="item-title">Có tiếp xúc với người có dấu hiệu mắc nCoV:</div>
-                                <div class="radio-button-group">
+                                <div class="radio-button-group" id="move5" datatype = "boolean" value = "Không">
                                     <button class="radio-button" value="1" label="Không">
                                         <div class="radio-button-check"></div>
                                         <div class="radio-button-focus"></div>
@@ -322,9 +326,11 @@
                         </div>
                     </div>
                     <div class="form-footer">
-                        <button class="button button-primary">Khai báo</button>
+                        <button class="button button-primary" id="btnDeclare2">Khai báo</button>
                     </div>
                 </div>
+                
+                <!--Tờ khai nhập cảnh-->
                 <div class="form" id="formEntryDeclaration" style="display: none;">
                     <div class="form-header">
                         <div class="form-title">
@@ -336,65 +342,65 @@
                         <div class="row">
                             <div class="form-item divide-2-row">
                                 <div class="item-title">Đối tượng:</div>
-                                <input type="text" class="input">
+                                <input type="text" class="input" id="object">
                             </div>
                             <div class="form-item divide-2-row">
                                 <div class="item-title">Cửa khẩu:</div>
-                                <input type="text" class="input">
+                                <input type="text" class="input" id="gate">
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-item divide-2-row">
                                 <div class="item-title">Số hiệu phương tiện:</div>
-                                <input type="text" class="input">
+                                <input type="text" class="input" id="vehicleNumber">
                             </div>
                             <div class="form-item divide-2-row">
                                 <div class="item-title">Số ghế:</div>
-                                <input type="number" class="input">
+                                <input type="text" class="input" id="chairNumber">
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-item divide-2-row">
                                 <div class="item-title">Ngày khởi hành:</div>
-                                <input type="date" class="input">
+                                <input type="date" class="input" id="departureDay">
                             </div>
                             <div class="form-item divide-2-row">
                                 <div class="item-title">Ngày nhập cảnh:</div>
-                                <input type="date" class="input">
+                                <input type="date" class="input" id="entryDate">
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-item divide-3-row">
                                 <div class="item-title">Quốc gia khởi hành:</div>
-                                <input type="text" class="input">
+                                <input type="text" class="input" id="departureCountry">
                             </div>
                             <div class="form-item divide-3-row">
                                 <div class="item-title">Thành phố khởi hành:</div>
-                                <input type="text" class="input">
+                                <input type="text" class="input" id="departureCity">
                             </div>
                             <div class="form-item divide-3-row">
                                 <div class="item-title">Quốc gia cần đến:</div>
-                                <input type="text" class="input">
+                                <input type="text" class="input" id="destinationCountry">
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-item divide-2-row">
                                 <div class="item-title">Đã đi qua quốc gia nào:</div>
                                 <div class="textarea-wrapper">
-                                    <textarea></textarea>
+                                    <textarea id="passingCountry"></textarea>
                                 </div>
                             </div>
                             <div class="form-item divide-2-row">
                                 <div class="item-title">Địa chỉ lưu trú sau cách ly tập trung:</div>
                                 <div class="textarea-wrapper">
-                                    <textarea></textarea>
+                                    <textarea id="addressAfterQuarantine"></textarea>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-item divide-4-row">
                                 <div class="item-title">Ho:</div>
-                                <div class="radio-button-group">
+                                <div class="radio-button-group" id="fever" datatype = "boolean" value = "Không">
                                     <button class="radio-button" value="1" label="Không">
                                         <div class="radio-button-check"></div>
                                         <div class="radio-button-focus"></div>
@@ -409,7 +415,7 @@
                             </div>
                             <div class="form-item divide-4-row">
                                 <div class="item-title">Sốt:</div>
-                                <div class="radio-button-group">
+                                <div class="radio-button-group" id="cough" datatype = "boolean" value = "Không">
                                     <button class="radio-button" value="1" label="Không">
                                         <div class="radio-button-check"></div>
                                         <div class="radio-button-focus"></div>
@@ -424,7 +430,7 @@
                             </div>
                             <div class="form-item divide-4-row">
                                 <div class="item-title">Khó thở:</div>
-                                <div class="radio-button-group">
+                                <div class="radio-button-group" id="stuffy" datatype = "boolean" value = "Không">
                                     <button class="radio-button" value="1" label="Không">
                                         <div class="radio-button-check"></div>
                                         <div class="radio-button-focus"></div>
@@ -439,7 +445,7 @@
                             </div>
                             <div class="form-item divide-4-row">
                                 <div class="item-title">Đau họng:</div>
-                                <div class="radio-button-group">
+                                <div class="radio-button-group" id="soreThroat" datatype = "boolean" value = "Không">
                                     <button class="radio-button" value="1" label="Không">
                                         <div class="radio-button-check"></div>
                                         <div class="radio-button-focus"></div>
@@ -456,7 +462,7 @@
                         <div class="row">
                             <div class="form-item divide-4-row">
                                 <div class="item-title">Nôn:</div>
-                                <div class="radio-button-group">
+                                <div class="radio-button-group" id="nausea" datatype = "boolean" value = "Không">
                                     <button class="radio-button" value="1" label="Không">
                                         <div class="radio-button-check"></div>
                                         <div class="radio-button-focus"></div>
@@ -471,7 +477,7 @@
                             </div>
                             <div class="form-item divide-4-row">
                                 <div class="item-title">Tiêu chảy:</div>
-                                <div class="radio-button-group">
+                                <div class="radio-button-group" id="diarrhea" datatype = "boolean" value = "Không">
                                     <button class="radio-button" value="1" label="Không">
                                         <div class="radio-button-check"></div>
                                         <div class="radio-button-focus"></div>
@@ -486,7 +492,7 @@
                             </div>
                             <div class="form-item divide-4-row">
                                 <div class="item-title">Xuất huyết:</div>
-                                <div class="radio-button-group">
+                                <div class="radio-button-group" id="hemorrhage" datatype = "boolean" value = "Không">
                                     <button class="radio-button" value="1" label="Không">
                                         <div class="radio-button-check"></div>
                                         <div class="radio-button-focus"></div>
@@ -501,7 +507,7 @@
                             </div>
                             <div class="form-item divide-4-row">
                                 <div class="item-title">Nổi ban:</div>
-                                <div class="radio-button-group">
+                                <div class="radio-button-group" id="rash" datatype = "boolean" value = "Không">
                                     <button class="radio-button" value="1" label="Không">
                                         <div class="radio-button-check"></div>
                                         <div class="radio-button-focus"></div>
@@ -518,7 +524,7 @@
                         <div class="row">
                             <div class="form-item divide-2-row">
                                 <div class="item-title">Có tiếp xúc với động vật hay cơ sở giết mổ:</div>
-                                <div class="radio-button-group">
+                                <div class="radio-button-group" id="animalContact" datatype = "boolean" value = "Không">
                                     <button class="radio-button" value="1" label="Không">
                                         <div class="radio-button-check"></div>
                                         <div class="radio-button-focus"></div>
@@ -533,7 +539,7 @@
                             </div>
                             <div class="form-item divide-2-row">
                                 <div class="item-title">Có tiếp xúc với người mắc nCoV:</div>
-                                <div class="radio-button-group">
+                                <div class="radio-button-group" id="nCoVPContact" datatype = "boolean" value = "Không">
                                     <button class="radio-button" value="1" label="Không">
                                         <div class="radio-button-check"></div>
                                         <div class="radio-button-focus"></div>
@@ -550,11 +556,11 @@
                         <div class="row">
                             <div class="form-item divide-2-row">
                                 <div class="item-title">Loại Vacxin đã sử dụng:</div>
-                                <input type="text" class="input">
+                                <input type="text" class="input" id="vaccinesUsed">
                             </div>
                             <div class="form-item divide-2-row">
                                 <div class="item-title">Xác nhận âm tính:</div>
-                                <div class="radio-button-group">
+                                <div class="radio-button-group" id="negativeConfirmation" datatype = "boolean" value = "Không">
                                     <button class="radio-button" value="1" label="Không">
                                         <div class="radio-button-check"></div>
                                         <div class="radio-button-focus"></div>
@@ -572,7 +578,7 @@
                             <div class="form-item divide-1-row">
                                 <div class="item-title">Cơ sở cách ly:</div>
                                 <div class="textarea-wrapper">
-                                    <textarea></textarea>
+                                    <textarea id="isolationFacility"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -581,13 +587,12 @@
                         </div>
                     </div>
                     <div class="form-footer">
-                        <button class="button button-primary">Khai báo</button>
+                        <button class="button button-primary" id="btnDeclare3">Khai báo</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 
     <div class="data-list">
     </div>
@@ -602,11 +607,18 @@
         <div class="loader-modal"></div>
         <div class="loader-icon"></div>
     </div>
+    <script>
+    </script>
 
+    <script src="../../api/BaseApi.js"></script>
+    <script src="../../api/DomesticGuestsApi.js"></script>
+    <script src="../../api/EntryDeclarationApi.js"></script>
+    <script src="../../api/MoveDeclarationApi.js"></script>
     <script src="../../js/model/dataList.js"></script>
     <script src="../../js/common/common.js"></script>
     <script src="../../js/page/base.js"></script>
     <script src="../../js/page/cilivian/cilivianDeclaration.js"></script>
+    
 </body>
 
 </html>

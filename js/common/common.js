@@ -254,6 +254,22 @@ function getValueRGB(RbgEle) {
     return value;
 }
 
+function getBoolean(ele){
+    value = ele.getAttribute('value');
+    datatype = ele.getAttribute('datatype');
+    switch (datatype){
+        case 'boolean':
+            if (value == 'Có') {
+                value = true;
+            }
+            else if (value == 'Không'){
+                value = false;
+            }
+            break;
+    }
+    return value;
+}
+
 //---------------------------------------------------------------------------------------------------------------------
 //---------------post--------------------------------------------------------------------------------------------------
 function loadListPost(posts) {
