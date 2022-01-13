@@ -113,43 +113,4 @@ class MedicalstaffDeclarationList extends Base {
             })
         }
     }
-
-    tableRowOnDBClick(item, thisTr) {
-        var popupBtns = [{ text: "Đóng", enable: true }, { text: "Duyệt", enable: true }, { text: "Từ chối", enable: true }]
-        var btns = showPopupDialog("Thông báo", "Bạn có muốn duyệt tài khoản " + item.phoneNumber + " không?", popupBtns);
-        btns[0].addEventListener('click', () => {
-            hidePopupDialog();
-        });
-        btns[1].addEventListener('click', () => {
-            let body = {
-                userId: item.userId,
-                status: 1
-            }
-            hidePopupDialog();
-            accountApi.accountBrowsing(body).then(res => {
-                console.log(res);
-                showToastMessenger('success', "Duyệt thành công!");
-                thisTr.remove();
-            }).catch(error => {
-                console.log(error);
-                showToastMessenger('danger', "Duyệt thất bại. Vui lòng thử lại sau!");
-            })
-        });
-        btns[2].addEventListener('click', () => {
-            let body = {
-                userId: item.userId,
-                status: 1
-            }
-            hidePopupDialog();
-            accountApi.accountBrowsing(body).then(res => {
-                console.log(res);
-                showToastMessenger('success', "Từ chối thành công!");
-                thisTr.remove();
-            }).catch(error => {
-                console.log(error);
-                showToastMessenger('danger', "Từ chối thất bại. Vui lòng thử lại sau!");
-            })
-        });
-    }
-
 }
