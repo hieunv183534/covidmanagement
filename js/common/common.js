@@ -133,28 +133,26 @@ function loadTable(columns, datas, startIndex) {
         </td>`));
         tr.append(parseHTML(`<td style="text-align: right;"><p>${index++}</p></td>`));
         columns.forEach(col => {
-            var td = parseHTML(`<td style="${col.style}"><p>${item[`${col.field}`]}</p></td>`);
+            let value;
+            if(col.field1==undefined){
+                value = item[`${col.field}`];
+            }else{
+                // value = ;
+                if(col.format == 'boolean'){
+                    value = item[`${col.field}`][`${col.field1}`]?
+                    `<i class="fas fa-check-square" style="color:#2CA029;"></i>`:
+                    `<i class="fas fa-times-circle" style="color:#EC5504;"></i>`
+                }else if(col.format == 'date'){
+                    value = formatDate(item[`${col.field}`][`${col.field1}`]);
+                }
+                else{
+                    value = item[`${col.field}`][`${col.field1}`];
+                }
+            }
+            var td = parseHTML(`<td style="${col.style}"><p>${value}</p></td>`);
             tr.append(td);
         });
         tbody.append(tr);
-        // tr.addEventListener('dblclick', () => {
-        //     console.log(JSON.parse(tr.getAttribute("myItem")) );
-        //     if (typeof cilivianEpidemicSituation !== "undefined") {
-        //         cilivianEpidemicSituation.tableRowOnDBClick(item);
-        //     }
-        //     if (typeof managerEpidemicSituation !== "undefined") {
-        //         managerEpidemicSituation.tableRowOnDBClick(item);
-        //     }
-        //     if (typeof managerApproveAccount !== "undefined") {
-        //         managerApproveAccount.tableRowOnDBClick(item);
-        //     }
-        //     if (typeof medicalstaffEpidemicSituation !== "undefined") {
-        //         medicalstaffEpidemicSituation.tableRowOnDBClick(item);
-        //     }
-        //     if (typeof medicalstaffEpidemicSituation !== "undefined") {
-        //         medicalstaffEpidemicSituation.tableRowOnDBClick(item);
-        //     }
-        // })
     });
     document.querySelector("table").append(tbody);
 
@@ -406,3 +404,23 @@ function hidePopupDialog() {
     document.querySelector('.popup').remove();
 }
 //---------------------------------------------------------------------------------------------------------------------
+/**------------------------------------------------------------------
+ * Hàm format ngày tháng
+ * dạng ngày/tháng/năm
+ * @param {any} _date
+ * Author: hieunv 
+ */
+ function formatDate(_date) {
+    if (_date != null) {
+        var date = new Date(_date);
+        var day = date.getDate();
+        day = (day < 10) ? '0' + day : day;
+        var month = date.getMonth() + 1;
+        month = (month < 10) ? '0' + month : month;
+        var year = date.getFullYear();
+        return day + '/' + month + '/' + year;
+    }
+    else {
+        return '';
+    }
+}

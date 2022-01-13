@@ -4,6 +4,7 @@ listUnitForCbb = null;
 authApi = null;
 notificationApi = null;
 accountApi = null;
+declarationApi = null;
 
 
 class Base {
@@ -64,6 +65,9 @@ class Base {
                     if(document.querySelector('#thisIsListUnit')){
                         this.loadListUnit(this.unitCode);
                     }
+                    if(document.querySelector('#thisIsListDeclaration')){
+                        this.loadListDeclaration(this.mode);
+                    }
                 })
             });
 
@@ -77,6 +81,9 @@ class Base {
                 }
                 if(document.querySelector('#thisIsListUnit')){
                     this.loadListUnit(this.unitCode);
+                }
+                if(document.querySelector('#thisIsListDeclaration')){
+                    this.loadListDeclaration(this.mode);
                 }
             });
 
@@ -93,6 +100,9 @@ class Base {
                     }
                     if(document.querySelector('#thisIsListUnit')){
                         this.loadListUnit(this.unitCode);
+                    }
+                    if(document.querySelector('#thisIsListDeclaration')){
+                        this.loadListDeclaration(this.mode);
                     }
                 }
             });
