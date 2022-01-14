@@ -448,7 +448,7 @@ function showQrCode(data) {
                                     <img src="https://api.qrserver.com/v1/create-qr-code/?data=${data}&size=300x300" alt="">
                                 </div>`);
     qr.append(qrContent);
-    qrContent.addEventListener('click',()=>{
+    qr.addEventListener('click',()=>{
         qr.remove();
     })
     document.body.appendChild(qr);

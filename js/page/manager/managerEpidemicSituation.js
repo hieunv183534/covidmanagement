@@ -113,7 +113,7 @@ class ManagerEpidemicSituation extends Base {
     }
 
     tableRowOnDBClick(item, thisTr) {
-        var popupBtns = [{ text: "Đóng", enable: true }, { text: "Xem", enable: true }, { text: "Từ chối", enable: false }]
+        var popupBtns = [{ text: "Đóng", enable: true }, { text: "Xem", enable: true }, { text: "QR Code", enable: true }]
         var btns = showPopupDialog("Thông báo", "Bạn có muốn xem tình hình dịch các đơn vị con của đơn vị " + item.unitName + " không?", popupBtns);
         btns[0].addEventListener('click', () => {
             hidePopupDialog();
@@ -128,6 +128,9 @@ class ManagerEpidemicSituation extends Base {
                 this.index = 0;
                 this.loadListUnit(this.unitCode);
             }
+        });
+        btns[2].addEventListener('click', () => {
+            showUnitQr(item.unitCode);
         });
     }
 }
