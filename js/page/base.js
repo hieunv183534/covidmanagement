@@ -43,7 +43,7 @@ class Base {
         document.querySelector(".content-header-right .user").addEventListener('blur', () => {
             setTimeout(() => {
                 document.querySelector(".content-header-right .list-option").classList.remove('list-option-show');
-            }, 250);
+            }, 500);
         });
 
 

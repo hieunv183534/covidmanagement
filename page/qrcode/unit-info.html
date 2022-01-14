@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../lib/fontawesome/css/all.css">
+    <link rel="stylesheet" href="../../css/layout/user-info.css">
+    <link rel="stylesheet" href="../../css/main.css">
+</head>
+
+<body>
+    <div class="info-header">
+        <a href="../../index.html">
+            <i class="fas fa-shield-virus"></i>
+            <h5>ANTI COVID</h5>
+        </a>
+        <h5>Thông tin y tế người dân</h5>
+    </div>
+    <div class="info-body">
+        <div class="user-info">
+            <b>Thông tin cá nhân</b>
+            <ul>
+                <li>
+                    <p><b>Họ và tên: </b>Nguyễn Văn Hiếu</p>
+                </li>
+                <li>
+                    <p><b>Họ và tên: </b>Nguyễn Văn Hiếu</p>
+                </li>
+                <li>
+                    <p><b>Họ và tên: </b>Nguyễn Văn Hiếu</p>
+                </li>
+            </ul>
+        </div>
+        <div class="domesticguest">
+            <b>Khai báo toàn dân</b>
+            <ul>
+                <li>
+                    <p><b>Họ và tên: </b>Nguyễn Văn Hiếu</p>
+                </li>
+                <li>
+                    <p><b>Họ và tên: </b>Nguyễn Văn Hiếu</p>
+                </li>
+                <li>
+                    <p><b>Họ và tên: </b>Nguyễn Văn Hiếu</p>
+                </li>
+            </ul>
+        </div>
+        <div class="movedeclaration">
+            <b>Khai báo di chuyển</b>
+            <ul>
+                <li>
+                    <p><b>Họ và tên: </b>Nguyễn Văn Hiếu</p>
+                </li>
+                <li>
+                    <p><b>Họ và tên: </b>Nguyễn Văn Hiếu</p>
+                </li>
+                <li>
+                    <p><b>Họ và tên: </b>Nguyễn Văn Hiếu</p>
+                </li>
+            </ul>
+        </div>
+        <div class="entrydeclaration">
+            <b>Khai báo nhập cảnh</b>
+            <ul>
+                <li>
+                    <p><b>Họ và tên: </b>Nguyễn Văn Hiếu</p>
+                </li>
+                <li>
+                    <p><b>Họ và tên: </b>Nguyễn Văn Hiếu</p>
+                </li>
+                <li>
+                    <p><b>Họ và tên: </b>Nguyễn Văn Hiếu</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <script>
+        //0112233445
+        window.onload = () => {
+            var url = new URL(window.location.href);
+            var phoneNumber = url.searchParams.get("phoneNumber");
+
+            const options = {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            };
+
+            fetch(`https://n8-covid-be.herokuapp.com/qrcode/getUserInfoByPhoneNumber?phoneNumber=${phoneNumber}`, options).then(res => {
+                if (res.ok) {
+                    return res.json();
+                } else {
+                    return Promise.reject(res);
+                }
+            }).then(res=>{
+                console.log(res.data[0]);
+            })
+        }
+    </script>
+</body>
+
+</html>

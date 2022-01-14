@@ -44,7 +44,8 @@
         <div class="content-header">
             <div class="content-header-left">
                 <i class="fas fa-user"></i>
-                <h2>|</h2><h2 id="unitDetail"></h2>
+                <h2>|</h2>
+                <h2 id="unitDetail"></h2>
             </div>
             <div class="content-header-right">
                 <div class="notification">
@@ -59,6 +60,7 @@
                     <div class="item-option">Chỉnh sửa thông tin</div>
                     <div class="item-option">Hotline</div>
                     <div class="item-option">About me</div>
+                    <div class="item-option btn-showqr">QR Code</div>
                     <div class="item-option btn-logout">Đăng xuất</div>
                 </div>
             </div>
@@ -108,7 +110,7 @@
                             <input type="text" class="input" id="valueNationality">
                         </div>
                         <div class="form-item divide-3-row">
-                            <div class="item-title">Thông tin dịch tễ(F0, F1, F2):  </div>
+                            <div class="item-title">Thông tin dịch tễ(F0, F1, F2): </div>
                             <div class="radio-button-group" id="valueDiseaseStatus" datatype="string" value="FX">
                                 <button class="radio-button" value="0" label="F0">
                                     <div class="radio-button-check"></div>
@@ -130,7 +132,7 @@
                                     <div class="radio-button-focus"></div>
                                 </button>
                                 <p>Không</p>
-                            </div>                
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -139,7 +141,7 @@
                             <div id="valueProvince" type="Province" class="combobox">
                                 <input type="text" class="input">
                                 <i class="fas fa-angle-down"></i>
-                            </div>                        
+                            </div>
                         </div>
                         <div class="form-item divide-3-row">
                             <div class="item-title">Quận/Huyện: </div>
@@ -158,10 +160,10 @@
                     </div>
                     <div class="row">
                         <div class="form-item divide-1-row">
-                            <div class="item-title">Địa chỉ cụ thể:  </div>
+                            <div class="item-title">Địa chỉ cụ thể: </div>
                             <div class="textarea-wrapper">
                                 <textarea id="valueAddress"></textarea>
-                            </div>                    
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -186,6 +188,8 @@
         <div class="loader-modal"></div>
         <div class="loader-icon"></div>
     </div>
+
+    
 
     <div class="data-list">
     </div>

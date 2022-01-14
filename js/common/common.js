@@ -43,7 +43,7 @@ if (cbbs) {
                 document.querySelector(`#${element.parentElement.getAttribute('forCbbId')}`).querySelector('.input').value = element.getAttribute('valuename');
                 document.querySelector(`#${element.parentElement.getAttribute('forCbbId')}`).setAttribute('value', element.getAttribute('valueid'));
 
-                
+
                 if (element.getAttribute('valuetype') !== "w") {
                     showLoader();
                     // load list unit con cho unit vừa đc chọn
@@ -134,18 +134,18 @@ function loadTable(columns, datas, startIndex) {
         tr.append(parseHTML(`<td style="text-align: right;"><p>${index++}</p></td>`));
         columns.forEach(col => {
             let value;
-            if(col.field1==undefined){
+            if (col.field1 == undefined) {
                 value = item[`${col.field}`];
-            }else{
+            } else {
                 // value = ;
-                if(col.format == 'boolean'){
-                    value = item[`${col.field}`][`${col.field1}`]?
-                    `<i class="fas fa-check-square" style="color:#2CA029;"></i>`:
-                    `<i class="fas fa-times-circle" style="color:#EC5504;"></i>`
-                }else if(col.format == 'date'){
+                if (col.format == 'boolean') {
+                    value = item[`${col.field}`][`${col.field1}`] ?
+                        `<i class="fas fa-check-square" style="color:#2CA029;"></i>` :
+                        `<i class="fas fa-times-circle" style="color:#EC5504;"></i>`
+                } else if (col.format == 'date') {
                     value = formatDate(item[`${col.field}`][`${col.field1}`]);
                 }
-                else{
+                else {
                     value = item[`${col.field}`][`${col.field1}`];
                 }
             }
@@ -221,7 +221,7 @@ if (radioButtons) {
     });
 };
 
-function setValueForRBG( RbgEle,newValue) {
+function setValueForRBG(RbgEle, newValue) {
     newValue = newValue + "";
     rbs = RbgEle.querySelectorAll(".radio-button");
     rbs.forEach(rb => {
@@ -252,15 +252,15 @@ function getValueRGB(RbgEle) {
     return value;
 }
 
-function getBoolean(ele){
+function getBoolean(ele) {
     value = ele.getAttribute('value');
     datatype = ele.getAttribute('datatype');
-    switch (datatype){
+    switch (datatype) {
         case 'boolean':
             if (value == 'Có') {
                 value = true;
             }
-            else if (value == 'Không'){
+            else if (value == 'Không') {
                 value = false;
             }
             break;
@@ -410,7 +410,7 @@ function hidePopupDialog() {
  * @param {any} _date
  * Author: hieunv 
  */
- function formatDate(_date) {
+function formatDate(_date) {
     if (_date != null) {
         var date = new Date(_date);
         var day = date.getDate();
@@ -424,3 +424,28 @@ function hidePopupDialog() {
         return '';
     }
 }
+//-----------qr code---------------------------------------------------------------------------------------------------
+if (document.querySelector('.btn-showqr')) {
+    document.querySelector('.btn-showqr').addEventListener('click', () => {
+        var phoneNumber = sessionStorage.getItem('phoneNumber');
+        var data = `https://hieunv183534.github.io/covidmanagement/page/qrcode/user-info.html?phoneNumber=${phoneNumber}`;
+        showQrCode(data);
+    })
+}
+
+function showQrCode(data) {
+    var qr = parseHTML(`<div class="qr">
+                            <div class="qr-modal"></div>
+                            
+                        </div>`);
+    var qrContent = parseHTML(`<div class="qr-content">
+                                    <img src="https://api.qrserver.com/v1/create-qr-code/?data=${data}&size=300x300" alt="">
+                                </div>`);
+    qr.append(qrContent);
+    qrContent.addEventListener('click',()=>{
+        qr.remove();
+    })
+    document.body.appendChild(qr);
+}
+//-------------------------------------------------------------------------------------------------------------------------------
+
