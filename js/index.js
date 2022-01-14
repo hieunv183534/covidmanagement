@@ -19,6 +19,7 @@ function initEvent() {
             sessionStorage.setItem('token', "Bearer " + res.token);
             sessionStorage.setItem('unitDetail',res.unitDetail);
             sessionStorage.setItem('userUnitCode',res.unitCode);
+            
             personApi.get().then(res=>{
                 console.log(res);
                 // sessionStorage.setItem('userinfo',JSON.stringify(usernull));

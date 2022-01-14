@@ -69,6 +69,12 @@
                 console.log(res.data[0]);
                 var userInfo = document.querySelector('.user-info ul');
                 userInfo.append(insertInfo("Họ và tên",res.data[0].info.fullName));
+                userInfo.append(insertInfo("Ngày sinh",res.data[0].info.dateOfBirth));
+                userInfo.append(insertInfo("Giới tính",res.data[0].info.Sex));
+                userInfo.append(insertInfo("Số điện thoại",res.data[0].phoneNumber));
+                userInfo.append(insertInfo("Đơn vị",res.data[0].unitDetail));
+                userInfo.append(insertInfo("Quốc tịch",res.data[0].info.nationality));
+                userInfo.append(insertInfo("Tình trạng",res.data[0].info.diseaseStatus));
             })
         }
 

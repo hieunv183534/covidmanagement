@@ -433,7 +433,13 @@ if (document.querySelector('.btn-showqr')) {
     })
 }
 
+function showUnitQr(unitCode){
+    var data = `https://hieunv183534.github.io/covidmanagement/page/qrcode/unit-info.html?unitCode=${unitCode}`;
+    showQrCode(data);
+}
+
 function showQrCode(data) {
+    console.log(data);
     var qr = parseHTML(`<div class="qr">
                             <div class="qr-modal"></div>
                             
