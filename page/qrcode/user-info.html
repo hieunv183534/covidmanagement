@@ -23,7 +23,7 @@
         <div class="user-info">
             <b>Thông tin cá nhân</b>
             <ul>
-                
+
             </ul>
         </div>
         <div class="domesticguest">
@@ -34,13 +34,13 @@
         <div class="movedeclaration">
             <b>Khai báo di chuyển</b>
             <ul>
-                
+
             </ul>
         </div>
         <div class="entrydeclaration">
             <b>Khai báo nhập cảnh</b>
             <ul>
-                
+
             </ul>
         </div>
     </div>
@@ -48,10 +48,23 @@
 
     <script src="../../js/common/common.js"></script>
     <script>
+        const decipher = salt => {
+            const textToChars = text => text.split('').map(c => c.charCodeAt(0));
+            const applySaltToChar = code => textToChars(salt).reduce((a, b) => a ^ b, code);
+            return encoded => encoded.match(/.{1,2}/g)
+                .map(hex => parseInt(hex, 16))
+                .map(applySaltToChar)
+                .map(charCode => String.fromCharCode(charCode))
+                .join('');
+        }
+
         window.onload = () => {
             var url = new URL(window.location.href);
-            var phoneNumber = url.searchParams.get("phoneNumber");
-
+            var phoneEncrypt = url.searchParams.get("phoneNumber");
+            console.log(phoneEncrypt);
+            const myDecipher = decipher('mySecretSalt');
+            var phoneNumber = myDecipher(phoneEncrypt);
+            console.log(phoneNumber);
             const options = {
                 method: 'GET',
                 headers: {
@@ -65,20 +78,20 @@
                 } else {
                     return Promise.reject(res);
                 }
-            }).then(res=>{
+            }).then(res => {
                 console.log(res.data[0]);
                 var userInfo = document.querySelector('.user-info ul');
-                userInfo.append(insertInfo("Họ và tên",res.data[0].info.fullName));
-                userInfo.append(insertInfo("Ngày sinh",res.data[0].info.dateOfBirth));
-                userInfo.append(insertInfo("Giới tính",res.data[0].info.Sex));
-                userInfo.append(insertInfo("Số điện thoại",res.data[0].phoneNumber));
-                userInfo.append(insertInfo("Đơn vị",res.data[0].unitDetail));
-                userInfo.append(insertInfo("Quốc tịch",res.data[0].info.nationality));
-                userInfo.append(insertInfo("Tình trạng",res.data[0].info.diseaseStatus));
+                userInfo.append(insertInfo("Họ và tên", res.data[0].info.fullName));
+                userInfo.append(insertInfo("Ngày sinh", res.data[0].info.dateOfBirth));
+                userInfo.append(insertInfo("Giới tính", res.data[0].info.Sex));
+                userInfo.append(insertInfo("Số điện thoại", res.data[0].phoneNumber));
+                userInfo.append(insertInfo("Đơn vị", res.data[0].unitDetail));
+                userInfo.append(insertInfo("Quốc tịch", res.data[0].info.nationality));
+                userInfo.append(insertInfo("Tình trạng", res.data[0].info.diseaseStatus));
             })
         }
 
-        function insertInfo(title,content){
+        function insertInfo(title, content) {
             var li = parseHTML(`<li> <p><b>${title}: </b>${content}</p> </li>`);
             return li;
         }

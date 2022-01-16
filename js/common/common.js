@@ -425,10 +425,26 @@ function formatDate(_date) {
     }
 }
 //-----------qr code---------------------------------------------------------------------------------------------------
+
+const cipher = salt => {
+    const textToChars = text => text.split('').map(c => c.charCodeAt(0));
+    const byteHex = n => ("0" + Number(n).toString(16)).substr(-2);
+    const applySaltToChar = code => textToChars(salt).reduce((a,b) => a ^ b, code);
+
+    return text => text.split('')
+      .map(textToChars)
+      .map(applySaltToChar)
+      .map(byteHex)
+      .join('');
+}
+
 if (document.querySelector('.btn-showqr')) {
     document.querySelector('.btn-showqr').addEventListener('click', () => {
         var phoneNumber = sessionStorage.getItem('phoneNumber');
-        var data = `https://hieunv183534.github.io/covidmanagement/page/qrcode/user-info.html?phoneNumber=${phoneNumber}`;
+        const myCipher = cipher('mySecretSalt')
+        var phoneEncrypt = myCipher(phoneNumber);
+        console.log(phoneEncrypt);
+        var data = `https://hieunv183534.github.io/covidmanagement/page/qrcode/user-info.html?phoneNumber=${phoneEncrypt}`;
         showQrCode(data);
     })
 }
