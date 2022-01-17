@@ -29,3 +29,12 @@
     padding: 5px 10px;
     overflow: auto;
 }
+/* unit info and checkin */
+
+.check-in .row{
+    padding: 0px 30px !important;
+}
+
+.check-in .item-title{
+    font-size: 14px;
+}
